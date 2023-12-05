@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with R"
+subtitle: "In the first session, you'll learn how to install R and RStudio, create and work with an R Markdown file, install and load critical libraries, and generate summary tables and histograms."
 author: "Andrew Portuguese"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output:
