@@ -16,6 +16,6 @@ output:
 
 ### In the first session, you'll learn how to install R and RStudio, create and work with an R Markdown file, install and load critical libraries, and generate summary tables and histograms. 
 
-## 2. <a href="https://aportugu.github.io/Rworkshop/Getting-Started.html">Survival analysis</a>
+## 2. <a href="https://aportugu.github.io/Rworkshop/Survival-Analysis.html">Survival analysis</a>
 
 ### In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing.
