@@ -1,0 +1,180 @@
+---
+title: "Survival Analysis"
+subtitle: "In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."
+author: "Andrew Portuguese"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    code_folding: true
+    toc: true
+    toc_float: true
+    self_contained: true
+---
+
+# 1. Open the necessary libraries and read in your data.
+
+## 1a. Install two new libraries: survival and survminer.
+```{r}
+## "survival" allows you to a create survival curves from a formula (e.g., Kaplan-Meier).
+## install.packages("survival")
+
+## "survminer" allows you to draw survival curves with the "number at risk" table.
+## install.packages("survminer")
+
+## "tidycmprsk" provides an intuitive interface for working with competing risk endpoints. Methods follow those introduced in Fine and Gray (1999).
+## install.packages("tidycmprsk")
+
+## "ggsurvfit" can be used to draw cumulative incidence curves.
+## install.packages("ggsurvfit")
+```
+
+
+## 1b. Open the necessary libraries to read in data, create data tables, and generate plots.
+```{r, warning = FALSE}
+library(readxl)
+library(gtsummary)
+library(ggplot2)
+library(dplyr)
+library(survival)
+library(survminer)
+library(tidycmprsk)
+library(ggsurvfit)
+```
+
+## 1c. Read in your data
+```{r}
+db = read_excel(path="sample.data.xlsx")
+```
+
+# 2. Calculate the length of follow-up using two methods.
+
+## 2a. Calculate the median follow-up among survivors.
+```{r}
+## Two functions are used: median() and filter()
+##   filter() allows you to only select patients who have a certain feature (i.e., Death==0)
+##   median() allows you to calculate the median of a set of numbers
+
+##   We are filtering out all the patients who died, then passing all the remaining Days.to.DLC among survivors to the median() function for calculation.
+
+median(
+  filter(db, Death==0)$Days.to.DLC
+)
+```
+
+## 2b. Estimate the median follow-up (and 95% CI) using the Reverse Kaplan-Meier method.
+```{r}
+## We will create a temporary data set where Reverse_death is "1" for survival and "0" for death.
+## This is necessary for the reverse Kaplan_Meier method, where you are treating 0 as an event (death) and 1 as censored.
+
+## Rather than estimating the median time to an event (death), this method estimates the median time to censoring, and is another way to determine the amount of follow-up among survivors. 
+
+## Unlike the prior method, it includes the follow up for patients who died. Because it accounts for all patients, it results in a longer median follow up.
+
+data1 = db %>%
+  mutate(
+    Reverse_death = ifelse(Death == 1, 0,1)
+  )
+
+## survfit() is from the survival package and is used to fit survival curves.
+## Days.to.DLC is the time variable and Reveerse_death is the censoring variable created in the previous step.
+## The "~ 1" means you are modeling overall survival without any covariates.
+## "data1" is your temporary dataset which contains Reverse_death
+
+survfit(
+  Surv(Days.to.DLC, Reverse_death) ~ 1, data1)
+
+```
+
+# 3. Generate Kaplan-Meier plots.
+
+## 3a. Create a plot of overall survival.
+```{r}
+## Use the survit() function to fit a Kaplan-Meier survival curve.
+## Model overall survival using the time variable "Days.to.DLC" and the event indicator variable "Death."
+## The "~ 1" means you are modeling overall survival without any covariates.
+
+km_OS <- survfit(
+  Surv(Days.to.DLC, Death) ~ 1 , data = db)
+
+ggsurvplot(km_OS,
+           risk.table = TRUE, # Add risk table
+           risk.table.col = "strata", ## Specifies the color of the risk table
+           ggtheme = theme_classic(), ## Set the theme of the plot
+           tables.theme = theme_cleantable(), ## Set the theme of the table
+           surv.median.line = "hv", # Specify median survival
+           xlab="Time (days)", ylab = "Overall survival (%)", ## Label your axes
+           break.x.by = c(365), ## Break up the x-axis by year intervals
+           ylim = c(0,1), ## Set the y-axis range between 0% and 100%
+           break.y.by = c(0.25), ## Break up the y-axis by intervals of 25%
+           legend = "none", ## Hides the legend
+           surv.scale = "percent", ## Set the y-axis to percentage rather than fraction
+           )
+```
+
+## 3a. Stratify the overall survival plot by CAR-T product type and perform Log-Rank testing.
+```{r}
+## Use the survit() function to fit a Kaplan-Meier survival curve.
+## Model overall survival using the time variable "Days.to.DLC" and the event indicator variable "Death."
+## The "~ 1" means you are modeling overall survival without any covariates.
+
+km_OS <- survfit(
+  Surv(Days.to.DLC, Death) ~ CAR.T.Product.Type , data = db)
+
+ggsurvplot(km_OS,
+           risk.table = TRUE,
+           risk.table.col = "strata",
+           ggtheme = theme_classic(),
+           tables.theme = theme_cleantable(),
+           surv.median.line = "hv",
+           xlab="Time (days)", ylab = "Overall survival (%)",
+           break.x.by = c(365),
+           ylim = c(0,1),
+           break.y.by = c(0.25),
+           legend = "none",
+           surv.scale = "percent",
+           legend.labs = c("Liso-cel","Axi-cel"), ## Adds labels to the legend
+           pval=TRUE, ## Adds a p-value derived from Log-Rank testing
+           )
+```
+
+# 4. Generate cumulative incidence plots.
+
+## 4a. Cumulative incidence of death with Gray's testing
+```{r}
+## Data preparation:
+##  Make a temporary data set where the variable Alive.RM.NRM represents alive (0), death from cancer (1), or death from other causes (2).
+
+data1 <- db %>%
+  select(Alive.RM.NRM, CAR.T.Product.Type, Days.to.DLC) %>%
+  mutate(
+   Alive.RM.NRM = as.factor(
+     recode(Alive.RM.NRM,"0"="Alive","1"="death from cancer","2"="death other causes"))
+  )
+
+## Cumulative incidence analysis:
+##   The cuminc() function is used to estimate the cumulative incidence functions.
+##   rho=0 indicates that competing risks are independent
+
+cum <- cuminc(Surv(Days.to.DLC, Alive.RM.NRM) ~ CAR.T.Product.Type, data1, rho=0, conf.level=0.95)
+
+## Visualization:
+##  ggcuminc() is used to create a cumulative incidence plot with a risk table
+##  "outcome" specifies the outcomes of interest
+
+cum %>%
+  ggcuminc(
+   risk.table=TRUE,
+   theme = theme_bw(),
+   outcome = c("death from cancer","death other causes")
+  ) +
+  labs(
+    x = "Time (days)",
+    y = "Probability of death"
+  ) +
+  ylim(0,1) +
+  add_risktable(
+    risktable_stats = c("n.risk"),
+    risktable_height = 0.12,
+    stats_label = c("Number at risk")
+  )+ add_pvalue()
+```
