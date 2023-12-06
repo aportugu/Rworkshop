@@ -10,47 +10,48 @@ output:
     toc_float: true
     self_contained: true
 ---
+# Getting started
 
-# 1. Download R and RStudio Desktop
+## 1. Download R and RStudio Desktop
 
-## 1a. RStudio Desktop is an integrated development environment to help you be more productive with R.
+### 1a. RStudio Desktop is an integrated development environment to help you be more productive with R.
 
-## 1b. R and RStudio can both be downloaded here: https://posit.co/download/rstudio-desktop/
+### 1b. R and RStudio can both be downloaded here: https://posit.co/download/rstudio-desktop/
 
-## 1c. Go through a typical installation with all the default settings.
+### 1c. Go through a typical installation with all the default settings.
 
-# 2. Install critical packages by entering the following code in the Console
+## 2. Install critical packages by entering the following code in the Console
 
-## 2a. Install "readxl" in order to get data out of Excel and into R
+### 2a. Install "readxl" in order to get data out of Excel and into R
 ```{r}
 ## Note: delete the ##'s
 
 ## install.packages("readxl")
 ```
-## 2b. Install "gtsummary" to easily create publication-ready analytical and summary tables.
+### 2b. Install "gtsummary" to easily create publication-ready analytical and summary tables.
 ```{r}
 ## Note: delete the ##'s
 
 ## install.packages("gtsummary")
 ```
 
-## 2c. Install "ggplot2" to create graphics and plots.
+### 2c. Install "ggplot2" to create graphics and plots.
 ```{r}
 ## Note: delete the ##'s
 
 ## install.packages("ggplot2")
 ```
 
-## 2d. Install "dplyr" to manipulate data sets (i.e., add new variables, filter, summarize, arrange).
+### 2d. Install "dplyr" to manipulate data sets (i.e., add new variables, filter, summarize, arrange).
 ```{r}
 ## Note: delete the ##'s
 
 ## install.packages("dplyr")
 ```
 
-# 3. Create an R Markdown document. File -> New File -> R Markdown.
+## 3. Create an R Markdown document. File -> New File -> R Markdown.
 
-## 3a. You can then add your code within a "chunk" (click on the +c icon and select "R"). You can then run the code within the chunk by pressing the right-facing green arrow.
+### 3a. You can then add your code within a "chunk" (click on the +c icon and select "R"). You can then run the code within the chunk by pressing the right-facing green arrow.
 ```{r}
 ## This is a chunk.
 
@@ -60,7 +61,7 @@ output:
 ```
 
 
-## 3b. Open the necessary libraries to read in data, create data tables, and generate plots.
+### 3b. Open the necessary libraries to read in data, create data tables, and generate plots.
 ```{r}
 library(readxl)
 library(gtsummary)
@@ -68,20 +69,21 @@ library(ggplot2)
 library(dplyr)
 ```
 
-## 3c. Test out ggplot2 by making a scatterplot using the built-in "mtcars" data set. We are plotting miles per gallon vs weight, and a third variable, number of cylinders is represented by color.
+### 3c. Test out ggplot2 by making a scatterplot using the built-in "mtcars" data set. We are plotting miles per gallon vs weight, and a third variable, number of cylinders is represented by color.
 ```{r}
 quickplot(x = mpg, y = wt, data = mtcars, colour = cyl)
 ```
 
-# 4. Read in your data!
+## 4. Read in your data!
 
-## 4a. First try reading in a dataset in a csv file.
+### 4a. First try reading in a dataset in a csv file.
 ```{r}
 db = read.csv(file="sample.data.csv",header = TRUE, sep = ",") ## Read the csv file into a dataframe
 
 ## head(db) ## Can use the head function to take a look at the first few patients in the dataset
 ```
-## 4b. Next try reading in a dataset in an xlsx file.
+
+### 4b. Next try reading in a dataset in an xlsx file.
 ```{r}
 db = read_excel(path="sample.data.xlsx")
 
@@ -93,9 +95,9 @@ db = read_excel(path="sample.data.xlsx")
 ## NOTE: for dates to read in correctly, there CANNOT be any "NA" entries
 ```
 
-# 5. Make customized data tables.
+## 5. Make customized data tables.
 
-## 5a. Create a simple data table of baseline characteristics.
+### 5a. Create a simple data table of baseline characteristics.
 ```{r}
 theme_gtsummary_compact() ## Set table theme to compact
 
@@ -125,7 +127,7 @@ temp.table.data %>% ## Make your table
   add_stat_label() ## Add the statistic (i.e., median with IQR)
 ```
 
-## 5b. Stratify the characteristics based on CAR-T products, Liso-cel and Axi-cel
+### 5b. Stratify the characteristics based on CAR-T products, Liso-cel and Axi-cel
 ```{r}
 theme_gtsummary_compact() ## Set table theme to compact
 
@@ -154,7 +156,7 @@ db %>% ## Create the characteristics you want to include in your table.
   add_stat_label() ## Add the statistic (i.e., median with IQR)
 ```
 
-## 5c. Compare baseline characteristics and include p-values
+### 5c. Compare baseline characteristics and include p-values
 ```{r}
 theme_gtsummary_compact() ## Set table theme to compact
 
@@ -184,14 +186,14 @@ db %>% ## Create the characteristics you want to include in your table.
   add_stat_label()
 ```
 
-# 6. Make histograms.
+## 6. Make histograms.
 
-## 6a. Use a simple histogram to quickly visualize the distribution of ages.
+### 6a. Use a simple histogram to quickly visualize the distribution of ages.
 ```{r}
 hist(db$Age) ## Use the hist function
 ```
 
-## 6b. Add axis labels
+### 6b. Add axis labels
 ```{r}
 hist(db$Age,
      main = "Histogram of Ages",
@@ -200,7 +202,7 @@ hist(db$Age,
 ```
 
 
-## 6c. Make the histogram using ggplot to gain customizability.
+### 6c. Make the histogram using ggplot to gain customizability.
 ```{r}
 db %>%
   ggplot( aes(x=Age))  + ## Pass the Ages as an aesthetic mapping to the ggplot function
@@ -209,7 +211,7 @@ db %>%
   xlab("Age (years)") ## Label the x axis
 ```
 
-## 6d. Stratify the histogram by product type.
+### 6d. Stratify the histogram by product type.
 ```{r}
 db %>%
   mutate(
@@ -224,7 +226,7 @@ db %>%
   xlab("Age (years)")
 ```
 
-## 6e. Add median lines to visualize the difference in age.
+### 6e. Add median lines to visualize the difference in age.
 ```{r}
 db %>%
   mutate(
