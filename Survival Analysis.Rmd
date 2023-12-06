@@ -14,7 +14,7 @@ output:
 # Survival analysis
 ## 1. Open the necessary libraries and read in your data.
 
-### 1a. Install two new libraries: survival and survminer.
+### 1a. Install libraries to create and plot survival curves.
 ```{r}
 ## "survival" allows you to a create survival curves from a formula (e.g., Kaplan-Meier).
 ## install.packages("survival")
