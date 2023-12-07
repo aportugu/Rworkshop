@@ -1,6 +1,6 @@
 ---
-title: "Overview"
-subtitle: "R workshop"
+title: "R Workshop Overview"
+subtitle: "Fred Hutchinson Cancer Center"
 author: "Andrew Portuguese"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output:
@@ -10,6 +10,14 @@ output:
     toc_float: true
     self_contained: true
 ---
+# Course Philosophy
+
+### There are many ways to learn R. My goal is to make this experience as high yield (and painless) as possible for clinical researchers. I want you to walk away with tools to visualize your data and make publication-ready graphics. I worry that many people see R as inaccessible because of the programming burden. The big questions in my mind are, “How much coding knowledge is absolutely necessary to perform specific tasks?” and “What is the best time to introduce a specific programming concept?”
+ 
+### My plan with this course is to introduce R concepts and coding techniques on an “as needed” basis. Instead of starting with a “fundamentals of R” overview, I will pepper in coding techniques and concepts throughout the course. All programming knowledge will be taught in a goal-directed fashion with the aim of producing something tangible (i.e., a histogram, a summary table, a Kaplan-Meier plot, etc). In some cases, I might even say… ::GASP:: … “modify this existing code – you don’t need to understand 100% of how it works.”
+ 
+### You will undoubtedly run into issues that require troubleshooting. We are "building a car while driving it." The purpose of this workship is to provide a space for us to resolve issues in real time. Perhaps most importantly, you will discover the people at our center who are excited about R and available to assist you with your work moving forward.
+
 # Lessons
 
 ## 1. <a href="https://aportugu.github.io/Rworkshop/Getting-Started.html">Getting Started</a>
