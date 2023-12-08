@@ -138,9 +138,96 @@ ggsurvplot(km_OS,
            )
 ```
 
-## 4. Generate cumulative incidence plots.
+### 3c. Estimating x-year survival.
+```{r}
+## The summary() function can be used on a survfit object to obtain summary statistics.
+summary(
+  survfit(Surv(Days.to.DLC, Death) ~ CAR.T.Product.Type , data = db),
+  times = 365
+)
 
-### 4a. Cumulative incidence of death with Gray's testing
+## We can also pipe the output of the survit object into the tbl_survfit() function using the %>% operator
+survfit(Surv(Days.to.DLC, Death) ~ CAR.T.Product.Type , data = db) %>%
+  tbl_survfit(
+    times = 365,
+    label_header = "**1-year OS (95% CI)**" ## This sets a label for the header of the table
+  )
+
+```
+
+### 3d. Do the same thing for progression-free survival.
+```{r}
+km_PFS <- survfit(Surv(Days.to.relapse.death.or.DLC, Relapse.or.death) ~ CAR.T.Product.Type, data = data1 )
+
+
+ggsurvplot(km_PFS,
+           risk.table = TRUE,
+           risk.table.col = "strata",
+           ggtheme = theme_classic(),
+           tables.theme = theme_cleantable(),
+           surv.median.line = "hv",
+           xlab="Time (days)", ylab = "Progression-free survival (%)",
+           break.x.by = c(365),
+           ylim = c(0,1),
+           break.y.by = c(0.25),
+           legend = "none",
+           surv.scale = "percent",
+           legend.labs = c("Liso-cel","Axi-cel"), ## Adds labels to the legend
+           pval=TRUE, ## Adds a p-value derived from Log-Rank testing
+           pval.coord = c(1825,0.1) ## Shift the p-value to bottom right part of the plot
+           )
+
+
+survfit(Surv(Days.to.relapse.death.or.DLC, Relapse.or.death) ~ CAR.T.Product.Type , data = db) %>%
+  tbl_survfit(
+    times = 365,
+    label_header = "**1-year PFS (95% CI)**" ## This sets a label for the header of the table
+  )
+```
+
+### 3e. Look at OS and PFS stratified by best response.
+```{r}
+## Stratify OS by the "Best.response" variable
+ggsurvplot(survfit(Surv(Days.to.DLC, Death) ~ Best.response, data = db),
+           pval=TRUE,
+           conf.int = TRUE,
+           risk.table = TRUE, # Add risk table
+           risk.table.col = "strata", # Change risk table color by groups
+           tables.height = 0.2,
+           ggtheme = theme_classic(),
+           tables.theme = theme_cleantable(),
+           xlab="Time (days)", ylab = "Overall survival",
+           xlim = c(0,2000), break.x.by = c(365),
+           ylim = c(0,1), break.y.by = c(0.25),
+           legend.labs = c("CR","PD", "PR"),
+           legend = "none",
+           surv.scale = "percent"
+)
+
+## Stratify PFS by the "Best.response" variable. Filter the data to exclude "PD."
+ggsurvplot(survfit(Surv(Days.to.relapse.death.or.DLC, Relapse.or.death) ~ Best.response, data = filter(db, Best.response != "PD")),
+           pval=TRUE,
+           conf.int = TRUE,
+           risk.table = TRUE, # Add risk table
+           risk.table.col = "strata", # Change risk table color by groups
+           tables.height = 0.2,
+           ggtheme = theme_classic(),
+           tables.theme = theme_cleantable(),
+           xlab="Time (days)", ylab = "Progression-free survival",
+           xlim = c(0,2000), break.x.by = c(365),
+           ylim = c(0,1), break.y.by = c(0.25),
+           legend.labs = c("CR","PR"),
+           legend = "none",
+           surv.scale = "percent"
+)
+
+```
+
+
+
+## 4. Competing risks analysis.
+
+### 4a. Cumulative incidence of death with Gray's testing.
 ```{r}
 ## Data preparation:
 ##  Make a temporary data set where the variable Alive.RM.NRM represents alive (0), death from cancer (1), or death from other causes (2).
