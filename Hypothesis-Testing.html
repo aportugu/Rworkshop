@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Fellow's R Workshop: Relationship Visualization</title>
+  <title>Fellow's R Workshop: Hypothesis Testing</title>
 
 
 
@@ -98,20 +98,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Fellow&#39;s R Workshop: Relationship Visualization"/>
+  <meta property="og:title" content="Fellow&#39;s R Workshop: Hypothesis Testing"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Fellow&#39;s R Workshop"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Fellow&#39;s R Workshop: Relationship Visualization"/>
+  <meta property="twitter:title" content="Fellow&#39;s R Workshop: Hypothesis Testing"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Relationship Visualization"]},{"type":"character","attributes":{},"value":["In this fourth session, you'll learn how to visualize relationships between a continuous variable and 1) a binary outcome, 2) a HR, and 3) median survival."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 22, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypothesis Testing"]},{"type":"character","attributes":{},"value":["In the second session, you'll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 22, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Relationship Visualization","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-22T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
+{"title":"Hypothesis Testing","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-22T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2159,8 +2159,8 @@ Lessons
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Relationship Visualization</h1>
-<p class="subtitle">In this fourth session, you’ll learn how to visualize relationships between a continuous variable and 1) a binary outcome, 2) a HR, and 3) median survival.</p>
+<h1>Hypothesis Testing</h1>
+<p class="subtitle">In the second session, you’ll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality.</p>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2178,45 +2178,58 @@ Lessons
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#relationship-visualization" id="toc-relationship-visualization">Relationship visualization</a>
+<li><a href="#hypothesis-testing" id="toc-hypothesis-testing">Hypothesis testing</a>
 <ul>
 <li><a href="#open-the-necessary-libraries-and-import-your-date" id="toc-open-the-necessary-libraries-and-import-your-date">1. Open the necessary libraries and import your date</a>
 <ul>
-<li><a href="#a.-install-additional-library." id="toc-a.-install-additional-library.">1a. Install additional library.</a></li>
+<li><a href="#a.-install-necessary-library" id="toc-a.-install-necessary-library">1a. Install necessary library</a></li>
 <li><a href="#b.-open-the-necessary-libraries-to-read-in-data-create-data-tables-and-generate-plots." id="toc-b.-open-the-necessary-libraries-to-read-in-data-create-data-tables-and-generate-plots.">1b. Open the necessary libraries to read in data, create data tables, and generate plots.</a></li>
 <li><a href="#c.-read-in-and-manipulate-your-date" id="toc-c.-read-in-and-manipulate-your-date">1c. Read in and manipulate your date</a></li>
 </ul></li>
-<li><a href="#visualize-the-relationship-between-a-binary-outcome-and-a-continuous-variable." id="toc-visualize-the-relationship-between-a-binary-outcome-and-a-continuous-variable.">2. Visualize the relationship between a binary outcome and a continuous variable.</a>
+<li><a href="#perform-statistical-comparisons-using-a-boxplot." id="toc-perform-statistical-comparisons-using-a-boxplot.">2. Perform statistical comparisons using a boxplot.</a>
 <ul>
-<li><a href="#a.-probability-of-achieving-a-cr-vs.-pre-ld-ldh-stratified-by-car-t-product-type." id="toc-a.-probability-of-achieving-a-cr-vs.-pre-ld-ldh-stratified-by-car-t-product-type.">2a. Probability of achieving a CR vs. pre-LD LDH, stratified by CAR-T product type.</a></li>
-<li><a href="#b.-probability-of-achieving-a-cr-based-on-pre-ld-ldh" id="toc-b.-probability-of-achieving-a-cr-based-on-pre-ld-ldh">2b. Probability of achieving a CR based on pre-LD LDH</a></li>
-<li><a href="#c.-lets-do-the-same-thing-for-any-grade-crs." id="toc-c.-lets-do-the-same-thing-for-any-grade-crs.">2c. Let’s do the same thing for any-grade CRS.</a></li>
+<li><a href="#a.-create-a-basic-boxplot-for-age." id="toc-a.-create-a-basic-boxplot-for-age.">2a. Create a basic boxplot for age.</a></li>
+<li><a href="#b.-add-pairwise-comparisons" id="toc-b.-add-pairwise-comparisons">2b. Add pairwise comparisons</a></li>
+<li><a href="#c.-add-jittered-points-to-the-plot" id="toc-c.-add-jittered-points-to-the-plot">2c. Add jittered points to the plot</a></li>
 </ul></li>
-<li><a href="#visualize-the-relationship-between-os-and-a-continuous-variable." id="toc-visualize-the-relationship-between-os-and-a-continuous-variable.">3. Visualize the relationship between OS and a continuous variable.</a>
+<li><a href="#compare-a-parameter-using-subsets-of-data." id="toc-compare-a-parameter-using-subsets-of-data.">3. Compare a parameter using subsets of data.</a>
 <ul>
-<li><a href="#a.-hazard-of-os-vs.-pre-ld-ldh." id="toc-a.-hazard-of-os-vs.-pre-ld-ldh.">3a. Hazard of OS vs. pre-LD LDH.</a></li>
-<li><a href="#b.-median-os-vs.-pre-ld-ldh." id="toc-b.-median-os-vs.-pre-ld-ldh.">3b. Median OS vs. pre-LD LDH.</a></li>
+<li><a href="#a.-create-a-basic-boxplot-for-pre-lymphodepletion-ldh" id="toc-a.-create-a-basic-boxplot-for-pre-lymphodepletion-ldh">3a. Create a basic boxplot for pre-lymphodepletion LDH</a></li>
+<li><a href="#b.-add-pairwise-comparisons-1" id="toc-b.-add-pairwise-comparisons-1">3b. Add pairwise comparisons</a></li>
 </ul></li>
-<li><a href="#create-a-contour-plot-to-visualize-the-relationship-between-an-outcome-and-2-continuous-variables." id="toc-create-a-contour-plot-to-visualize-the-relationship-between-an-outcome-and-2-continuous-variables.">4. Create a contour plot to visualize the relationship between an outcome and 2 continuous variables.</a>
+<li><a href="#draw-violin-plots-to-depict-differences" id="toc-draw-violin-plots-to-depict-differences">4. Draw violin plots to depict differences</a>
 <ul>
-<li><a href="#a.-median-os-based-on-largest-lesion-size-and-pre-ld-ldh." id="toc-a.-median-os-based-on-largest-lesion-size-and-pre-ld-ldh.">4a. Median OS based on largest lesion size and pre-LD LDH.</a></li>
+<li><a href="#a.-create-a-basic-violin-plot-with-a-boxplot" id="toc-a.-create-a-basic-violin-plot-with-a-boxplot">4a. Create a basic violin plot with a boxplot</a></li>
+<li><a href="#b.-change-the-box-plot-to-just-mean-and-standard-error" id="toc-b.-change-the-box-plot-to-just-mean-and-standard-error">4b. Change the box plot to just mean and standard error</a></li>
+<li><a href="#c.-add-quantiles" id="toc-c.-add-quantiles">4c. Add quantiles</a></li>
+<li><a href="#d.-add-pairwise-comparisons" id="toc-d.-add-pairwise-comparisons">4d. Add pairwise comparisons</a></li>
+</ul></li>
+<li><a href="#use-a-summary-table-to-compare-groups" id="toc-use-a-summary-table-to-compare-groups">5. Use a summary table to compare groups</a>
+<ul>
+<li><a href="#a.-use-the-add_p-function-to-perform-comparison-testing." id="toc-a.-use-the-add_p-function-to-perform-comparison-testing.">5a. Use the add_p() function to perform comparison testing.</a></li>
+</ul></li>
+<li><a href="#are-the-data-normally-distributed" id="toc-are-the-data-normally-distributed">6. Are the data normally distributed?</a>
+<ul>
+<li><a href="#a.-draw-a-qq-plot-using-normal-data." id="toc-a.-draw-a-qq-plot-using-normal-data.">6a. Draw a QQ plot using normal data.</a></li>
+<li><a href="#b.-evaluate-ldh-using-a-qq-plot." id="toc-b.-evaluate-ldh-using-a-qq-plot.">6b. Evaluate LDH using a QQ plot.</a></li>
+<li><a href="#c.-draw-separate-plots-for-each-car-t-product-type." id="toc-c.-draw-separate-plots-for-each-car-t-product-type.">6c. Draw separate plots for each CAR-T product type.</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 </div>
-<h1 id="relationship-visualization">Relationship visualization</h1>
+<h1 id="hypothesis-testing">Hypothesis testing</h1>
 <h2 id="open-the-necessary-libraries-and-import-your-date">1. Open the necessary libraries and import your date</h2>
-<h3 id="a.-install-additional-library.">1a. Install additional library.</h3>
+<h3 id="a.-install-necessary-library">1a. Install necessary library</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Install the "rms" library (i.e., Regression Modeling Strategies). Collection of functions that assist with and streamline modeling.</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># 'ggpubr' provides some easy-to-use functions for creating and customizing 'ggplot2'- based publication ready plots. It can draw nice boxplots, violin and density plots.</span></span>
 <span></span>
-<span><span class='co'>## install.packages("rms")</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"ggpubr"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
 </div>
@@ -2234,7 +2247,7 @@ Show code
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/therneau/survival'>survival</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/survminer/index.html'>survminer</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/pharmaverse/ggsurvfit'>ggsurvfit</a></span><span class='op'>)</span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://hbiostat.org/R/rms/'>rms</a></span><span class='op'>)</span></span></code></pre>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/ggpubr/'>ggpubr</a></span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
 </div>
@@ -2248,212 +2261,821 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>db</span> <span class='op'>=</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span>path<span class='op'>=</span><span class='st'>"sample.data.xlsx"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span> <span class='co'>## Set relevant labs to be numeric variables</span></span>
 <span>    LDH.preLD <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>LDH.preLD</span><span class='op'>)</span>,</span>
-<span>    ALC.preLD <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>ALC.preLD</span><span class='op'>)</span></span>
+<span>    ALC.preLD <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>ALC.preLD</span><span class='op'>)</span>,</span>
+<span>    CAR.T.Product.Type <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>CAR.T.Product.Type</span>, <span class='st'>"Breyanzi"</span><span class='op'>=</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Yescarta"</span><span class='op'>=</span><span class='st'>"Axi-cel"</span><span class='op'>)</span>,</span>
+<span>    Bulky <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>Largest.lesion</span> <span class='op'>&gt;=</span><span class='fl'>5</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
 <span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
-<span>    CR <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>Best.response</span> <span class='op'>==</span> <span class='st'>"CR"</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span> <span class='co'>## Define a new variable, "CR"</span></span>
+<span>    CR <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>Best.response</span> <span class='op'>==</span> <span class='st'>"CR"</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span>, <span class='co'>## Define a new variable, "CR"</span></span>
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
 </details>
 </div>
-<h2 id="visualize-the-relationship-between-a-binary-outcome-and-a-continuous-variable.">2. Visualize the relationship between a binary outcome and a continuous variable.</h2>
-<h3 id="a.-probability-of-achieving-a-cr-vs.-pre-ld-ldh-stratified-by-car-t-product-type.">2a. Probability of achieving a CR vs. pre-LD LDH, stratified by CAR-T product type.</h3>
+<h2 id="perform-statistical-comparisons-using-a-boxplot.">2. Perform statistical comparisons using a boxplot.</h2>
+<h3 id="a.-create-a-basic-boxplot-for-age.">2a. Create a basic boxplot for age.</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Step 1: Determine summaries for each variable and set R's global options</span></span>
-<span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>)</span> <span class='co'># Creates a data distribution object (dd) using the datadist() function. This object contains information about the variables in your dataset (db). This information is used by the rms package for various purposes, such as creating plots with proper axis labels.</span></span>
-<span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span> <span class='co'># This line sets the global options for the data distribution to the previously created data distribution object (dd). This ensures that the data distribution information is available globally and can be used by functions in the rms package.</span></span>
-<span></span>
-<span><span class='co'>## Step 2: Create a logistic regression model using the lrm() function.</span></span>
-<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/lrm.html'>lrm</a></span><span class='op'>(</span><span class='va'>CR</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span>, data<span class='op'>=</span><span class='va'>db</span><span class='op'>)</span>  <span class='co'>## Create a logistic regression model for </span></span>
-<span></span>
-<span><span class='co'>## Step 3: Determine a function that can predict the independent variable of the logistic regression model (i.e., CR) based on the pre-LD LDH and CAR-T product type. </span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>fit</span>,<span class='va'>LDH.preLD</span>,fun <span class='op'>=</span> <span class='va'>plogis</span><span class='op'>)</span> <span class='co'>#  Note: the plogis() function calculates the logistic cumulative density of a distribution.</span></span>
-<span></span>
-<span><span class='co'>## Step 4. Convert the function into a set of discrete data values within a data frame.</span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span> </span>
-<span></span>
-<span><span class='co'>## Step 5. Visualize the data.</span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>,y<span class='op'>=</span><span class='va'>yhat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>,ymin<span class='op'>=</span><span class='va'>lower</span>, ymax<span class='op'>=</span><span class='va'>upper</span><span class='op'>)</span>,alpha<span class='op'>=</span><span class='fl'>0.10</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Probability of CR"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
+<span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>, <span class='co'># Set the x and y variables</span></span>
+<span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>, <span class='co'># Set title and </span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='co'># Set the position of the legend</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<h3 id="b.-probability-of-achieving-a-cr-based-on-pre-ld-ldh">2b. Probability of achieving a CR based on pre-LD LDH</h3>
+<h3 id="b.-add-pairwise-comparisons">2b. Add pairwise comparisons</h3>
+<p>By default, ggpubr performs a wilcoxon test. There are several available tests to choose from:</p>
+<ol type="1">
+<li><p>t-test (method = “t.test”): It compares means using a Student’s t-test assuming equal variances. You can specify additional t-test options by providing method arguments. For example, to run a 1-sided t-test: method.args = list(alternative = “greater”)</p></li>
+<li><p>Wilcoxon rank sum test (method = “wilcox.test”): This non-parametric test is used when the assumptions of the t-test are violated or when the data is not normally distributed.</p></li>
+<li><p>Paired t-test (method = “paired.t.test”): This is used when you have paired observations, such as before and after measurements or matched pairs.</p></li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Specify that you want to compare axi-cel and liso-cel using a list of length-2 vectors.</span></span>
+<span><span class='co'># The entries in the vector are either the names of 2 values on the x-axis</span></span>
+<span><span class='va'>my_comparisons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Axi-cel"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/lrm.html'>lrm</a></span><span class='op'>(</span><span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>*</span> <span class='va'>LDH.preLD</span>, data<span class='op'>=</span><span class='va'>db</span><span class='op'>)</span> <span class='co'>## Add the CAR-T product type to the logistic regression model. Use a "*" to allow for an interaction term (i.e., CAR.T.Product.Type + LDH.preLD + CAR.T.Product.Type * LDH.preLD)</span></span>
-<span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>fit</span>,<span class='va'>LDH.preLD</span>,<span class='va'>CAR.T.Product.Type</span>,fun <span class='op'>=</span> <span class='va'>plogis</span><span class='op'>)</span> <span class='co'>## Pass the CAR.T.Product.Type variable to the Predict() function for inclusion.</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span> </span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>,y<span class='op'>=</span><span class='va'>yhat</span>,col<span class='op'>=</span><span class='va'>CAR.T.Product.Type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>## Set the color of the datapoint to the CAR-T product type.</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>,ymin<span class='op'>=</span><span class='va'>lower</span>, ymax<span class='op'>=</span><span class='va'>upper</span>,fill<span class='op'>=</span><span class='va'>CAR.T.Product.Type</span><span class='op'>)</span>,alpha<span class='op'>=</span><span class='fl'>0.10</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Probability of CR"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>,face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>## Get rid of the legend title</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
+<span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>,</span>
+<span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<h3 id="c.-lets-do-the-same-thing-for-any-grade-crs.">2c. Let’s do the same thing for any-grade CRS.</h3>
+<p>EXERCISE 1: Compare means using a 1-sided t-test.</p>
+<p>EXERCISE 2: Compare means using a 2-sided t-test with equal variance.</p>
+<p>EXERCISE 3: Compare medians using a Wilcoxon rank sum test.</p>
+<h3 id="c.-add-jittered-points-to-the-plot">2c. Add jittered points to the plot</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>CRS.grade</span>, <span class='va'>CAR.T.Product.Type</span>, <span class='va'>LDH.preLD</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
-<span>    CRS.any <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span> <span class='va'>CRS.grade</span> <span class='op'>!=</span><span class='fl'>0</span> ,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span>,</span>
-<span>  <span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_comparisons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Axi-cel"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>data1</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span></span>
-<span></span>
-<span></span>
-<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/lrm.html'>lrm</a></span><span class='op'>(</span><span class='va'>CRS.any</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>*</span> <span class='va'>LDH.preLD</span>, data<span class='op'>=</span><span class='va'>data1</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>fit</span>,<span class='va'>LDH.preLD</span>, <span class='va'>CAR.T.Product.Type</span>,fun <span class='op'>=</span> <span class='va'>plogis</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span></span>
-<span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>,y<span class='op'>=</span><span class='va'>yhat</span>,col<span class='op'>=</span><span class='va'>CAR.T.Product.Type</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span>, ymin<span class='op'>=</span><span class='va'>lower</span>, ymax<span class='op'>=</span><span class='va'>upper</span>,fill<span class='op'>=</span><span class='va'>CAR.T.Product.Type</span><span class='op'>)</span>, alpha<span class='op'>=</span><span class='fl'>0.10</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Probability of CRS"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>,face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>## Get rid of the legend title</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
+<span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>,</span>
+<span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>          palette <span class='op'>=</span><span class='st'>"jco"</span>,</span>
+<span>          add <span class='op'>=</span> <span class='st'>"jitter"</span>, <span class='co'># Add jittered points</span></span>
+<span>          add.params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0.1</span>, jitter <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Specify point size and amount of jittering</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<h2 id="visualize-the-relationship-between-os-and-a-continuous-variable.">3. Visualize the relationship between OS and a continuous variable.</h2>
-<h3 id="a.-hazard-of-os-vs.-pre-ld-ldh.">3a. Hazard of OS vs. pre-LD LDH.</h3>
+<h2 id="compare-a-parameter-using-subsets-of-data.">3. Compare a parameter using subsets of data.</h2>
+<h3 id="a.-create-a-basic-boxplot-for-pre-lymphodepletion-ldh">3a. Create a basic boxplot for pre-lymphodepletion LDH</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>S</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>$</span><span class='va'>Days.to.DLC</span>, <span class='va'>db</span><span class='op'>$</span><span class='va'>Death</span><span class='op'>)</span> <span class='co'># Creates a survival object using the Surv() function.</span></span>
-<span><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/cph.html'>cph</a></span><span class='op'>(</span><span class='va'>S</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span> <span class='op'>*</span> <span class='va'>CAR.T.Product.Type</span> , x<span class='op'>=</span><span class='cn'>TRUE</span>, y<span class='op'>=</span><span class='cn'>TRUE</span>,surv<span class='op'>=</span><span class='cn'>TRUE</span>,data<span class='op'>=</span><span class='va'>db</span><span class='op'>)</span> <span class='co'># Fits a Cox proportional hazards model using the cph function from the rms package</span></span>
-<span></span>
-<span></span>
-<span><span class='co'>## Obtain predictions from the Cox model (f). </span></span>
-<span><span class='co'>## The fun=function(x) exp(x) part specifies that you want to exponentiate the predicted values, which gives you the hazard ratios.</span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>f</span>, <span class='va'>LDH.preLD</span>, <span class='va'>CAR.T.Product.Type</span>, fun<span class='op'>=</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span> , y<span class='op'>=</span><span class='va'>yhat</span>, z <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_ribbon.html'>geom_ribbon</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='va'>lower</span>, ymax<span class='op'>=</span><span class='va'>upper</span>,fill<span class='op'>=</span><span class='va'>CAR.T.Product.Type</span><span class='op'>)</span>, alpha<span class='op'>=</span><span class='fl'>0.1</span>, linetype<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>     x <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>     y <span class='op'>=</span> <span class='st'>"Death (HR)"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>,face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
+<span>          x <span class='op'>=</span> <span class='st'>"Disease"</span>, y <span class='op'>=</span> <span class='st'>"LDH.preLD"</span>, <span class='co'># Set the x and y variables</span></span>
+<span>          title <span class='op'>=</span> <span class='st'>"LDH vs disease type"</span>, ylab <span class='op'>=</span> <span class='st'>"LDH"</span>, xlab <span class='op'>=</span> <span class='st'>"Disease"</span>, <span class='co'># Set title and </span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span>,</span>
+<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<h3 id="b.-median-os-vs.-pre-ld-ldh.">3b. Median OS vs. pre-LD LDH.</h3>
+<h3 id="b.-add-pairwise-comparisons-1">3b. Add pairwise comparisons</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_comparisons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"DLBCL"</span>,<span class='st'>"PMBCL"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"DLBCL"</span>,<span class='st'>"tDLBCL"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"DLBCL"</span>,<span class='st'>"HGBCL"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Specify pairwise comparisons</span></span>
 <span></span>
-<span><span class='va'>S</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>$</span><span class='va'>Days.to.DLC</span>, <span class='va'>db</span><span class='op'>$</span><span class='va'>Death</span><span class='op'>)</span></span>
-<span><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/cph.html'>cph</a></span><span class='op'>(</span><span class='va'>S</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span> <span class='op'>*</span> <span class='va'>CAR.T.Product.Type</span> , x<span class='op'>=</span><span class='cn'>TRUE</span>, y<span class='op'>=</span><span class='cn'>TRUE</span>,surv<span class='op'>=</span><span class='cn'>TRUE</span>,data<span class='op'>=</span><span class='va'>db</span><span class='op'>)</span></span>
-<span></span>
-<span></span>
-<span><span class='va'>med</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/transace.html'>Quantile</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span> <span class='co'># Determine the estimated median survival time based on the Cox model.</span></span>
-<span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>f</span>, <span class='va'>LDH.preLD</span>, <span class='va'>CAR.T.Product.Type</span>, fun<span class='op'>=</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>med</span><span class='op'>(</span>lp<span class='op'>=</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>)</span> <span class='co'># The fun = function(x) med(lp = x) part specifies a transformation function for the linear predictors.</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>LDH.preLD</span> , y<span class='op'>=</span><span class='va'>yhat</span>, z <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>col <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>     x <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>     y <span class='op'>=</span> <span class='st'>"Median survival (days)"</span><span class='op'>)</span><span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>,face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span>,legend.title<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
+<span>          x <span class='op'>=</span> <span class='st'>"Disease"</span>, y <span class='op'>=</span> <span class='st'>"LDH.preLD"</span>, <span class='co'># Set the x and y variables</span></span>
+<span>          title <span class='op'>=</span> <span class='st'>"LDH vs disease type"</span>, ylab <span class='op'>=</span> <span class='st'>"LDH"</span>, xlab <span class='op'>=</span> <span class='st'>"Disease"</span>, <span class='co'># Set title and </span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span>,</span>
+<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"None"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Hide legend</span></span>
+<span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<h2 id="create-a-contour-plot-to-visualize-the-relationship-between-an-outcome-and-2-continuous-variables.">4. Create a contour plot to visualize the relationship between an outcome and 2 continuous variables.</h2>
-<h3 id="a.-median-os-based-on-largest-lesion-size-and-pre-ld-ldh.">4a. Median OS based on largest lesion size and pre-LD LDH.</h3>
+<h2 id="draw-violin-plots-to-depict-differences">4. Draw violin plots to depict differences</h2>
+<h3 id="a.-create-a-basic-violin-plot-with-a-boxplot">4a. Create a basic violin plot with a boxplot</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/datadist.html'>datadist</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>datadist<span class='op'>=</span><span class='st'>'dd'</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
+<span>         add <span class='op'>=</span> <span class='st'>"boxplot"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+</div>
+<h3 id="b.-change-the-box-plot-to-just-mean-and-standard-error">4b. Change the box plot to just mean and standard error</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
+<span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<h3 id="c.-add-quantiles">4c. Add quantiles</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
+<span>         draw_quantiles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.025</span>,<span class='fl'>.5</span>,<span class='fl'>.75</span>,<span class='fl'>.975</span><span class='op'>)</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
+<span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<h3 id="d.-add-pairwise-comparisons">4d. Add pairwise comparisons</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_comparisons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Axi-cel"</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>S</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>$</span><span class='va'>Days.to.DLC</span>, <span class='va'>db</span><span class='op'>$</span><span class='va'>Death</span><span class='op'>)</span></span>
-<span><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/cph.html'>cph</a></span><span class='op'>(</span><span class='va'>S</span> <span class='op'>~</span> <span class='va'>Largest.lesion</span> <span class='op'>*</span> <span class='va'>LDH.preLD</span> , x<span class='op'>=</span><span class='cn'>TRUE</span>, y<span class='op'>=</span><span class='cn'>TRUE</span>,surv<span class='op'>=</span><span class='cn'>TRUE</span>,data<span class='op'>=</span><span class='va'>db</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
+<span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
+<span>         draw_quantiles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.025</span>,<span class='fl'>.5</span>,<span class='fl'>.75</span>,<span class='fl'>.975</span><span class='op'>)</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
+<span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<h2 id="use-a-summary-table-to-compare-groups">5. Use a summary table to compare groups</h2>
+<h3 id="a.-use-the-add_p-function-to-perform-comparison-testing.">5a. Use the add_p() function to perform comparison testing.</h3>
+<p>Common tests include:</p>
+<ol type="1">
+<li>t-test: “t.test”</li>
+<li>One-way ANOVA: “aov”</li>
+<li>Wilcoxon rank-sum test: “wilcox.test”</li>
+<li>Kruskal-Wallis test: “kruskal.test”</li>
+<li>Chi-square test of independence: “chisq.test”</li>
+<li>Fisher’s exact test: “fisher.test”</li>
+<li>McNemar’s test: “mcnemar.test”</li>
+<li>Paired t-test: “paired.t.test”</li>
+<li>Test for equality of proportions: “prop.test”</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Set table theme to compact</span></span>
 <span></span>
-<span><span class='va'>med</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/transace.html'>Quantile</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span> <span class='co'># Determine the estimated median survival time based on the Cox model.</span></span>
+<span><span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Create the characteristics you want to include in your table.</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/transmute.html'>transmute</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"Age (years)"</span> <span class='op'>=</span> <span class='va'>Age</span>,</span>
+<span>    <span class='st'>"LDH"</span> <span class='op'>=</span> <span class='va'>LDH.preLD</span>,</span>
+<span>    <span class='st'>"Bulky disease"</span> <span class='op'>=</span> <span class='va'>Bulky</span>,</span>
+<span>    <span class='st'>"Vein-to-vein time"</span> <span class='op'>=</span> <span class='va'>vv.time</span>,</span>
+<span>    <span class='st'>"Best response"</span> <span class='op'>=</span> <span class='va'>Best.response</span>,</span>
+<span>    <span class='st'>"Product"</span> <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Make your table</span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span></span>
+<span>    by <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>    missing <span class='op'>=</span> <span class='st'>"ifany"</span>,</span>
+<span>    statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{median} ({p25}, {p75})"</span>, <span class='co'>## Continuous variables are described as median with IQR</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{n} ({p}%)"</span>, <span class='co'>## Categorical variables are counted and given a percentage</span></span>
+<span>      <span class='st'>"Age (years)"</span> <span class='op'>~</span><span class='st'>"{median} ({min} to {max})"</span> <span class='co'>## Age (a continuous variable) is listed as median with min to max</span></span>
+<span>    <span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='va'>bold_labels</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span></span>
+<span>    test <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"wilcox.test"</span>,</span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"chisq.test"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<div id="mzxmwcwouw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mzxmwcwouw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mzxmwcwouw thead, #mzxmwcwouw tbody, #mzxmwcwouw tfoot, #mzxmwcwouw tr, #mzxmwcwouw td, #mzxmwcwouw th {
+  border-style: none;
+}
+
+#mzxmwcwouw p {
+  margin: 0;
+  padding: 0;
+}
+
+#mzxmwcwouw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mzxmwcwouw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mzxmwcwouw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mzxmwcwouw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mzxmwcwouw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mzxmwcwouw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mzxmwcwouw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mzxmwcwouw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mzxmwcwouw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mzxmwcwouw .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mzxmwcwouw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mzxmwcwouw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mzxmwcwouw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mzxmwcwouw .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mzxmwcwouw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mzxmwcwouw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mzxmwcwouw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mzxmwcwouw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mzxmwcwouw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mzxmwcwouw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mzxmwcwouw .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mzxmwcwouw .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mzxmwcwouw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mzxmwcwouw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mzxmwcwouw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mzxmwcwouw .gt_left {
+  text-align: left;
+}
+
+#mzxmwcwouw .gt_center {
+  text-align: center;
+}
+
+#mzxmwcwouw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mzxmwcwouw .gt_font_normal {
+  font-weight: normal;
+}
+
+#mzxmwcwouw .gt_font_bold {
+  font-weight: bold;
+}
+
+#mzxmwcwouw .gt_font_italic {
+  font-style: italic;
+}
+
+#mzxmwcwouw .gt_super {
+  font-size: 65%;
+}
+
+#mzxmwcwouw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mzxmwcwouw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mzxmwcwouw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mzxmwcwouw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mzxmwcwouw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mzxmwcwouw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mzxmwcwouw .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Axi-cel&lt;/strong&gt;, N = 81"><strong>Axi-cel</strong>, N = 81</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Liso-cel&lt;/strong&gt;, N = 48"><strong>Liso-cel</strong>, N = 48</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Age (years), Median (Range)</td>
+<td headers="stat_1" class="gt_row gt_center">62 (26 to 79)</td>
+<td headers="stat_2" class="gt_row gt_center">67 (41 to 83)</td>
+<td headers="p.value" class="gt_row gt_center">0.004</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LDH, Median (IQR)</td>
+<td headers="stat_1" class="gt_row gt_center">214 (165, 304)</td>
+<td headers="stat_2" class="gt_row gt_center">179 (149, 269)</td>
+<td headers="p.value" class="gt_row gt_center">0.2</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
+<td headers="stat_1" class="gt_row gt_center">1</td>
+<td headers="stat_2" class="gt_row gt_center">2</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Bulky disease, n (%)</td>
+<td headers="stat_1" class="gt_row gt_center">27 (33%)</td>
+<td headers="stat_2" class="gt_row gt_center">13 (27%)</td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Vein-to-vein time, Median (IQR)</td>
+<td headers="stat_1" class="gt_row gt_center">27 (26, 30)</td>
+<td headers="stat_2" class="gt_row gt_center">35 (32, 42)</td>
+<td headers="p.value" class="gt_row gt_center"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Best response, n (%)</td>
+<td headers="stat_1" class="gt_row gt_center"><br /></td>
+<td headers="stat_2" class="gt_row gt_center"><br /></td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    CR</td>
+<td headers="stat_1" class="gt_row gt_center">43 (53%)</td>
+<td headers="stat_2" class="gt_row gt_center">30 (63%)</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    PD</td>
+<td headers="stat_1" class="gt_row gt_center">18 (22%)</td>
+<td headers="stat_2" class="gt_row gt_center">8 (17%)</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    PR</td>
+<td headers="stat_1" class="gt_row gt_center">20 (25%)</td>
+<td headers="stat_2" class="gt_row gt_center">10 (21%)</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Wilcoxon rank sum test; Pearson’s Chi-squared test</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<p>EXERCISE 1: Use a t-test for comparison testing of continuous variables.</p>
+<p>EXERCISE 2: Specify that a Fisher’s exact test should be used to compare bulky disease only.</p>
+<p>EXERCISE 3: Stratify the table by bulky disease status.</p>
+<h2 id="are-the-data-normally-distributed">6. Are the data normally distributed?</h2>
+<p>A QQ plot, short for Quantile-Quantile plot, is a graphical method used to assess whether a set of data follows a particular probability distribution, typically the normal distribution. It compares the quantiles of the data to the quantiles of a specified theoretical distribution. If the data follows the theoretical distribution closely, the points in the QQ plot will approximately lie along a straight line.</p>
+<p>Here’s how a QQ plot is typically constructed:</p>
+<ol type="1">
+<li><p>Sorting the Data: First, the data points are sorted in ascending order.</p></li>
+<li><p>Calculating Theoretical Quantiles: The quantiles of the theoretical distribution are calculated.</p></li>
+<li><p>Plotting: Each data point’s value is plotted against the corresponding theoretical quantile. If the data follows the theoretical distribution, the points will lie along a straight line.</p></li>
+</ol>
+<p>QQ plots are particularly useful for assessing whether a dataset is normally distributed. If the points in the QQ plot deviate substantially from the straight line, it suggests that the data might not be normally distributed. This can inform further analysis or the need for transformations on the data.</p>
+<h3 id="a.-draw-a-qq-plot-using-normal-data.">6a. Draw a QQ plot using normal data.</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>115</span><span class='op'>)</span><span class='op'>)</span>  <span class='co'># Creates a data frame 'df' with 115 random samples from a standard normal distribution</span></span>
 <span></span>
-<span><span class='va'>Prediction.function</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/rms/man/Predict.html'>Predict</a></span><span class='op'>(</span><span class='va'>f</span>,<span class='va'>Largest.lesion</span>,<span class='va'>LDH.preLD</span>,fun<span class='op'>=</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>med</span><span class='op'>(</span>lp<span class='op'>=</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>Prediction.function</span><span class='op'>)</span></span>
-<span></span>
-<span><span class='co'>## Use the geom_contour_filled() function  to create filled contour plots</span></span>
-<span><span class='va'>df</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_contour.html'>geom_contour_filled</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Largest.lesion</span>,y <span class='op'>=</span> <span class='va'>LDH.preLD</span>, z <span class='op'>=</span> <span class='va'>yhat</span><span class='op'>)</span>, binwidth <span class='op'>=</span> <span class='fl'>365</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>sample <span class='op'>=</span> <span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>  <span class='co'># Sets up ggplot with data 'df' and mapping the sample to 'x'</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>                         <span class='co'># Adds a QQ plot using stat_qq()</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>                    <span class='co'># Adds a line to represent the theoretical quantiles</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span>               <span class='co'># Sets the x-axis label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span>                   <span class='co'># Sets the y-axis label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>                     <span class='co'># Applies the classic theme</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<h3 id="b.-evaluate-ldh-using-a-qq-plot.">6b. Evaluate LDH using a QQ plot.</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>sample <span class='op'>=</span> <span class='va'>LDH.preLD</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>  <span class='co'># Sets up ggplot with data 'db' and mapping the sample to 'LDH.preLD'</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>                                 <span class='co'># Adds a QQ plot using stat_qq()</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>                            <span class='co'># Adds a line to represent the theoretical quantiles</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span>                       <span class='co'># Sets the x-axis label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span>                           <span class='co'># Sets the y-axis label</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>                             <span class='co'># Applies the classic theme</span></span></code></pre>
+</div>
+</details>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<p>EXERCISE 1: Try log-transforming the LDH data (i.e., log10(LDH.preLD) ). Does this improve or worsen normality?</p>
+<h3 id="c.-draw-separate-plots-for-each-car-t-product-type.">6c. Draw separate plots for each CAR-T product type.</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>sample <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>LDH.preLD</span><span class='op'>)</span> <span class='op'>)</span> <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_qq.html'>stat_qq_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Largest lesion (cm)"</span>,</span>
-<span>       y <span class='op'>=</span> <span class='st'>"Pre-LD LDH (U/L)"</span>,</span>
-<span>       fill<span class='op'>=</span><span class='st'>"Median survival (days)"</span><span class='op'>)</span> </span></code></pre>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='va'>.</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Relationship-visualization_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
+<p>EXERCISE 1: Draw QQ plots of vein-to-vein time and age.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
