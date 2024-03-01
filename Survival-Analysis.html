@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-02-23"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-02-23"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-02-29"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-02-29"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 23, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 29, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-23T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
+{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-29T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>February 23, 2024
+<br/>February 29, 2024
 </div>
 
 <div class="d-article">
@@ -2186,17 +2186,17 @@ Lessons
 <li><a href="#b.-open-the-necessary-libraries-to-read-in-data-create-data-tables-and-generate-plots." id="toc-b.-open-the-necessary-libraries-to-read-in-data-create-data-tables-and-generate-plots.">1b. Open the necessary libraries to read in data, create data tables, and generate plots.</a></li>
 <li><a href="#c.-read-in-your-data" id="toc-c.-read-in-your-data">1c. Read in your data</a></li>
 </ul></li>
-<li><a href="#calculate-the-length-of-follow-up-using-two-methods." id="toc-calculate-the-length-of-follow-up-using-two-methods.">2. Calculate the length of follow-up using two methods.</a>
+<li><a href="#determine-the-length-of-follow-up-using-two-methods." id="toc-determine-the-length-of-follow-up-using-two-methods.">2. Determine the length of follow-up using two methods.</a>
 <ul>
 <li><a href="#a.-calculate-the-median-follow-up-among-survivors." id="toc-a.-calculate-the-median-follow-up-among-survivors.">2a. Calculate the median follow-up among survivors.</a></li>
 <li><a href="#b.-estimate-the-median-follow-up-and-95-ci-using-the-reverse-kaplan-meier-method." id="toc-b.-estimate-the-median-follow-up-and-95-ci-using-the-reverse-kaplan-meier-method.">2b. Estimate the median follow-up (and 95% CI) using the Reverse Kaplan-Meier method.</a></li>
 </ul></li>
-<li><a href="#generate-kaplan-meier-plots." id="toc-generate-kaplan-meier-plots.">3. Generate Kaplan-Meier plots.</a>
+<li><a href="#draw-kaplan-meier-plots." id="toc-draw-kaplan-meier-plots.">3. Draw Kaplan-Meier plots.</a>
 <ul>
 <li><a href="#a.-create-a-plot-of-overall-survival." id="toc-a.-create-a-plot-of-overall-survival.">3a. Create a plot of overall survival.</a></li>
 <li><a href="#b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing." id="toc-b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing.">3b. Stratify the overall survival plot by CAR-T product type and perform Log-Rank testing.</a></li>
-<li><a href="#c.-estimating-x-year-survival." id="toc-c.-estimating-x-year-survival.">3c. Estimating x-year survival.</a></li>
-<li><a href="#d.-do-the-same-thing-for-progression-free-survival." id="toc-d.-do-the-same-thing-for-progression-free-survival.">3d. Do the same thing for progression-free survival.</a></li>
+<li><a href="#c.-estimating-1-year-survival." id="toc-c.-estimating-1-year-survival.">3c. Estimating 1-year survival.</a></li>
+<li><a href="#d.-draw-a-kaplan-meier-curve-for-progression-free-survival." id="toc-d.-draw-a-kaplan-meier-curve-for-progression-free-survival.">3d. Draw a Kaplan-Meier curve for progression-free survival.</a></li>
 <li><a href="#e.-look-at-os-and-pfs-stratified-by-best-response." id="toc-e.-look-at-os-and-pfs-stratified-by-best-response.">3e. Look at OS and PFS stratified by best response.</a></li>
 </ul></li>
 <li><a href="#competing-risks-analysis." id="toc-competing-risks-analysis.">4. Competing risks analysis.</a>
@@ -2259,8 +2259,10 @@ Show code
 </div>
 </details>
 </div>
-<h2 id="calculate-the-length-of-follow-up-using-two-methods.">2. Calculate the length of follow-up using two methods.</h2>
+<h2 id="determine-the-length-of-follow-up-using-two-methods.">2. Determine the length of follow-up using two methods.</h2>
 <h3 id="a.-calculate-the-median-follow-up-among-survivors.">2a. Calculate the median follow-up among survivors.</h3>
+<p>In survival analysis, the median follow-up time is a crucial measure that indicates the duration of time until half of the subjects have experienced the event of interest (e.g., death) or been censored. A simple way to determine median follow-up is to simply calculate the median time to date of last contact (DLC) among survivors.</p>
+<p>Use the filter() and median() functions to calculate the median Days.to.DLC among survivors.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2281,6 +2283,8 @@ Show code
 <pre><code>[1] 440.5</code></pre>
 </div>
 <h3 id="b.-estimate-the-median-follow-up-and-95-ci-using-the-reverse-kaplan-meier-method.">2b. Estimate the median follow-up (and 95% CI) using the Reverse Kaplan-Meier method.</h3>
+<p>The Reverse Kaplan-Meier method (RKM) aids in estimating the median follow-up time by providing a way to estimate survival probabilities backward in time from a known endpoint. This method censors each death and treats ongoing survival as an event. As it computes survival probabilities at each event time, it takes into account the censored observations by adjusting the number of subjects at risk accordingly. Subjects who are censored contribute to the estimation of survival probabilities up to the time of censoring, but they do not contribute to the estimation of survival probabilities beyond that point.</p>
+<p>Bottom line: By considering censored observations in the estimation process, the RKM method provides a comprehensive assessment of survival probabilities backward in time and offers valuable insights into the distribution of survival times and event outcomes in survival studies. Therefore, the RKM method is well-suited for handling censored data and providing accurate estimates of survival probabilities, even in the presence of censoring.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2313,8 +2317,11 @@ Show code
        n events median 0.95LCL 0.95UCL
 [1,] 129     76    673     524    1152</code></pre>
 </div>
-<h2 id="generate-kaplan-meier-plots.">3. Generate Kaplan-Meier plots.</h2>
+<p>EXERCISE 1: Using the RKM method, estimate the median duration of follow-up for patients treated with liso-cel and axi-cel. Does one have longer follow-up?</p>
+<h2 id="draw-kaplan-meier-plots.">3. Draw Kaplan-Meier plots.</h2>
 <h3 id="a.-create-a-plot-of-overall-survival.">3a. Create a plot of overall survival.</h3>
+<p>First create a survfit() object by specifying time as Days.to.DLC and the event as Death.</p>
+<p>Second, use the ggsurvplot() function to draw a Kaplan-Meier curve.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2346,6 +2353,7 @@ Show code
 <p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <h3 id="b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing.">3b. Stratify the overall survival plot by CAR-T product type and perform Log-Rank testing.</h3>
+<p>When creating the survfit() object, specify that it should be stratified by CAR.T.Product.Type.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2378,15 +2386,16 @@ Show code
 </details>
 <p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<h3 id="c.-estimating-x-year-survival.">3c. Estimating x-year survival.</h3>
+<p>EXERCISE: Add “conf.int = TRUE” within the ggsurvplot() function to visualize the 95% confidence intervals.</p>
+<h3 id="c.-estimating-1-year-survival.">3c. Estimating 1-year survival.</h3>
+<p>The summary() function can be used on a survfit object to obtain summary statistics.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## The summary() function can be used on a survfit object to obtain summary statistics.</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span></span>
 <span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span>,</span>
 <span>  times <span class='op'>=</span> <span class='fl'>365</span></span>
 <span><span class='op'>)</span></span></code></pre>
@@ -2406,43 +2415,45 @@ lower 95% CI upper 95% CI
     365.0000      35.0000      28.0000       0.5715       0.0617 
 lower 95% CI upper 95% CI 
       0.4626       0.7061 </code></pre>
+</div>
+<p>We can also pipe the output of the survit object into the tbl_survfit() function using the %&gt;% operator.</p>
+<div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## We can also pipe the output of the survit object into the tbl_survfit() function using the %&gt;% operator</span></span>
-<span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_survfit.html'>tbl_survfit</a></span><span class='op'>(</span></span>
 <span>    times <span class='op'>=</span> <span class='fl'>365</span>,</span>
 <span>    label_header <span class='op'>=</span> <span class='st'>"**1-year OS (95% CI)**"</span> <span class='co'>## This sets a label for the header of the table</span></span>
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="ibxoierzyw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ibxoierzyw table {
+<div id="wvifouoqrw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wvifouoqrw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ibxoierzyw thead, #ibxoierzyw tbody, #ibxoierzyw tfoot, #ibxoierzyw tr, #ibxoierzyw td, #ibxoierzyw th {
+#wvifouoqrw thead, #wvifouoqrw tbody, #wvifouoqrw tfoot, #wvifouoqrw tr, #wvifouoqrw td, #wvifouoqrw th {
   border-style: none;
 }
 
-#ibxoierzyw p {
+#wvifouoqrw p {
   margin: 0;
   padding: 0;
 }
 
-#ibxoierzyw .gt_table {
+#wvifouoqrw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
@@ -2461,12 +2472,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_caption {
+#wvifouoqrw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ibxoierzyw .gt_title {
+#wvifouoqrw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2478,7 +2489,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#ibxoierzyw .gt_subtitle {
+#wvifouoqrw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2490,7 +2501,7 @@ Show code
   border-top-width: 0;
 }
 
-#ibxoierzyw .gt_heading {
+#wvifouoqrw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2502,13 +2513,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_bottom_border {
+#wvifouoqrw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_col_headings {
+#wvifouoqrw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2523,7 +2534,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_col_heading {
+#wvifouoqrw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2543,7 +2554,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ibxoierzyw .gt_column_spanner_outer {
+#wvifouoqrw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2555,15 +2566,15 @@ Show code
   padding-right: 4px;
 }
 
-#ibxoierzyw .gt_column_spanner_outer:first-child {
+#wvifouoqrw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ibxoierzyw .gt_column_spanner_outer:last-child {
+#wvifouoqrw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ibxoierzyw .gt_column_spanner {
+#wvifouoqrw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2575,13 +2586,13 @@ Show code
   width: 100%;
 }
 
-#ibxoierzyw .gt_spanner_row {
+#wvifouoqrw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ibxoierzyw .gt_group_heading {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#wvifouoqrw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
@@ -2605,7 +2616,7 @@ Show code
   text-align: left;
 }
 
-#ibxoierzyw .gt_empty_group_heading {
+#wvifouoqrw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2620,17 +2631,17 @@ Show code
   vertical-align: middle;
 }
 
-#ibxoierzyw .gt_from_md > :first-child {
+#wvifouoqrw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ibxoierzyw .gt_from_md > :last-child {
+#wvifouoqrw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ibxoierzyw .gt_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#wvifouoqrw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -2647,7 +2658,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ibxoierzyw .gt_stub {
+#wvifouoqrw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2660,7 +2671,7 @@ Show code
   padding-right: 5px;
 }
 
-#ibxoierzyw .gt_stub_row_group {
+#wvifouoqrw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2674,36 +2685,36 @@ Show code
   vertical-align: top;
 }
 
-#ibxoierzyw .gt_row_group_first td {
+#wvifouoqrw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ibxoierzyw .gt_row_group_first th {
+#wvifouoqrw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ibxoierzyw .gt_summary_row {
+#wvifouoqrw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#ibxoierzyw .gt_first_summary_row {
+#wvifouoqrw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_first_summary_row.thick {
+#wvifouoqrw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ibxoierzyw .gt_last_summary_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#wvifouoqrw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
@@ -2711,19 +2722,19 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_grand_summary_row {
+#wvifouoqrw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#ibxoierzyw .gt_first_grand_summary_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#wvifouoqrw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
@@ -2731,9 +2742,9 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_last_grand_summary_row_top {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#wvifouoqrw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
@@ -2741,11 +2752,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_striped {
+#wvifouoqrw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ibxoierzyw .gt_table_body {
+#wvifouoqrw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2754,7 +2765,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_footnotes {
+#wvifouoqrw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2768,16 +2779,16 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_footnote {
+#wvifouoqrw .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#ibxoierzyw .gt_sourcenotes {
+#wvifouoqrw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2791,71 +2802,71 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ibxoierzyw .gt_sourcenote {
+#wvifouoqrw .gt_sourcenote {
   font-size: 90%;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#ibxoierzyw .gt_left {
+#wvifouoqrw .gt_left {
   text-align: left;
 }
 
-#ibxoierzyw .gt_center {
+#wvifouoqrw .gt_center {
   text-align: center;
 }
 
-#ibxoierzyw .gt_right {
+#wvifouoqrw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ibxoierzyw .gt_font_normal {
+#wvifouoqrw .gt_font_normal {
   font-weight: normal;
 }
 
-#ibxoierzyw .gt_font_bold {
+#wvifouoqrw .gt_font_bold {
   font-weight: bold;
 }
 
-#ibxoierzyw .gt_font_italic {
+#wvifouoqrw .gt_font_italic {
   font-style: italic;
 }
 
-#ibxoierzyw .gt_super {
+#wvifouoqrw .gt_super {
   font-size: 65%;
 }
 
-#ibxoierzyw .gt_footnote_marks {
+#wvifouoqrw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ibxoierzyw .gt_asterisk {
+#wvifouoqrw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ibxoierzyw .gt_indent_1 {
+#wvifouoqrw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ibxoierzyw .gt_indent_2 {
+#wvifouoqrw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ibxoierzyw .gt_indent_3 {
+#wvifouoqrw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ibxoierzyw .gt_indent_4 {
+#wvifouoqrw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ibxoierzyw .gt_indent_5 {
+#wvifouoqrw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2879,7 +2890,8 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="d.-do-the-same-thing-for-progression-free-survival.">3d. Do the same thing for progression-free survival.</h3>
+<h3 id="d.-draw-a-kaplan-meier-curve-for-progression-free-survival.">3d. Draw a Kaplan-Meier curve for progression-free survival.</h3>
+<p>First create a survfit() object by specifying time as Days.to.relapse.death.or.DLC and the event as Relapse.or.death.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2907,7 +2919,7 @@ Show code
 <span>           <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-9-1.png" width="624" />
+<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-10-1.png" width="624" />
 <details>
 <summary>
 Show code
@@ -2920,30 +2932,30 @@ Show code
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="mdualkjxhd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mdualkjxhd table {
+<div id="cilhmfotla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cilhmfotla table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mdualkjxhd thead, #mdualkjxhd tbody, #mdualkjxhd tfoot, #mdualkjxhd tr, #mdualkjxhd td, #mdualkjxhd th {
+#cilhmfotla thead, #cilhmfotla tbody, #cilhmfotla tfoot, #cilhmfotla tr, #cilhmfotla td, #cilhmfotla th {
   border-style: none;
 }
 
-#mdualkjxhd p {
+#cilhmfotla p {
   margin: 0;
   padding: 0;
 }
 
-#mdualkjxhd .gt_table {
+#cilhmfotla .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
@@ -2962,12 +2974,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_caption {
+#cilhmfotla .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mdualkjxhd .gt_title {
+#cilhmfotla .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2979,7 +2991,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#mdualkjxhd .gt_subtitle {
+#cilhmfotla .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2991,7 +3003,7 @@ Show code
   border-top-width: 0;
 }
 
-#mdualkjxhd .gt_heading {
+#cilhmfotla .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3003,13 +3015,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_bottom_border {
+#cilhmfotla .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_col_headings {
+#cilhmfotla .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3024,7 +3036,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_col_heading {
+#cilhmfotla .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3044,7 +3056,7 @@ Show code
   overflow-x: hidden;
 }
 
-#mdualkjxhd .gt_column_spanner_outer {
+#cilhmfotla .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3056,15 +3068,15 @@ Show code
   padding-right: 4px;
 }
 
-#mdualkjxhd .gt_column_spanner_outer:first-child {
+#cilhmfotla .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mdualkjxhd .gt_column_spanner_outer:last-child {
+#cilhmfotla .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mdualkjxhd .gt_column_spanner {
+#cilhmfotla .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3076,13 +3088,13 @@ Show code
   width: 100%;
 }
 
-#mdualkjxhd .gt_spanner_row {
+#cilhmfotla .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mdualkjxhd .gt_group_heading {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#cilhmfotla .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
@@ -3106,7 +3118,7 @@ Show code
   text-align: left;
 }
 
-#mdualkjxhd .gt_empty_group_heading {
+#cilhmfotla .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3121,17 +3133,17 @@ Show code
   vertical-align: middle;
 }
 
-#mdualkjxhd .gt_from_md > :first-child {
+#cilhmfotla .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mdualkjxhd .gt_from_md > :last-child {
+#cilhmfotla .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mdualkjxhd .gt_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#cilhmfotla .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -3148,7 +3160,7 @@ Show code
   overflow-x: hidden;
 }
 
-#mdualkjxhd .gt_stub {
+#cilhmfotla .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3161,7 +3173,7 @@ Show code
   padding-right: 5px;
 }
 
-#mdualkjxhd .gt_stub_row_group {
+#cilhmfotla .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3175,36 +3187,36 @@ Show code
   vertical-align: top;
 }
 
-#mdualkjxhd .gt_row_group_first td {
+#cilhmfotla .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mdualkjxhd .gt_row_group_first th {
+#cilhmfotla .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mdualkjxhd .gt_summary_row {
+#cilhmfotla .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#mdualkjxhd .gt_first_summary_row {
+#cilhmfotla .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_first_summary_row.thick {
+#cilhmfotla .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mdualkjxhd .gt_last_summary_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#cilhmfotla .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
@@ -3212,19 +3224,19 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_grand_summary_row {
+#cilhmfotla .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#mdualkjxhd .gt_first_grand_summary_row {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#cilhmfotla .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
@@ -3232,9 +3244,9 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_last_grand_summary_row_top {
-  padding-top: 1px;
-  padding-bottom: 1px;
+#cilhmfotla .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
@@ -3242,11 +3254,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_striped {
+#cilhmfotla .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mdualkjxhd .gt_table_body {
+#cilhmfotla .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3255,7 +3267,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_footnotes {
+#cilhmfotla .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3269,16 +3281,16 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_footnote {
+#cilhmfotla .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#mdualkjxhd .gt_sourcenotes {
+#cilhmfotla .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3292,71 +3304,71 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#mdualkjxhd .gt_sourcenote {
+#cilhmfotla .gt_sourcenote {
   font-size: 90%;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#mdualkjxhd .gt_left {
+#cilhmfotla .gt_left {
   text-align: left;
 }
 
-#mdualkjxhd .gt_center {
+#cilhmfotla .gt_center {
   text-align: center;
 }
 
-#mdualkjxhd .gt_right {
+#cilhmfotla .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mdualkjxhd .gt_font_normal {
+#cilhmfotla .gt_font_normal {
   font-weight: normal;
 }
 
-#mdualkjxhd .gt_font_bold {
+#cilhmfotla .gt_font_bold {
   font-weight: bold;
 }
 
-#mdualkjxhd .gt_font_italic {
+#cilhmfotla .gt_font_italic {
   font-style: italic;
 }
 
-#mdualkjxhd .gt_super {
+#cilhmfotla .gt_super {
   font-size: 65%;
 }
 
-#mdualkjxhd .gt_footnote_marks {
+#cilhmfotla .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mdualkjxhd .gt_asterisk {
+#cilhmfotla .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mdualkjxhd .gt_indent_1 {
+#cilhmfotla .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mdualkjxhd .gt_indent_2 {
+#cilhmfotla .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mdualkjxhd .gt_indent_3 {
+#cilhmfotla .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mdualkjxhd .gt_indent_4 {
+#cilhmfotla .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mdualkjxhd .gt_indent_5 {
+#cilhmfotla .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3381,6 +3393,7 @@ Show code
 </div>
 </div>
 <h3 id="e.-look-at-os-and-pfs-stratified-by-best-response.">3e. Look at OS and PFS stratified by best response.</h3>
+<p>A good response is a good response. Let’s visualize it.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -3405,7 +3418,7 @@ Show code
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-10-1.png" width="624" />
+<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-11-1.png" width="624" />
 <details>
 <summary>
 Show code
@@ -3429,10 +3442,15 @@ Show code
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-10-2.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-11-2.png" width="624" /></p>
 </div>
+<p>EXERCISE: Draw a Kaplan-Meier curve for overall survival stratified by Bulky disease status. Do patients with bulky disease have worse overall survival?</p>
 <h2 id="competing-risks-analysis.">4. Competing risks analysis.</h2>
+<p>Competing risks analysis is a statistical method used in survival analysis to analyze the time-to-event data in the presence of multiple competing events. In many real-world scenarios, individuals or subjects may experience different types of events, and these events may preclude the occurrence of other events. Competing risks analysis explicitly accounts for these competing events and provides estimates of the cumulative incidence of each event over time, considering the presence of other events as competing risks.</p>
 <h3 id="a.-cumulative-incidence-of-death-with-grays-testing.">4a. Cumulative incidence of death with Gray’s testing.</h3>
+<p>The cumulative incidence function estimates the probability of experiencing a specific event of interest in the presence of competing risks. It accounts for the occurrence of other competing events and provides estimates of the cumulative incidence of the event of interest over time.</p>
+<p>Gray’s test is a statistical method used in competing risks analysis to compare the cumulative incidence functions of two or more groups. It’s an extension of the log-rank test commonly used in traditional survival analysis for comparing survival curves but is adapted to handle competing risks data.</p>
+<p>Gray’s test assumes that the competing risks data are independent and identically distributed across groups.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -3477,7 +3495,7 @@ Show code
 <span>  <span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_pvalue.html'>add_pvalue</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
