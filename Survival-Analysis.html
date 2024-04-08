@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-02-29"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-02-29"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-04-08"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-04-08"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 29, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this second session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 08, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-29T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
+{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-08T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>February 29, 2024
+<br/>April 08, 2024
 </div>
 
 <div class="d-article">
@@ -2202,12 +2202,30 @@ Lessons
 <li><a href="#competing-risks-analysis." id="toc-competing-risks-analysis.">4. Competing risks analysis.</a>
 <ul>
 <li><a href="#a.-cumulative-incidence-of-death-with-grays-testing." id="toc-a.-cumulative-incidence-of-death-with-grays-testing.">4a. Cumulative incidence of death with Gray’s testing.</a></li>
+<li><a href="#b.-estimate-the-1-year-cumulative-incidence-of-death-from-cancer-and-death-from-other-causes-and-compare-groups-using-grays-test." id="toc-b.-estimate-the-1-year-cumulative-incidence-of-death-from-cancer-and-death-from-other-causes-and-compare-groups-using-grays-test.">4b. Estimate the 1-year cumulative incidence of death from cancer and death from other causes, and compare groups using Gray’s test.</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h1 id="survival-analysis">Survival analysis</h1>
+<p>Survival analysis plays a crucial role in cancer research for many reasons, including:</p>
+<ol type="1">
+<li><p>To estimate the probability of survival over time, which is essential for understanding the prognosis of a disease and for making informed decisions regarding treatment options.</p></li>
+<li><p>To compare the efficacy of different treatment strategies.</p></li>
+<li><p>To identify prognostic factors that influence survival.</p></li>
+<li><p>To determine appropriate sample sizes, study durations, and endpoints for clinical trials.</p></li>
+<li><p>To provide evidence of effectiveness and cost-effectiveness of different cancer treatments.</p></li>
+</ol>
+<p>Survival analysis utilizes time-to-event data, which represent the time from a defined starting point to the occurrence of a particular event of interest.</p>
+<p>The event of interest could be:</p>
+<ol type="1">
+<li><p>Survival: time until death from any cause</p></li>
+<li><p>Disease progression: time until the disease worsens or progresses</p></li>
+<li><p>Recurrence: the time until cancer recurs after treatment</p></li>
+<li><p>Response to treatment: time until a specified response to treatment is achieved (i.e., tumor regression or remission)</p></li>
+</ol>
+<p>Time-to-event datay may also include individuals who have not experienced the event of interest by the end of the study, in which case their data are often censored. Censoring occurs when the event status of an individual is unknown at the time of analysis due to loss to follow-up, withdrawal from the study, or the end of the study period.</p>
 <h2 id="open-the-necessary-libraries-and-read-in-your-data.">1. Open the necessary libraries and read in your data.</h2>
 <h3 id="a.-install-libraries-to-create-and-plot-survival-curves.">1a. Install libraries to create and plot survival curves.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2217,16 +2235,16 @@ Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## "survival" allows you to a create survival curves from a formula (e.g., Kaplan-Meier).</span></span>
-<span><span class='co'>## install.packages("survival")</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"survival"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'>## "survminer" allows you to draw survival curves with the "number at risk" table.</span></span>
-<span><span class='co'>## install.packages("survminer")</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"survminer"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'>## "tidycmprsk" provides an intuitive interface for working with competing risk endpoints. Methods follow those introduced in Fine and Gray (1999).</span></span>
-<span><span class='co'>## install.packages("tidycmprsk")</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"tidycmprsk"</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'>## "ggsurvfit" can be used to draw cumulative incidence curves.</span></span>
-<span><span class='co'>## install.packages("ggsurvfit")</span></span></code></pre>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"ggsurvfit"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
 </div>
@@ -2318,6 +2336,28 @@ Show code
 [1,] 129     76    673     524    1152</code></pre>
 </div>
 <p>EXERCISE 1: Using the RKM method, estimate the median duration of follow-up for patients treated with liso-cel and axi-cel. Does one have longer follow-up?</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Create temporary data set with Reverse_death variable</span></span>
+<span><span class='va'>data1</span> <span class='op'>=</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Reverse_death <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>Death</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># RKM estimate for Liso-cel</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Reverse_death</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>1</span>, <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data1</span>, <span class='va'>CAR.T.Product.Type</span><span class='op'>==</span><span class='st'>"Breyanzi"</span><span class='op'>)</span> <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># RKM estimate for Axi-cel</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Reverse_death</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>1</span>, <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>data1</span>, <span class='va'>CAR.T.Product.Type</span><span class='op'>==</span><span class='st'>"Yescarta"</span><span class='op'>)</span> <span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <h2 id="draw-kaplan-meier-plots.">3. Draw Kaplan-Meier plots.</h2>
 <h3 id="a.-create-a-plot-of-overall-survival.">3a. Create a plot of overall survival.</h3>
 <p>First create a survfit() object by specifying time as Days.to.DLC and the event as Death.</p>
@@ -2350,7 +2390,35 @@ Show code
 <span>           <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>EXERCISE 1: Draw the Kaplan-Meier curve in terms of months rather than days.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># A simple way to change from days to months is to divide by 30 within the Surv() object</span></span>
+<span><span class='va'>km_OS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span><span class='op'>/</span><span class='fl'>30</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='fl'>1</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='co'># Adjust the x-axis label and break points</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='va'>km_OS</span>,</span>
+<span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span>           risk.table.col <span class='op'>=</span> <span class='st'>"strata"</span>,</span>
+<span>           ggtheme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           tables.theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvtheme.html'>theme_cleantable</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           surv.median.line <span class='op'>=</span> <span class='st'>"hv"</span>,</span>
+<span>           xlab<span class='op'>=</span><span class='st'>"Time (months)"</span>, ylab <span class='op'>=</span> <span class='st'>"Overall survival (%)"</span>, <span class='co'>## Change x-axis label to reflect months</span></span>
+<span>           break.x.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span><span class='op'>)</span>, <span class='co'>## Change the x-axis break points to be 12 months</span></span>
+<span>           ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>,</span>
+<span>           break.y.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span><span class='op'>)</span>,</span>
+<span>           legend <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span>           surv.scale <span class='op'>=</span> <span class='st'>"percent"</span>,</span>
+<span>           <span class='op'>)</span></span></code></pre>
+</div>
+</details>
 </div>
 <h3 id="b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing.">3b. Stratify the overall survival plot by CAR-T product type and perform Log-Rank testing.</h3>
 <p>When creating the survfit() object, specify that it should be stratified by CAR.T.Product.Type.</p>
@@ -2384,9 +2452,66 @@ Show code
 <span>           <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<p>EXERCISE: Add “conf.int = TRUE” within the ggsurvplot() function to visualize the 95% confidence intervals.</p>
+<p>EXERCISE 1: Add “conf.int = TRUE” within the ggsurvplot() function to visualize the 95% confidence intervals.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>km_OS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='va'>km_OS</span>,</span>
+<span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span>           risk.table.col <span class='op'>=</span> <span class='st'>"strata"</span>,</span>
+<span>           ggtheme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           tables.theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvtheme.html'>theme_cleantable</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           surv.median.line <span class='op'>=</span> <span class='st'>"hv"</span>,</span>
+<span>           xlab<span class='op'>=</span><span class='st'>"Time (days)"</span>, ylab <span class='op'>=</span> <span class='st'>"Overall survival (%)"</span>,</span>
+<span>           break.x.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>365</span><span class='op'>)</span>,</span>
+<span>           ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>,</span>
+<span>           break.y.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span><span class='op'>)</span>,</span>
+<span>           legend <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span>           surv.scale <span class='op'>=</span> <span class='st'>"percent"</span>,</span>
+<span>           legend.labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Axi-cel"</span><span class='op'>)</span>,</span>
+<span>           pval<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span>           conf.int <span class='op'>=</span> <span class='cn'>TRUE</span></span>
+<span>           <span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
+<p>EXERCISE 2: What is the relationship between pre-LD LDH and OS? Stratify the Kaplan-Meier plot for OS by elevated pre-lymphodepletion LDH (&gt;=210; “High.LDH” variable) to find out.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>km_OS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>High.LDH</span> , data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='va'>km_OS</span>,</span>
+<span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span>           risk.table.col <span class='op'>=</span> <span class='st'>"strata"</span>,</span>
+<span>           ggtheme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           tables.theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvtheme.html'>theme_cleantable</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           surv.median.line <span class='op'>=</span> <span class='st'>"hv"</span>,</span>
+<span>           xlab<span class='op'>=</span><span class='st'>"Time (days)"</span>, ylab <span class='op'>=</span> <span class='st'>"Overall survival (%)"</span>,</span>
+<span>           break.x.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>365</span><span class='op'>)</span>,</span>
+<span>           ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>,</span>
+<span>           break.y.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span><span class='op'>)</span>,</span>
+<span>           legend <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span>           surv.scale <span class='op'>=</span> <span class='st'>"percent"</span>,</span>
+<span>           legend.labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Normal LDH"</span>, <span class='st'>"High LDH"</span><span class='op'>)</span>,</span>
+<span>           pval<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span>           conf.int <span class='op'>=</span> <span class='cn'>TRUE</span></span>
+<span>           <span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <h3 id="c.-estimating-1-year-survival.">3c. Estimating 1-year survival.</h3>
 <p>The summary() function can be used on a survfit object to obtain summary statistics.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2427,33 +2552,33 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_survfit.html'>tbl_survfit</a></span><span class='op'>(</span></span>
 <span>    times <span class='op'>=</span> <span class='fl'>365</span>,</span>
 <span>    label_header <span class='op'>=</span> <span class='st'>"**1-year OS (95% CI)**"</span> <span class='co'>## This sets a label for the header of the table</span></span>
-<span>  <span class='op'>)</span></span></code></pre>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='va'>add_p</span></span></code></pre>
 </div>
 </details>
-<div id="wvifouoqrw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wvifouoqrw table {
+<div id="huivvjsthz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#huivvjsthz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wvifouoqrw thead, #wvifouoqrw tbody, #wvifouoqrw tfoot, #wvifouoqrw tr, #wvifouoqrw td, #wvifouoqrw th {
+#huivvjsthz thead, #huivvjsthz tbody, #huivvjsthz tfoot, #huivvjsthz tr, #huivvjsthz td, #huivvjsthz th {
   border-style: none;
 }
 
-#wvifouoqrw p {
+#huivvjsthz p {
   margin: 0;
   padding: 0;
 }
 
-#wvifouoqrw .gt_table {
+#huivvjsthz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
@@ -2472,12 +2597,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_caption {
+#huivvjsthz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wvifouoqrw .gt_title {
+#huivvjsthz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2489,7 +2614,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#wvifouoqrw .gt_subtitle {
+#huivvjsthz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2501,7 +2626,7 @@ Show code
   border-top-width: 0;
 }
 
-#wvifouoqrw .gt_heading {
+#huivvjsthz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2513,13 +2638,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_bottom_border {
+#huivvjsthz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_col_headings {
+#huivvjsthz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2534,7 +2659,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_col_heading {
+#huivvjsthz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2554,7 +2679,7 @@ Show code
   overflow-x: hidden;
 }
 
-#wvifouoqrw .gt_column_spanner_outer {
+#huivvjsthz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2566,15 +2691,15 @@ Show code
   padding-right: 4px;
 }
 
-#wvifouoqrw .gt_column_spanner_outer:first-child {
+#huivvjsthz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wvifouoqrw .gt_column_spanner_outer:last-child {
+#huivvjsthz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wvifouoqrw .gt_column_spanner {
+#huivvjsthz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2586,13 +2711,13 @@ Show code
   width: 100%;
 }
 
-#wvifouoqrw .gt_spanner_row {
+#huivvjsthz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wvifouoqrw .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#huivvjsthz .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
@@ -2616,7 +2741,7 @@ Show code
   text-align: left;
 }
 
-#wvifouoqrw .gt_empty_group_heading {
+#huivvjsthz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2631,17 +2756,17 @@ Show code
   vertical-align: middle;
 }
 
-#wvifouoqrw .gt_from_md > :first-child {
+#huivvjsthz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wvifouoqrw .gt_from_md > :last-child {
+#huivvjsthz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wvifouoqrw .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#huivvjsthz .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -2658,7 +2783,7 @@ Show code
   overflow-x: hidden;
 }
 
-#wvifouoqrw .gt_stub {
+#huivvjsthz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2671,7 +2796,7 @@ Show code
   padding-right: 5px;
 }
 
-#wvifouoqrw .gt_stub_row_group {
+#huivvjsthz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2685,36 +2810,36 @@ Show code
   vertical-align: top;
 }
 
-#wvifouoqrw .gt_row_group_first td {
+#huivvjsthz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wvifouoqrw .gt_row_group_first th {
+#huivvjsthz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wvifouoqrw .gt_summary_row {
+#huivvjsthz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#wvifouoqrw .gt_first_summary_row {
+#huivvjsthz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_first_summary_row.thick {
+#huivvjsthz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wvifouoqrw .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#huivvjsthz .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
@@ -2722,19 +2847,19 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_grand_summary_row {
+#huivvjsthz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#wvifouoqrw .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#huivvjsthz .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
@@ -2742,9 +2867,9 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#huivvjsthz .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
@@ -2752,11 +2877,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_striped {
+#huivvjsthz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wvifouoqrw .gt_table_body {
+#huivvjsthz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2765,7 +2890,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_footnotes {
+#huivvjsthz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2779,16 +2904,16 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_footnote {
+#huivvjsthz .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#wvifouoqrw .gt_sourcenotes {
+#huivvjsthz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2802,71 +2927,71 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#wvifouoqrw .gt_sourcenote {
+#huivvjsthz .gt_sourcenote {
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#wvifouoqrw .gt_left {
+#huivvjsthz .gt_left {
   text-align: left;
 }
 
-#wvifouoqrw .gt_center {
+#huivvjsthz .gt_center {
   text-align: center;
 }
 
-#wvifouoqrw .gt_right {
+#huivvjsthz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wvifouoqrw .gt_font_normal {
+#huivvjsthz .gt_font_normal {
   font-weight: normal;
 }
 
-#wvifouoqrw .gt_font_bold {
+#huivvjsthz .gt_font_bold {
   font-weight: bold;
 }
 
-#wvifouoqrw .gt_font_italic {
+#huivvjsthz .gt_font_italic {
   font-style: italic;
 }
 
-#wvifouoqrw .gt_super {
+#huivvjsthz .gt_super {
   font-size: 65%;
 }
 
-#wvifouoqrw .gt_footnote_marks {
+#huivvjsthz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wvifouoqrw .gt_asterisk {
+#huivvjsthz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wvifouoqrw .gt_indent_1 {
+#huivvjsthz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wvifouoqrw .gt_indent_2 {
+#huivvjsthz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wvifouoqrw .gt_indent_3 {
+#huivvjsthz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wvifouoqrw .gt_indent_4 {
+#huivvjsthz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wvifouoqrw .gt_indent_5 {
+#huivvjsthz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2875,18 +3000,26 @@ Show code
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;1-year OS (95% CI)&lt;/strong&gt;"><strong>1-year OS (95% CI)</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left">CAR.T.Product.Type</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_1" class="gt_row gt_center"><br /></td>
+<td headers="p.value" class="gt_row gt_center">0.2</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Breyanzi</td>
-<td headers="stat_1" class="gt_row gt_center">74% (61%, 90%)</td></tr>
+<td headers="stat_1" class="gt_row gt_center">74% (61%, 90%)</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Yescarta</td>
-<td headers="stat_1" class="gt_row gt_center">57% (46%, 71%)</td></tr>
+<td headers="stat_1" class="gt_row gt_center">57% (46%, 71%)</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
   </tbody>
   
-  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Log-rank test</td>
+    </tr>
+  </tfoot>
 </table>
 </div>
 </div>
@@ -2919,7 +3052,7 @@ Show code
 <span>           <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-10-1.png" width="624" />
+<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-14-1.png" width="624" />
 <details>
 <summary>
 Show code
@@ -2932,30 +3065,30 @@ Show code
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="cilhmfotla" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cilhmfotla table {
+<div id="jcoxhrqutd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jcoxhrqutd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cilhmfotla thead, #cilhmfotla tbody, #cilhmfotla tfoot, #cilhmfotla tr, #cilhmfotla td, #cilhmfotla th {
+#jcoxhrqutd thead, #jcoxhrqutd tbody, #jcoxhrqutd tfoot, #jcoxhrqutd tr, #jcoxhrqutd td, #jcoxhrqutd th {
   border-style: none;
 }
 
-#cilhmfotla p {
+#jcoxhrqutd p {
   margin: 0;
   padding: 0;
 }
 
-#cilhmfotla .gt_table {
+#jcoxhrqutd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
@@ -2974,12 +3107,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_caption {
+#jcoxhrqutd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cilhmfotla .gt_title {
+#jcoxhrqutd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2991,7 +3124,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#cilhmfotla .gt_subtitle {
+#jcoxhrqutd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3003,7 +3136,7 @@ Show code
   border-top-width: 0;
 }
 
-#cilhmfotla .gt_heading {
+#jcoxhrqutd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3015,13 +3148,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_bottom_border {
+#jcoxhrqutd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_col_headings {
+#jcoxhrqutd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3036,7 +3169,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_col_heading {
+#jcoxhrqutd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3056,7 +3189,7 @@ Show code
   overflow-x: hidden;
 }
 
-#cilhmfotla .gt_column_spanner_outer {
+#jcoxhrqutd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3068,15 +3201,15 @@ Show code
   padding-right: 4px;
 }
 
-#cilhmfotla .gt_column_spanner_outer:first-child {
+#jcoxhrqutd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cilhmfotla .gt_column_spanner_outer:last-child {
+#jcoxhrqutd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cilhmfotla .gt_column_spanner {
+#jcoxhrqutd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3088,13 +3221,13 @@ Show code
   width: 100%;
 }
 
-#cilhmfotla .gt_spanner_row {
+#jcoxhrqutd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cilhmfotla .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#jcoxhrqutd .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
@@ -3118,7 +3251,7 @@ Show code
   text-align: left;
 }
 
-#cilhmfotla .gt_empty_group_heading {
+#jcoxhrqutd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3133,17 +3266,17 @@ Show code
   vertical-align: middle;
 }
 
-#cilhmfotla .gt_from_md > :first-child {
+#jcoxhrqutd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cilhmfotla .gt_from_md > :last-child {
+#jcoxhrqutd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cilhmfotla .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#jcoxhrqutd .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
@@ -3160,7 +3293,7 @@ Show code
   overflow-x: hidden;
 }
 
-#cilhmfotla .gt_stub {
+#jcoxhrqutd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3173,7 +3306,7 @@ Show code
   padding-right: 5px;
 }
 
-#cilhmfotla .gt_stub_row_group {
+#jcoxhrqutd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3187,36 +3320,36 @@ Show code
   vertical-align: top;
 }
 
-#cilhmfotla .gt_row_group_first td {
+#jcoxhrqutd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cilhmfotla .gt_row_group_first th {
+#jcoxhrqutd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cilhmfotla .gt_summary_row {
+#jcoxhrqutd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#cilhmfotla .gt_first_summary_row {
+#jcoxhrqutd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_first_summary_row.thick {
+#jcoxhrqutd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cilhmfotla .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#jcoxhrqutd .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
@@ -3224,19 +3357,19 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_grand_summary_row {
+#jcoxhrqutd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#cilhmfotla .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#jcoxhrqutd .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
@@ -3244,9 +3377,9 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
+#jcoxhrqutd .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
@@ -3254,11 +3387,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_striped {
+#jcoxhrqutd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cilhmfotla .gt_table_body {
+#jcoxhrqutd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3267,7 +3400,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_footnotes {
+#jcoxhrqutd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3281,16 +3414,16 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_footnote {
+#jcoxhrqutd .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#cilhmfotla .gt_sourcenotes {
+#jcoxhrqutd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3304,71 +3437,71 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#cilhmfotla .gt_sourcenote {
+#jcoxhrqutd .gt_sourcenote {
   font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-#cilhmfotla .gt_left {
+#jcoxhrqutd .gt_left {
   text-align: left;
 }
 
-#cilhmfotla .gt_center {
+#jcoxhrqutd .gt_center {
   text-align: center;
 }
 
-#cilhmfotla .gt_right {
+#jcoxhrqutd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cilhmfotla .gt_font_normal {
+#jcoxhrqutd .gt_font_normal {
   font-weight: normal;
 }
 
-#cilhmfotla .gt_font_bold {
+#jcoxhrqutd .gt_font_bold {
   font-weight: bold;
 }
 
-#cilhmfotla .gt_font_italic {
+#jcoxhrqutd .gt_font_italic {
   font-style: italic;
 }
 
-#cilhmfotla .gt_super {
+#jcoxhrqutd .gt_super {
   font-size: 65%;
 }
 
-#cilhmfotla .gt_footnote_marks {
+#jcoxhrqutd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cilhmfotla .gt_asterisk {
+#jcoxhrqutd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cilhmfotla .gt_indent_1 {
+#jcoxhrqutd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cilhmfotla .gt_indent_2 {
+#jcoxhrqutd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cilhmfotla .gt_indent_3 {
+#jcoxhrqutd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cilhmfotla .gt_indent_4 {
+#jcoxhrqutd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cilhmfotla .gt_indent_5 {
+#jcoxhrqutd .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3418,7 +3551,10 @@ Show code
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<img src="Survival-Analysis_files/figure-html5/unnamed-chunk-11-1.png" width="624" />
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<p>EXERCISE 1: Draw a Kaplan-Meier curve for PFS stratified by best response. (Hint: patients with progressive disease must be excluded)</p>
+<div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
@@ -3442,9 +3578,7 @@ Show code
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-11-2.png" width="624" /></p>
 </div>
-<p>EXERCISE: Draw a Kaplan-Meier curve for overall survival stratified by Bulky disease status. Do patients with bulky disease have worse overall survival?</p>
 <h2 id="competing-risks-analysis.">4. Competing risks analysis.</h2>
 <p>Competing risks analysis is a statistical method used in survival analysis to analyze the time-to-event data in the presence of multiple competing events. In many real-world scenarios, individuals or subjects may experience different types of events, and these events may preclude the occurrence of other events. Competing risks analysis explicitly accounts for these competing events and provides estimates of the cumulative incidence of each event over time, considering the presence of other events as competing risks.</p>
 <h3 id="a.-cumulative-incidence-of-death-with-grays-testing.">4a. Cumulative incidence of death with Gray’s testing.</h3>
@@ -3492,10 +3626,590 @@ Show code
 <span>    risktable_stats <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"n.risk"</span><span class='op'>)</span>,</span>
 <span>    risktable_height <span class='op'>=</span> <span class='fl'>0.12</span>,</span>
 <span>    stats_label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Number at risk"</span><span class='op'>)</span></span>
-<span>  <span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_pvalue.html'>add_pvalue</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+<span>  <span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_pvalue.html'>add_pvalue</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Adds in the p-value from Gray's test</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+</div>
+<h3 id="b.-estimate-the-1-year-cumulative-incidence-of-death-from-cancer-and-death-from-other-causes-and-compare-groups-using-grays-test.">4b. Estimate the 1-year cumulative incidence of death from cancer and death from other causes, and compare groups using Gray’s test.</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>, <span class='va'>CAR.T.Product.Type</span>, <span class='va'>Days.to.DLC</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>   Alive.RM.NRM <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span></span>
+<span>     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>,<span class='st'>"0"</span><span class='op'>=</span><span class='st'>"Alive"</span>,<span class='st'>"1"</span><span class='op'>=</span><span class='st'>"death from cancer"</span>,<span class='st'>"2"</span><span class='op'>=</span><span class='st'>"death other causes"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://mskcc-epi-bio.github.io/tidycmprsk/reference/cuminc.html'>cuminc</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Alive.RM.NRM</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span>, <span class='va'>data1</span>, rho<span class='op'>=</span><span class='fl'>0</span>, conf.level<span class='op'>=</span><span class='fl'>0.95</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://mskcc-epi-bio.github.io/tidycmprsk/reference/tbl_cuminc.html'>tbl_cuminc</a></span><span class='op'>(</span></span>
+<span>    times <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>365</span><span class='op'>)</span>,</span>
+<span>    outcomes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"death from cancer"</span>,<span class='st'>"death other causes"</span><span class='op'>)</span>,</span>
+<span>    label_header <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**{time}-day cuminc**"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+<div id="hvsygboxvm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hvsygboxvm table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hvsygboxvm thead, #hvsygboxvm tbody, #hvsygboxvm tfoot, #hvsygboxvm tr, #hvsygboxvm td, #hvsygboxvm th {
+  border-style: none;
+}
+
+#hvsygboxvm p {
+  margin: 0;
+  padding: 0;
+}
+
+#hvsygboxvm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hvsygboxvm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hvsygboxvm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hvsygboxvm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hvsygboxvm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hvsygboxvm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hvsygboxvm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hvsygboxvm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hvsygboxvm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hvsygboxvm .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hvsygboxvm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hvsygboxvm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hvsygboxvm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hvsygboxvm .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hvsygboxvm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hvsygboxvm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hvsygboxvm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hvsygboxvm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hvsygboxvm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hvsygboxvm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hvsygboxvm .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hvsygboxvm .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hvsygboxvm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hvsygboxvm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hvsygboxvm .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hvsygboxvm .gt_left {
+  text-align: left;
+}
+
+#hvsygboxvm .gt_center {
+  text-align: center;
+}
+
+#hvsygboxvm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hvsygboxvm .gt_font_normal {
+  font-weight: normal;
+}
+
+#hvsygboxvm .gt_font_bold {
+  font-weight: bold;
+}
+
+#hvsygboxvm .gt_font_italic {
+  font-style: italic;
+}
+
+#hvsygboxvm .gt_super {
+  font-size: 65%;
+}
+
+#hvsygboxvm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hvsygboxvm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hvsygboxvm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hvsygboxvm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hvsygboxvm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hvsygboxvm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hvsygboxvm .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;365-day cuminc&lt;/strong&gt;"><strong>365-day cuminc</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>p-value</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="death from cancer">death from cancer</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="death from cancer  label" class="gt_row gt_left">CAR.T.Product.Type</td>
+<td headers="death from cancer  stat_1" class="gt_row gt_center"><br /></td>
+<td headers="death from cancer  p.value" class="gt_row gt_center">0.7</td></tr>
+    <tr><td headers="death from cancer  label" class="gt_row gt_left">    Breyanzi</td>
+<td headers="death from cancer  stat_1" class="gt_row gt_center">24% (11%, 38%)</td>
+<td headers="death from cancer  p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="death from cancer  label" class="gt_row gt_left">    Yescarta</td>
+<td headers="death from cancer  stat_1" class="gt_row gt_center">32% (21%, 44%)</td>
+<td headers="death from cancer  p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="death other causes">death other causes</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="death other causes  label" class="gt_row gt_left">CAR.T.Product.Type</td>
+<td headers="death other causes  stat_1" class="gt_row gt_center"><br /></td>
+<td headers="death other causes  p.value" class="gt_row gt_center">0.2</td></tr>
+    <tr><td headers="death other causes  label" class="gt_row gt_left">    Breyanzi</td>
+<td headers="death other causes  stat_1" class="gt_row gt_center">2.1% (0.16%, 9.9%)</td>
+<td headers="death other causes  p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="death other causes  label" class="gt_row gt_left">    Yescarta</td>
+<td headers="death other causes  stat_1" class="gt_row gt_center">11% (4.7%, 20%)</td>
+<td headers="death other causes  p.value" class="gt_row gt_center"><br /></td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Gray’s Test</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<p>EXERCISE 1: Draw a cumulative incidence plot for OS stratified by high pre-LD LDH (“High.LDH” variable).</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>, <span class='va'>High.LDH</span>, <span class='va'>Days.to.DLC</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>High.LDH</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Filter out any patients for whom pre-LD LDH status is not known</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>   Alive.RM.NRM <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span></span>
+<span>     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>,<span class='st'>"0"</span><span class='op'>=</span><span class='st'>"Alive"</span>,<span class='st'>"1"</span><span class='op'>=</span><span class='st'>"death from cancer"</span>,<span class='st'>"2"</span><span class='op'>=</span><span class='st'>"death other causes"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>   High.LDH <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>High.LDH</span>, <span class='st'>"0"</span> <span class='op'>=</span> <span class='st'>"Normal LDH"</span>,<span class='st'>"1"</span><span class='op'>=</span><span class='st'>"High LDH"</span><span class='op'>)</span> <span class='co'>## Rename the High.LDH variable</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://mskcc-epi-bio.github.io/tidycmprsk/reference/cuminc.html'>cuminc</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Alive.RM.NRM</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>High.LDH</span>, <span class='va'>data1</span>, rho<span class='op'>=</span><span class='fl'>0</span>, conf.level<span class='op'>=</span><span class='fl'>0.95</span><span class='op'>)</span> <span class='co'># Stratify by High.LDH variable</span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/ggcuminc.html'>ggcuminc</a></span><span class='op'>(</span></span>
+<span>   risk.table<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span>   theme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>   outcome <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"death from cancer"</span>,<span class='st'>"death other causes"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Time (days)"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Probability of death"</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/lims.html'>ylim</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_risktable.html'>add_risktable</a></span><span class='op'>(</span></span>
+<span>    risktable_stats <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"n.risk"</span><span class='op'>)</span>,</span>
+<span>    risktable_height <span class='op'>=</span> <span class='fl'>0.12</span>,</span>
+<span>    stats_label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Number at risk"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_pvalue.html'>add_pvalue</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Adds in the p value from Gray's test</span></span></code></pre>
+</div>
+</details>
+</div>
+EXERCISE 2: Estimate the 1-year cumulative incidence of death from cancer and death from other causes, stratified by high vs low pre-LD lDH. How does this compare to using a Kaplan-Meier estimate and log-rank testing?
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>, <span class='va'>High.LDH</span>, <span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>High.LDH</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Filter out any patients for whom pre-LD LDH status is not known</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>   Alive.RM.NRM <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span></span>
+<span>     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>Alive.RM.NRM</span>,<span class='st'>"0"</span><span class='op'>=</span><span class='st'>"Alive"</span>,<span class='st'>"1"</span><span class='op'>=</span><span class='st'>"death from cancer"</span>,<span class='st'>"2"</span><span class='op'>=</span><span class='st'>"death other causes"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>   High.LDH <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>High.LDH</span>, <span class='st'>"0"</span> <span class='op'>=</span> <span class='st'>"Normal LDH"</span>,<span class='st'>"1"</span><span class='op'>=</span><span class='st'>"High LDH"</span><span class='op'>)</span> <span class='co'>## Rename the High.LDH variable</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://mskcc-epi-bio.github.io/tidycmprsk/reference/cuminc.html'>cuminc</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Alive.RM.NRM</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>High.LDH</span>, <span class='va'>data1</span>, rho<span class='op'>=</span><span class='fl'>0</span>, conf.level<span class='op'>=</span><span class='fl'>0.95</span><span class='op'>)</span> <span class='co'># Stratify by High.LDH variable</span></span>
+<span></span>
+<span><span class='va'>cum</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://mskcc-epi-bio.github.io/tidycmprsk/reference/tbl_cuminc.html'>tbl_cuminc</a></span><span class='op'>(</span></span>
+<span>    times <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>365</span><span class='op'>)</span>,</span>
+<span>    outcomes <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"death from cancer"</span>,<span class='st'>"death other causes"</span><span class='op'>)</span>,</span>
+<span>    label_header <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**{time}-day cuminc**"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>High.LDH</span> , data <span class='op'>=</span> <span class='va'>data1</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_survfit.html'>tbl_survfit</a></span><span class='op'>(</span></span>
+<span>    times <span class='op'>=</span> <span class='fl'>365</span>,</span>
+<span>    label_header <span class='op'>=</span> <span class='st'>"**365-day OS (95% CI)**"</span> <span class='co'>## This sets a label for the header of the table</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='va'>add_p</span> <span class='co'>## Use the add_p function to include the log-rank test result</span></span></code></pre>
+</div>
+</details>
 </div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

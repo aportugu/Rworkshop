@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-02-23"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-02-23"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-04-08"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-04-08"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypothesis Testing"]},{"type":"character","attributes":{},"value":["In the second session, you'll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["February 23, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypothesis Testing"]},{"type":"character","attributes":{},"value":["In the second session, you'll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 08, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Hypothesis Testing","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-23T00:00:00.000-08:00","citationText":"Portuguese, 2024"}
+{"title":"Hypothesis Testing","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-08T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>February 23, 2024
+<br/>April 08, 2024
 </div>
 
 <div class="d-article">
@@ -2286,7 +2286,7 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggdensity.html'>ggdensity</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>,</span>
 <span>          x <span class='op'>=</span> <span class='st'>"LDH.preLD"</span>,</span>
 <span>          y <span class='op'>=</span> <span class='st'>"density"</span>,</span>
-<span>          main <span class='op'>=</span> <span class='st'>"Desity plot of LDH"</span>,</span>
+<span>          main <span class='op'>=</span> <span class='st'>"Density plot of LDH"</span>,</span>
 <span>          xlab <span class='op'>=</span> <span class='st'>"LDH (U/L)"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
@@ -2382,7 +2382,7 @@ Show code
     Shapiro-Wilk normality test
 
 data:  df$x
-W = 0.9941, p-value = 0.9107</code></pre>
+W = 0.98547, p-value = 0.2516</code></pre>
 </div>
 <p>EXERCISE 1: Are the pre-lymphodepletion LDH values normally distributed?</p>
 <h2 id="perform-statistical-comparisons-using-a-boxplot.">3. Perform statistical comparisons using a boxplot.</h2>
@@ -2396,8 +2396,7 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
 <span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>, <span class='co'># Set the x and y variables</span></span>
 <span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>, <span class='co'># Set title and </span></span>
-<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
-<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='co'># Set the position of the legend</span></span></code></pre>
 </div>
@@ -2424,8 +2423,7 @@ Show code
 <span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
 <span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>,</span>
 <span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
-<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
-<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span><span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
@@ -2449,7 +2447,6 @@ Show code
 <span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>,</span>
 <span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
 <span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
-<span>          palette <span class='op'>=</span><span class='st'>"jco"</span>,</span>
 <span>          add <span class='op'>=</span> <span class='st'>"jitter"</span>, <span class='co'># Add jittered points</span></span>
 <span>          add.params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>0.1</span>, jitter <span class='op'>=</span> <span class='fl'>0.2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Specify point size and amount of jittering</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2470,8 +2467,7 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
 <span>          x <span class='op'>=</span> <span class='st'>"Disease"</span>, y <span class='op'>=</span> <span class='st'>"LDH.preLD"</span>, <span class='co'># Set the x and y variables</span></span>
 <span>          title <span class='op'>=</span> <span class='st'>"LDH vs disease type"</span>, ylab <span class='op'>=</span> <span class='st'>"LDH"</span>, xlab <span class='op'>=</span> <span class='st'>"Disease"</span>, <span class='co'># Set title and </span></span>
-<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span>,</span>
-<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span></span></code></pre>
 </div>
@@ -2490,8 +2486,7 @@ Show code
 <span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='co'># A data frame</span></span>
 <span>          x <span class='op'>=</span> <span class='st'>"Disease"</span>, y <span class='op'>=</span> <span class='st'>"LDH.preLD"</span>, <span class='co'># Set the x and y variables</span></span>
 <span>          title <span class='op'>=</span> <span class='st'>"LDH vs disease type"</span>, ylab <span class='op'>=</span> <span class='st'>"LDH"</span>, xlab <span class='op'>=</span> <span class='st'>"Disease"</span>, <span class='co'># Set title and </span></span>
-<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span>,</span>
-<span>          palette <span class='op'>=</span><span class='st'>"jco"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Other palettes include lancet, jco, uchicago, simpsons, and rickandmorty</span></span>
+<span>          color <span class='op'>=</span> <span class='st'>"Disease"</span><span class='op'>)</span> <span class='op'>+</span> </span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Set the legend label</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"None"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'># Hide legend</span></span>
 <span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
@@ -2509,7 +2504,7 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
-<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
 <span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
 <span>         add <span class='op'>=</span> <span class='st'>"boxplot"</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2527,7 +2522,7 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
-<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
 <span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
 <span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2546,7 +2541,7 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
 <span>         draw_quantiles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.025</span>,<span class='fl'>.5</span>,<span class='fl'>.75</span>,<span class='fl'>.975</span><span class='op'>)</span>,</span>
-<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, </span>
 <span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
 <span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
 <span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2567,7 +2562,7 @@ Show code
 <span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html'>ggviolin</a></span><span class='op'>(</span><span class='va'>db</span>, x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         y <span class='op'>=</span> <span class='st'>"vv.time"</span>,</span>
 <span>         draw_quantiles <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.025</span>,<span class='fl'>.5</span>,<span class='fl'>.75</span>,<span class='fl'>.975</span><span class='op'>)</span>,</span>
-<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, palette <span class='op'>=</span> <span class='st'>"jco"</span>,</span>
+<span>         color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>,</span>
 <span>         xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
 <span>         ylab <span class='op'>=</span> <span class='st'>"Vein-to-vein time (days)"</span>, </span>
 <span>         add <span class='op'>=</span> <span class='st'>"mean_se"</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2615,7 +2610,7 @@ Show code
 <span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{median} ({p25}, {p75})"</span>, <span class='co'>## Continuous variables are described as median with IQR</span></span>
 <span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{n} ({p}%)"</span>, <span class='co'>## Categorical variables are counted and given a percentage</span></span>
 <span>      <span class='st'>"Age (years)"</span> <span class='op'>~</span><span class='st'>"{median} ({min} to {max})"</span> <span class='co'>## Age (a continuous variable) is listed as median with min to max</span></span>
-<span>    <span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
 <span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='va'>bold_labels</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span></span>
@@ -2626,23 +2621,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="eckhftwrfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eckhftwrfa table {
+<div id="enjltxaqfz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#enjltxaqfz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eckhftwrfa thead, #eckhftwrfa tbody, #eckhftwrfa tfoot, #eckhftwrfa tr, #eckhftwrfa td, #eckhftwrfa th {
+#enjltxaqfz thead, #enjltxaqfz tbody, #enjltxaqfz tfoot, #enjltxaqfz tr, #enjltxaqfz td, #enjltxaqfz th {
   border-style: none;
 }
 
-#eckhftwrfa p {
+#enjltxaqfz p {
   margin: 0;
   padding: 0;
 }
 
-#eckhftwrfa .gt_table {
+#enjltxaqfz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2668,12 +2663,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_caption {
+#enjltxaqfz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eckhftwrfa .gt_title {
+#enjltxaqfz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2685,7 +2680,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#eckhftwrfa .gt_subtitle {
+#enjltxaqfz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2697,7 +2692,7 @@ Show code
   border-top-width: 0;
 }
 
-#eckhftwrfa .gt_heading {
+#enjltxaqfz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2709,13 +2704,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_bottom_border {
+#enjltxaqfz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_col_headings {
+#enjltxaqfz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2730,7 +2725,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_col_heading {
+#enjltxaqfz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2750,7 +2745,7 @@ Show code
   overflow-x: hidden;
 }
 
-#eckhftwrfa .gt_column_spanner_outer {
+#enjltxaqfz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2762,15 +2757,15 @@ Show code
   padding-right: 4px;
 }
 
-#eckhftwrfa .gt_column_spanner_outer:first-child {
+#enjltxaqfz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eckhftwrfa .gt_column_spanner_outer:last-child {
+#enjltxaqfz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eckhftwrfa .gt_column_spanner {
+#enjltxaqfz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2782,11 +2777,11 @@ Show code
   width: 100%;
 }
 
-#eckhftwrfa .gt_spanner_row {
+#enjltxaqfz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eckhftwrfa .gt_group_heading {
+#enjltxaqfz .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2812,7 +2807,7 @@ Show code
   text-align: left;
 }
 
-#eckhftwrfa .gt_empty_group_heading {
+#enjltxaqfz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2827,15 +2822,15 @@ Show code
   vertical-align: middle;
 }
 
-#eckhftwrfa .gt_from_md > :first-child {
+#enjltxaqfz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eckhftwrfa .gt_from_md > :last-child {
+#enjltxaqfz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eckhftwrfa .gt_row {
+#enjltxaqfz .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2854,7 +2849,7 @@ Show code
   overflow-x: hidden;
 }
 
-#eckhftwrfa .gt_stub {
+#enjltxaqfz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2867,7 +2862,7 @@ Show code
   padding-right: 5px;
 }
 
-#eckhftwrfa .gt_stub_row_group {
+#enjltxaqfz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2881,15 +2876,15 @@ Show code
   vertical-align: top;
 }
 
-#eckhftwrfa .gt_row_group_first td {
+#enjltxaqfz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eckhftwrfa .gt_row_group_first th {
+#enjltxaqfz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eckhftwrfa .gt_summary_row {
+#enjltxaqfz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2899,16 +2894,16 @@ Show code
   padding-right: 5px;
 }
 
-#eckhftwrfa .gt_first_summary_row {
+#enjltxaqfz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_first_summary_row.thick {
+#enjltxaqfz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eckhftwrfa .gt_last_summary_row {
+#enjltxaqfz .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2918,7 +2913,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_grand_summary_row {
+#enjltxaqfz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2928,7 +2923,7 @@ Show code
   padding-right: 5px;
 }
 
-#eckhftwrfa .gt_first_grand_summary_row {
+#enjltxaqfz .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2938,7 +2933,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_last_grand_summary_row_top {
+#enjltxaqfz .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2948,11 +2943,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_striped {
+#enjltxaqfz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eckhftwrfa .gt_table_body {
+#enjltxaqfz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2961,7 +2956,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_footnotes {
+#enjltxaqfz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2975,7 +2970,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_footnote {
+#enjltxaqfz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -2984,7 +2979,7 @@ Show code
   padding-right: 5px;
 }
 
-#eckhftwrfa .gt_sourcenotes {
+#enjltxaqfz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2998,7 +2993,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#eckhftwrfa .gt_sourcenote {
+#enjltxaqfz .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3006,63 +3001,63 @@ Show code
   padding-right: 5px;
 }
 
-#eckhftwrfa .gt_left {
+#enjltxaqfz .gt_left {
   text-align: left;
 }
 
-#eckhftwrfa .gt_center {
+#enjltxaqfz .gt_center {
   text-align: center;
 }
 
-#eckhftwrfa .gt_right {
+#enjltxaqfz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eckhftwrfa .gt_font_normal {
+#enjltxaqfz .gt_font_normal {
   font-weight: normal;
 }
 
-#eckhftwrfa .gt_font_bold {
+#enjltxaqfz .gt_font_bold {
   font-weight: bold;
 }
 
-#eckhftwrfa .gt_font_italic {
+#enjltxaqfz .gt_font_italic {
   font-style: italic;
 }
 
-#eckhftwrfa .gt_super {
+#enjltxaqfz .gt_super {
   font-size: 65%;
 }
 
-#eckhftwrfa .gt_footnote_marks {
+#enjltxaqfz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eckhftwrfa .gt_asterisk {
+#enjltxaqfz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eckhftwrfa .gt_indent_1 {
+#enjltxaqfz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eckhftwrfa .gt_indent_2 {
+#enjltxaqfz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eckhftwrfa .gt_indent_3 {
+#enjltxaqfz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eckhftwrfa .gt_indent_4 {
+#enjltxaqfz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eckhftwrfa .gt_indent_5 {
+#enjltxaqfz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
