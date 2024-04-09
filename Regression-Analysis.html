@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-04-08"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-04-08"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-04-09"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-04-09"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Regression Analysis"]},{"type":"character","attributes":{},"value":["In this fourth session, you'll learn how to perform logistic, linear, and Cox regression."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 08, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Regression Analysis"]},{"type":"character","attributes":{},"value":["In this fourth session, you'll learn how to perform logistic, linear, and Cox regression."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 09, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Regression Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-08T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
+{"title":"Regression Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-09T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>April 08, 2024
+<br/>April 09, 2024
 </div>
 
 <div class="d-article">
@@ -2189,25 +2189,28 @@ Lessons
 <ul>
 <li><a href="#a.-simple-logistic-regression-example." id="toc-a.-simple-logistic-regression-example.">2a. Simple logistic regression example.</a></li>
 <li><a href="#b.-perform-univariate-logistic-regression-on-multiple-predictor-values-simultaneously." id="toc-b.-perform-univariate-logistic-regression-on-multiple-predictor-values-simultaneously.">2b. Perform univariate logistic regression on multiple predictor values simultaneously.</a></li>
-<li><a href="#c.-perform-multivariable-logistic-regression." id="toc-c.-perform-multivariable-logistic-regression.">2c. Perform multivariable logistic regression.</a></li>
-<li><a href="#d.-combine-univariate-and-multivariable-regression-output-into-one-big-summary-table." id="toc-d.-combine-univariate-and-multivariable-regression-output-into-one-big-summary-table.">2d. Combine univariate and multivariable regression output into one big summary table.</a></li>
-<li><a href="#e.-visualize-the-multivariable-regression-output-using-a-simple-forest-plot." id="toc-e.-visualize-the-multivariable-regression-output-using-a-simple-forest-plot.">2e. Visualize the multivariable regression output using a simple forest plot.</a></li>
+<li><a href="#c.-perform-multivariate-logistic-regression." id="toc-c.-perform-multivariate-logistic-regression.">2c. Perform multivariate logistic regression.</a></li>
+<li><a href="#d.-combine-univariate-and-multivariate-regression-output-into-one-big-summary-table." id="toc-d.-combine-univariate-and-multivariate-regression-output-into-one-big-summary-table.">2d. Combine univariate and multivariate regression output into one big summary table.</a></li>
+<li><a href="#e.-visualize-the-regression-coefficients-using-a-simple-forest-plot." id="toc-e.-visualize-the-regression-coefficients-using-a-simple-forest-plot.">2e. Visualize the regression coefficients using a simple forest plot.</a></li>
 </ul></li>
 <li><a href="#learn-how-to-perform-linear-regression" id="toc-learn-how-to-perform-linear-regression">3. Learn how to perform linear regression</a>
 <ul>
 <li><a href="#a.-make-a-table-of-univariate-linear-regression-output." id="toc-a.-make-a-table-of-univariate-linear-regression-output.">3a. Make a table of univariate linear regression output.</a></li>
-<li><a href="#b.-combine-univariate-and-multivariable-linear-regression-output-into-one-big-summary-table." id="toc-b.-combine-univariate-and-multivariable-linear-regression-output-into-one-big-summary-table.">3b. Combine univariate and multivariable linear regression output into one big summary table.</a></li>
+<li><a href="#b.-combine-univariate-and-multivariate-linear-regression-output-into-one-big-summary-table." id="toc-b.-combine-univariate-and-multivariate-linear-regression-output-into-one-big-summary-table.">3b. Combine univariate and multivariate linear regression output into one big summary table.</a></li>
 </ul></li>
 <li><a href="#learn-how-to-perform-cox-regression." id="toc-learn-how-to-perform-cox-regression.">4. Learn how to perform Cox regression.</a>
 <ul>
 <li><a href="#a.-make-a-table-of-univariate-cox-regression-output-to-analyze-pfs." id="toc-a.-make-a-table-of-univariate-cox-regression-output-to-analyze-pfs.">4a. Make a table of univariate Cox regression output to analyze PFS.</a></li>
 <li><a href="#b.-combine-univariate-and-multivariable-cox-regression-output-into-one-big-summary-table." id="toc-b.-combine-univariate-and-multivariable-cox-regression-output-into-one-big-summary-table.">4b. Combine univariate and multivariable Cox regression output into one big summary table.</a></li>
+<li><a href="#c.-check-whether-the-proportional-hazards-assumption-is-violated." id="toc-c.-check-whether-the-proportional-hazards-assumption-is-violated.">4c. Check whether the proportional hazards assumption is violated.</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 </div>
 <h1 id="regression-analysis">Regression analysis</h1>
+<p>Regression analysis is a statistical method used to examine the relationship between one or more independent variables (predictors) and a dependent variable (outcome). Its primary goal is to understand how the dependent variable changes as the independent variables vary.</p>
+<p>Regression analysis seeks to model the relationship between the variables, typically by fitting a mathematical equation to the observed data. This equation can then be used to make predictions or infer the strength and direction of the relationships between variables.</p>
 <h2 id="open-the-necessary-libraries-and-import-your-data">1. Open the necessary libraries and import your data</h2>
 <h3 id="a.-open-the-necessary-libraries-to-read-in-data-create-data-tables-and-generate-plots.">1a. Open the necessary libraries to read in data, create data tables, and generate plots.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2246,42 +2249,49 @@ Show code
 </details>
 </div>
 <h2 id="learn-how-to-perform-logistic-regression-analysis">2. Learn how to perform logistic regression analysis</h2>
+<p>Logistic regression is a statistical method used for modeling the relationship between a binary outcome variable and one or more predictor variables. The dependent variable is binary, meaning it takes on only two possible values, often coded as 1 and 0. These values could represent categories like “success” and “failure,” “yes” and “no,” or “positive” and “negative.”</p>
+<p>The goal of logistic regression is to model the probability that the binary outcome variable is equal to 1 (or takes on one of the categories) as a function of the predictor variables. Logistic regression uses the logistic function (also known as the sigmoid function) to model the relationship.</p>
+<p>The logistic regression model can be mathematically represented as:</p>
+<p><span class="math inline">\(logit(p) = log(\frac{p}{1-p}) = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... +\beta_kx_k\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(p\)</span> is the probability of the outcome variable being 1</li>
+<li><span class="math inline">\(x_1, x_2, x_3,...,x_k\)</span> are the predictor variables</li>
+<li><span class="math inline">\(\beta_0, \beta_1,...\beta_k\)</span> are the coefficients (parameters) to be estimated</li>
+<li><span class="math inline">\(logit(p)\)</span> is the natural logarithm of the odds of the outcome variable being 1</li>
+</ul>
+<p>The coefficients estimated by logistic regression indicate the strength and direction of the relationship between each predictor variable and the log odds of the outcome variable being 1. These coefficients can be exponentiated to obtain odds ratios, which represent the multiplicative change in the odds of the outcome variable for a one-unit change in the predictor variable.</p>
 <h3 id="a.-simple-logistic-regression-example.">2a. Simple logistic regression example.</h3>
+<p>The pre-lymphodepletion LDH can be used as a proxy for disease bulk and/or aggressiveness in lymphoma. What is the relationship between achieving a CR and the pre-LD LDH?</p>
+<p>The glm() function can be used to fit a logistic regression model where “CR” is the (dependent) binary response variable and “LDH.preLD” is the (independent) predictor variable. It uses the form “outcome ~ predictor1 + predictor2 + …”</p>
+<p>The “family = binomial” argument specifies the binomial family (i.e., logistic)</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## The pre-lymphodepletion LDH can be used as a proxy for disease bulk and/or aggressiveness in lymphoma.</span></span>
-<span><span class='co'>## What is the relationship between achieving a CR and the pre-LD LDH?</span></span>
-<span></span>
-<span><span class='co'>##  The glm() function fits a logistic regression model where "CR" is the binary response variable and "LDH.preLD" is the predictor variable.</span></span>
-<span><span class='co'>##  It uses the form "outcome ~ predictor1 + predictor2 + ..."</span></span>
-<span></span>
-<span><span class='co'>##  The "family = binomial" argument specifies the binomial family (i.e., logistic)</span></span>
-<span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>CR</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
-<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'>## Creates  a regression table using the tbl_regression() function from the "gtsummary" package</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>CR</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Creates  a regression table using the tbl_regression() function from the "gtsummary" package</span></span></code></pre>
 </div>
 </details>
-<div id="qtpshscjco" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qtpshscjco table {
+<div id="klkulgpiaj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#klkulgpiaj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qtpshscjco thead, #qtpshscjco tbody, #qtpshscjco tfoot, #qtpshscjco tr, #qtpshscjco td, #qtpshscjco th {
+#klkulgpiaj thead, #klkulgpiaj tbody, #klkulgpiaj tfoot, #klkulgpiaj tr, #klkulgpiaj td, #klkulgpiaj th {
   border-style: none;
 }
 
-#qtpshscjco p {
+#klkulgpiaj p {
   margin: 0;
   padding: 0;
 }
 
-#qtpshscjco .gt_table {
+#klkulgpiaj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2307,12 +2317,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_caption {
+#klkulgpiaj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qtpshscjco .gt_title {
+#klkulgpiaj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2324,7 +2334,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#qtpshscjco .gt_subtitle {
+#klkulgpiaj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2336,7 +2346,7 @@ Show code
   border-top-width: 0;
 }
 
-#qtpshscjco .gt_heading {
+#klkulgpiaj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2348,13 +2358,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_bottom_border {
+#klkulgpiaj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_col_headings {
+#klkulgpiaj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2369,7 +2379,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_col_heading {
+#klkulgpiaj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2389,7 +2399,7 @@ Show code
   overflow-x: hidden;
 }
 
-#qtpshscjco .gt_column_spanner_outer {
+#klkulgpiaj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2401,15 +2411,15 @@ Show code
   padding-right: 4px;
 }
 
-#qtpshscjco .gt_column_spanner_outer:first-child {
+#klkulgpiaj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qtpshscjco .gt_column_spanner_outer:last-child {
+#klkulgpiaj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qtpshscjco .gt_column_spanner {
+#klkulgpiaj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2421,11 +2431,11 @@ Show code
   width: 100%;
 }
 
-#qtpshscjco .gt_spanner_row {
+#klkulgpiaj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qtpshscjco .gt_group_heading {
+#klkulgpiaj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2451,7 +2461,7 @@ Show code
   text-align: left;
 }
 
-#qtpshscjco .gt_empty_group_heading {
+#klkulgpiaj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2466,15 +2476,15 @@ Show code
   vertical-align: middle;
 }
 
-#qtpshscjco .gt_from_md > :first-child {
+#klkulgpiaj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qtpshscjco .gt_from_md > :last-child {
+#klkulgpiaj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qtpshscjco .gt_row {
+#klkulgpiaj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2493,7 +2503,7 @@ Show code
   overflow-x: hidden;
 }
 
-#qtpshscjco .gt_stub {
+#klkulgpiaj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2506,7 +2516,7 @@ Show code
   padding-right: 5px;
 }
 
-#qtpshscjco .gt_stub_row_group {
+#klkulgpiaj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2520,15 +2530,15 @@ Show code
   vertical-align: top;
 }
 
-#qtpshscjco .gt_row_group_first td {
+#klkulgpiaj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qtpshscjco .gt_row_group_first th {
+#klkulgpiaj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qtpshscjco .gt_summary_row {
+#klkulgpiaj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2538,16 +2548,16 @@ Show code
   padding-right: 5px;
 }
 
-#qtpshscjco .gt_first_summary_row {
+#klkulgpiaj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_first_summary_row.thick {
+#klkulgpiaj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qtpshscjco .gt_last_summary_row {
+#klkulgpiaj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2557,7 +2567,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_grand_summary_row {
+#klkulgpiaj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2567,7 +2577,7 @@ Show code
   padding-right: 5px;
 }
 
-#qtpshscjco .gt_first_grand_summary_row {
+#klkulgpiaj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2577,7 +2587,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_last_grand_summary_row_top {
+#klkulgpiaj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2587,11 +2597,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_striped {
+#klkulgpiaj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qtpshscjco .gt_table_body {
+#klkulgpiaj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2600,7 +2610,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_footnotes {
+#klkulgpiaj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2614,7 +2624,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_footnote {
+#klkulgpiaj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2623,7 +2633,7 @@ Show code
   padding-right: 5px;
 }
 
-#qtpshscjco .gt_sourcenotes {
+#klkulgpiaj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2637,7 +2647,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qtpshscjco .gt_sourcenote {
+#klkulgpiaj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2645,63 +2655,63 @@ Show code
   padding-right: 5px;
 }
 
-#qtpshscjco .gt_left {
+#klkulgpiaj .gt_left {
   text-align: left;
 }
 
-#qtpshscjco .gt_center {
+#klkulgpiaj .gt_center {
   text-align: center;
 }
 
-#qtpshscjco .gt_right {
+#klkulgpiaj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qtpshscjco .gt_font_normal {
+#klkulgpiaj .gt_font_normal {
   font-weight: normal;
 }
 
-#qtpshscjco .gt_font_bold {
+#klkulgpiaj .gt_font_bold {
   font-weight: bold;
 }
 
-#qtpshscjco .gt_font_italic {
+#klkulgpiaj .gt_font_italic {
   font-style: italic;
 }
 
-#qtpshscjco .gt_super {
+#klkulgpiaj .gt_super {
   font-size: 65%;
 }
 
-#qtpshscjco .gt_footnote_marks {
+#klkulgpiaj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qtpshscjco .gt_asterisk {
+#klkulgpiaj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qtpshscjco .gt_indent_1 {
+#klkulgpiaj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qtpshscjco .gt_indent_2 {
+#klkulgpiaj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qtpshscjco .gt_indent_3 {
+#klkulgpiaj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qtpshscjco .gt_indent_4 {
+#klkulgpiaj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qtpshscjco .gt_indent_5 {
+#klkulgpiaj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2709,15 +2719,15 @@ Show code
   <thead>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;OR&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;log(OR)&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>log(OR)</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;95% CI&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left">LDH.preLD</td>
-<td headers="estimate" class="gt_row gt_center">0.12</td>
-<td headers="ci" class="gt_row gt_center">0.04, 0.30</td>
+<td headers="estimate" class="gt_row gt_center">-2.1</td>
+<td headers="ci" class="gt_row gt_center">-3.1, -1.2</td>
 <td headers="p.value" class="gt_row gt_center"><0.001</td></tr>
   </tbody>
   
@@ -2729,7 +2739,21 @@ Show code
 </table>
 </div>
 </div>
+<p>EXERCISE 1: Exponentiate the coefficients to obtain the odds ratio. (Hint: this is a feature of the tbl_regression function.)</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>CR</span> <span class='op'>~</span> <span class='va'>LDH.preLD</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'>## Set exponentiate to TRUE within the tbl_regression function</span></span></code></pre>
+</div>
+</details>
+</div>
 <h3 id="b.-perform-univariate-logistic-regression-on-multiple-predictor-values-simultaneously.">2b. Perform univariate logistic regression on multiple predictor values simultaneously.</h3>
+<p>The c() function can be used to combine variables into a vector. Define a vector containing the names of the response and predictor variables to use in the univariate regression screening analysis.</p>
+<p>The tbl_uvregression() function can subsequently be used to create a univariate regression table with the specified predictors.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2738,10 +2762,8 @@ Show code
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Set the table theme to compact</span></span>
 <span></span>
-<span><span class='co'>## Define a vector "preds" containing the names of the predictor variables.</span></span>
-<span><span class='co'>##  Use the c() function to combine multiple variables into a vector.</span></span>
-<span><span class='co'>##  You MUST include the response variable, "CR," as well!</span></span>
-<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
+<span><span class='co'>##  Note: You MUST include the response variable, "CR," as well as the predictor variables</span></span>
+<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
 <span></span>
 <span><span class='co'>## Create a univariate regression table using the tbl_uvregression() function from "gtsummary"</span></span>
 <span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_uvregression.html'>tbl_uvregression</a></span><span class='op'>(</span></span>
@@ -2754,23 +2776,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Sort the p-values in ascending order in the regression table</span></span></code></pre>
 </div>
 </details>
-<div id="fvxsrwwaco" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fvxsrwwaco table {
+<div id="trflkfdbql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#trflkfdbql table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fvxsrwwaco thead, #fvxsrwwaco tbody, #fvxsrwwaco tfoot, #fvxsrwwaco tr, #fvxsrwwaco td, #fvxsrwwaco th {
+#trflkfdbql thead, #trflkfdbql tbody, #trflkfdbql tfoot, #trflkfdbql tr, #trflkfdbql td, #trflkfdbql th {
   border-style: none;
 }
 
-#fvxsrwwaco p {
+#trflkfdbql p {
   margin: 0;
   padding: 0;
 }
 
-#fvxsrwwaco .gt_table {
+#trflkfdbql .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2796,12 +2818,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_caption {
+#trflkfdbql .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fvxsrwwaco .gt_title {
+#trflkfdbql .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2813,7 +2835,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#fvxsrwwaco .gt_subtitle {
+#trflkfdbql .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2825,7 +2847,7 @@ Show code
   border-top-width: 0;
 }
 
-#fvxsrwwaco .gt_heading {
+#trflkfdbql .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2837,13 +2859,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_bottom_border {
+#trflkfdbql .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_col_headings {
+#trflkfdbql .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2858,7 +2880,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_col_heading {
+#trflkfdbql .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2878,7 +2900,7 @@ Show code
   overflow-x: hidden;
 }
 
-#fvxsrwwaco .gt_column_spanner_outer {
+#trflkfdbql .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2890,15 +2912,15 @@ Show code
   padding-right: 4px;
 }
 
-#fvxsrwwaco .gt_column_spanner_outer:first-child {
+#trflkfdbql .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fvxsrwwaco .gt_column_spanner_outer:last-child {
+#trflkfdbql .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fvxsrwwaco .gt_column_spanner {
+#trflkfdbql .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2910,11 +2932,11 @@ Show code
   width: 100%;
 }
 
-#fvxsrwwaco .gt_spanner_row {
+#trflkfdbql .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fvxsrwwaco .gt_group_heading {
+#trflkfdbql .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2940,7 +2962,7 @@ Show code
   text-align: left;
 }
 
-#fvxsrwwaco .gt_empty_group_heading {
+#trflkfdbql .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2955,15 +2977,15 @@ Show code
   vertical-align: middle;
 }
 
-#fvxsrwwaco .gt_from_md > :first-child {
+#trflkfdbql .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fvxsrwwaco .gt_from_md > :last-child {
+#trflkfdbql .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fvxsrwwaco .gt_row {
+#trflkfdbql .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2982,7 +3004,7 @@ Show code
   overflow-x: hidden;
 }
 
-#fvxsrwwaco .gt_stub {
+#trflkfdbql .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2995,7 +3017,7 @@ Show code
   padding-right: 5px;
 }
 
-#fvxsrwwaco .gt_stub_row_group {
+#trflkfdbql .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3009,15 +3031,15 @@ Show code
   vertical-align: top;
 }
 
-#fvxsrwwaco .gt_row_group_first td {
+#trflkfdbql .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fvxsrwwaco .gt_row_group_first th {
+#trflkfdbql .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fvxsrwwaco .gt_summary_row {
+#trflkfdbql .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3027,16 +3049,16 @@ Show code
   padding-right: 5px;
 }
 
-#fvxsrwwaco .gt_first_summary_row {
+#trflkfdbql .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_first_summary_row.thick {
+#trflkfdbql .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fvxsrwwaco .gt_last_summary_row {
+#trflkfdbql .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3046,7 +3068,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_grand_summary_row {
+#trflkfdbql .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3056,7 +3078,7 @@ Show code
   padding-right: 5px;
 }
 
-#fvxsrwwaco .gt_first_grand_summary_row {
+#trflkfdbql .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3066,7 +3088,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_last_grand_summary_row_top {
+#trflkfdbql .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3076,11 +3098,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_striped {
+#trflkfdbql .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fvxsrwwaco .gt_table_body {
+#trflkfdbql .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3089,7 +3111,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_footnotes {
+#trflkfdbql .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3103,7 +3125,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_footnote {
+#trflkfdbql .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -3112,7 +3134,7 @@ Show code
   padding-right: 5px;
 }
 
-#fvxsrwwaco .gt_sourcenotes {
+#trflkfdbql .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3126,7 +3148,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#fvxsrwwaco .gt_sourcenote {
+#trflkfdbql .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3134,63 +3156,63 @@ Show code
   padding-right: 5px;
 }
 
-#fvxsrwwaco .gt_left {
+#trflkfdbql .gt_left {
   text-align: left;
 }
 
-#fvxsrwwaco .gt_center {
+#trflkfdbql .gt_center {
   text-align: center;
 }
 
-#fvxsrwwaco .gt_right {
+#trflkfdbql .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fvxsrwwaco .gt_font_normal {
+#trflkfdbql .gt_font_normal {
   font-weight: normal;
 }
 
-#fvxsrwwaco .gt_font_bold {
+#trflkfdbql .gt_font_bold {
   font-weight: bold;
 }
 
-#fvxsrwwaco .gt_font_italic {
+#trflkfdbql .gt_font_italic {
   font-style: italic;
 }
 
-#fvxsrwwaco .gt_super {
+#trflkfdbql .gt_super {
   font-size: 65%;
 }
 
-#fvxsrwwaco .gt_footnote_marks {
+#trflkfdbql .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fvxsrwwaco .gt_asterisk {
+#trflkfdbql .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fvxsrwwaco .gt_indent_1 {
+#trflkfdbql .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fvxsrwwaco .gt_indent_2 {
+#trflkfdbql .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fvxsrwwaco .gt_indent_3 {
+#trflkfdbql .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fvxsrwwaco .gt_indent_4 {
+#trflkfdbql .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fvxsrwwaco .gt_indent_5 {
+#trflkfdbql .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3215,21 +3237,6 @@ Show code
 <td headers="estimate" class="gt_row gt_center">0.87</td>
 <td headers="ci" class="gt_row gt_center">0.77, 0.97</td>
 <td headers="p.value" class="gt_row gt_center">0.014</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">CAR.T.Product.Type</td>
-<td headers="stat_n" class="gt_row gt_center">129</td>
-<td headers="estimate" class="gt_row gt_center"><br /></td>
-<td headers="ci" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Breyanzi</td>
-<td headers="stat_n" class="gt_row gt_center"><br /></td>
-<td headers="estimate" class="gt_row gt_center">—</td>
-<td headers="ci" class="gt_row gt_center">—</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Yescarta</td>
-<td headers="stat_n" class="gt_row gt_center"><br /></td>
-<td headers="estimate" class="gt_row gt_center">0.68</td>
-<td headers="ci" class="gt_row gt_center">0.32, 1.40</td>
-<td headers="p.value" class="gt_row gt_center">0.3</td></tr>
     <tr><td headers="label" class="gt_row gt_left">ALC.preLD</td>
 <td headers="stat_n" class="gt_row gt_center">128</td>
 <td headers="estimate" class="gt_row gt_center">0.93</td>
@@ -3270,39 +3277,38 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="c.-perform-multivariable-logistic-regression.">2c. Perform multivariable logistic regression.</h3>
+<p>EXERCISE 1: Add CAR.T.Product.Type to the univariate regression table. Is the product type associated with achieving a CR in univariate analysis?</p>
+<h3 id="c.-perform-multivariate-logistic-regression.">2c. Perform multivariate logistic regression.</h3>
+<p>Multivariate logistic regression is an extension of logistic regression that allows for the analysis of the relationship between a binary outcome variable and multiple predictor variables simultaneously. It allows for the assessment of the joint effect of multiple predictor variables on the outcome variable. It is particularly useful when there are multiple factors that may influence the outcome of interest, and you want to understand how these factors collectively affect the probability of the outcome variable.</p>
+<p>Use the glm(response ~ pred1 + pred2 + pred3 +…) function to fit a logistic regression model where “CR” is the binary response variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Use the glm() function to fit a logistic regression model where "CR" is the binary response variable.</span></span>
-<span></span>
-<span><span class='co'>## The "family = binomial" argument specifies the binomial family, which is suitable for binary outcomes.</span></span>
-<span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Use the tbl_regression() function with exponentiated coefficients</span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Sort the p-values in ascending order in the regression table</span></span></code></pre>
 </div>
 </details>
-<div id="ebeigfjulp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ebeigfjulp table {
+<div id="hvovhecgvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hvovhecgvn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ebeigfjulp thead, #ebeigfjulp tbody, #ebeigfjulp tfoot, #ebeigfjulp tr, #ebeigfjulp td, #ebeigfjulp th {
+#hvovhecgvn thead, #hvovhecgvn tbody, #hvovhecgvn tfoot, #hvovhecgvn tr, #hvovhecgvn td, #hvovhecgvn th {
   border-style: none;
 }
 
-#ebeigfjulp p {
+#hvovhecgvn p {
   margin: 0;
   padding: 0;
 }
 
-#ebeigfjulp .gt_table {
+#hvovhecgvn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3328,12 +3334,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_caption {
+#hvovhecgvn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ebeigfjulp .gt_title {
+#hvovhecgvn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3345,7 +3351,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#ebeigfjulp .gt_subtitle {
+#hvovhecgvn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3357,7 +3363,7 @@ Show code
   border-top-width: 0;
 }
 
-#ebeigfjulp .gt_heading {
+#hvovhecgvn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3369,13 +3375,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_bottom_border {
+#hvovhecgvn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_col_headings {
+#hvovhecgvn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3390,7 +3396,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_col_heading {
+#hvovhecgvn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3410,7 +3416,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ebeigfjulp .gt_column_spanner_outer {
+#hvovhecgvn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3422,15 +3428,15 @@ Show code
   padding-right: 4px;
 }
 
-#ebeigfjulp .gt_column_spanner_outer:first-child {
+#hvovhecgvn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ebeigfjulp .gt_column_spanner_outer:last-child {
+#hvovhecgvn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ebeigfjulp .gt_column_spanner {
+#hvovhecgvn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3442,11 +3448,11 @@ Show code
   width: 100%;
 }
 
-#ebeigfjulp .gt_spanner_row {
+#hvovhecgvn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ebeigfjulp .gt_group_heading {
+#hvovhecgvn .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3472,7 +3478,7 @@ Show code
   text-align: left;
 }
 
-#ebeigfjulp .gt_empty_group_heading {
+#hvovhecgvn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3487,15 +3493,15 @@ Show code
   vertical-align: middle;
 }
 
-#ebeigfjulp .gt_from_md > :first-child {
+#hvovhecgvn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ebeigfjulp .gt_from_md > :last-child {
+#hvovhecgvn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ebeigfjulp .gt_row {
+#hvovhecgvn .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3514,7 +3520,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ebeigfjulp .gt_stub {
+#hvovhecgvn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3527,7 +3533,7 @@ Show code
   padding-right: 5px;
 }
 
-#ebeigfjulp .gt_stub_row_group {
+#hvovhecgvn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3541,15 +3547,15 @@ Show code
   vertical-align: top;
 }
 
-#ebeigfjulp .gt_row_group_first td {
+#hvovhecgvn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ebeigfjulp .gt_row_group_first th {
+#hvovhecgvn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ebeigfjulp .gt_summary_row {
+#hvovhecgvn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3559,16 +3565,16 @@ Show code
   padding-right: 5px;
 }
 
-#ebeigfjulp .gt_first_summary_row {
+#hvovhecgvn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_first_summary_row.thick {
+#hvovhecgvn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ebeigfjulp .gt_last_summary_row {
+#hvovhecgvn .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3578,7 +3584,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_grand_summary_row {
+#hvovhecgvn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3588,7 +3594,7 @@ Show code
   padding-right: 5px;
 }
 
-#ebeigfjulp .gt_first_grand_summary_row {
+#hvovhecgvn .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3598,7 +3604,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_last_grand_summary_row_top {
+#hvovhecgvn .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3608,11 +3614,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_striped {
+#hvovhecgvn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ebeigfjulp .gt_table_body {
+#hvovhecgvn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3621,7 +3627,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_footnotes {
+#hvovhecgvn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3635,7 +3641,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_footnote {
+#hvovhecgvn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -3644,7 +3650,7 @@ Show code
   padding-right: 5px;
 }
 
-#ebeigfjulp .gt_sourcenotes {
+#hvovhecgvn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3658,7 +3664,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ebeigfjulp .gt_sourcenote {
+#hvovhecgvn .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3666,63 +3672,63 @@ Show code
   padding-right: 5px;
 }
 
-#ebeigfjulp .gt_left {
+#hvovhecgvn .gt_left {
   text-align: left;
 }
 
-#ebeigfjulp .gt_center {
+#hvovhecgvn .gt_center {
   text-align: center;
 }
 
-#ebeigfjulp .gt_right {
+#hvovhecgvn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ebeigfjulp .gt_font_normal {
+#hvovhecgvn .gt_font_normal {
   font-weight: normal;
 }
 
-#ebeigfjulp .gt_font_bold {
+#hvovhecgvn .gt_font_bold {
   font-weight: bold;
 }
 
-#ebeigfjulp .gt_font_italic {
+#hvovhecgvn .gt_font_italic {
   font-style: italic;
 }
 
-#ebeigfjulp .gt_super {
+#hvovhecgvn .gt_super {
   font-size: 65%;
 }
 
-#ebeigfjulp .gt_footnote_marks {
+#hvovhecgvn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ebeigfjulp .gt_asterisk {
+#hvovhecgvn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ebeigfjulp .gt_indent_1 {
+#hvovhecgvn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ebeigfjulp .gt_indent_2 {
+#hvovhecgvn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ebeigfjulp .gt_indent_3 {
+#hvovhecgvn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ebeigfjulp .gt_indent_4 {
+#hvovhecgvn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ebeigfjulp .gt_indent_5 {
+#hvovhecgvn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3790,7 +3796,15 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="d.-combine-univariate-and-multivariable-regression-output-into-one-big-summary-table.">2d. Combine univariate and multivariable regression output into one big summary table.</h3>
+<h3 id="d.-combine-univariate-and-multivariate-regression-output-into-one-big-summary-table.">2d. Combine univariate and multivariate regression output into one big summary table.</h3>
+<p>It is useful to visualize the univariate and multivariate output side-by-side.</p>
+<p>Steps:</p>
+<ol type="1">
+<li>Create the univariate regression table (as before)</li>
+<li>Create a multivariate regression table (as before)</li>
+<li>Merge the two tables together using the tbl_merge() function</li>
+</ol>
+<p>The tbl_merge() function requires a list, list(), of tables and a vector, c(), of headers.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -3800,7 +3814,7 @@ Show code
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='co'>## Step 1: Create the univariate regression table (as before)</span></span>
-<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
+<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
 <span></span>
 <span><span class='va'>tbl_uv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_uvregression.html'>tbl_uvregression</a></span><span class='op'>(</span></span>
 <span>  <span class='va'>db</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>preds</span><span class='op'>)</span><span class='op'>]</span>,</span>
@@ -3811,34 +3825,34 @@ Show code
 <span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> </span>
 <span></span>
-<span><span class='co'>## Step 2: Create a multivariable regression table (as before)</span></span>
-<span><span class='va'>tbl_mv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span><span class='co'>## Step 2: Create a multivariate regression table (as before)</span></span>
+<span><span class='va'>tbl_mv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> </span>
 <span></span>
 <span><span class='co'>## Step 3: Merge the two tables together</span></span>
 <span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_merge.html'>tbl_merge</a></span><span class='op'>(</span></span>
 <span>  tbls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>tbl_uv</span>, <span class='va'>tbl_mv</span><span class='op'>)</span>,                          <span class='co'># combine</span></span>
-<span>  tab_spanner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Univariate**"</span>, <span class='st'>"**Multivariable**"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># set header names</span></span></code></pre>
+<span>  tab_spanner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Univariate**"</span>, <span class='st'>"**Multivariate**"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># set header names</span></span></code></pre>
 </div>
 </details>
-<div id="xnixdjexxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xnixdjexxp table {
+<div id="przutdpagv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#przutdpagv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xnixdjexxp thead, #xnixdjexxp tbody, #xnixdjexxp tfoot, #xnixdjexxp tr, #xnixdjexxp td, #xnixdjexxp th {
+#przutdpagv thead, #przutdpagv tbody, #przutdpagv tfoot, #przutdpagv tr, #przutdpagv td, #przutdpagv th {
   border-style: none;
 }
 
-#xnixdjexxp p {
+#przutdpagv p {
   margin: 0;
   padding: 0;
 }
 
-#xnixdjexxp .gt_table {
+#przutdpagv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3864,12 +3878,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_caption {
+#przutdpagv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xnixdjexxp .gt_title {
+#przutdpagv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3881,7 +3895,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#xnixdjexxp .gt_subtitle {
+#przutdpagv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3893,7 +3907,7 @@ Show code
   border-top-width: 0;
 }
 
-#xnixdjexxp .gt_heading {
+#przutdpagv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3905,13 +3919,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_bottom_border {
+#przutdpagv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_col_headings {
+#przutdpagv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3926,7 +3940,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_col_heading {
+#przutdpagv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3946,7 +3960,7 @@ Show code
   overflow-x: hidden;
 }
 
-#xnixdjexxp .gt_column_spanner_outer {
+#przutdpagv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3958,15 +3972,15 @@ Show code
   padding-right: 4px;
 }
 
-#xnixdjexxp .gt_column_spanner_outer:first-child {
+#przutdpagv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xnixdjexxp .gt_column_spanner_outer:last-child {
+#przutdpagv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xnixdjexxp .gt_column_spanner {
+#przutdpagv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3978,11 +3992,11 @@ Show code
   width: 100%;
 }
 
-#xnixdjexxp .gt_spanner_row {
+#przutdpagv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xnixdjexxp .gt_group_heading {
+#przutdpagv .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4008,7 +4022,7 @@ Show code
   text-align: left;
 }
 
-#xnixdjexxp .gt_empty_group_heading {
+#przutdpagv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4023,15 +4037,15 @@ Show code
   vertical-align: middle;
 }
 
-#xnixdjexxp .gt_from_md > :first-child {
+#przutdpagv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xnixdjexxp .gt_from_md > :last-child {
+#przutdpagv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xnixdjexxp .gt_row {
+#przutdpagv .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4050,7 +4064,7 @@ Show code
   overflow-x: hidden;
 }
 
-#xnixdjexxp .gt_stub {
+#przutdpagv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4063,7 +4077,7 @@ Show code
   padding-right: 5px;
 }
 
-#xnixdjexxp .gt_stub_row_group {
+#przutdpagv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4077,15 +4091,15 @@ Show code
   vertical-align: top;
 }
 
-#xnixdjexxp .gt_row_group_first td {
+#przutdpagv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xnixdjexxp .gt_row_group_first th {
+#przutdpagv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xnixdjexxp .gt_summary_row {
+#przutdpagv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4095,16 +4109,16 @@ Show code
   padding-right: 5px;
 }
 
-#xnixdjexxp .gt_first_summary_row {
+#przutdpagv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_first_summary_row.thick {
+#przutdpagv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xnixdjexxp .gt_last_summary_row {
+#przutdpagv .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4114,7 +4128,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_grand_summary_row {
+#przutdpagv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4124,7 +4138,7 @@ Show code
   padding-right: 5px;
 }
 
-#xnixdjexxp .gt_first_grand_summary_row {
+#przutdpagv .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4134,7 +4148,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_last_grand_summary_row_top {
+#przutdpagv .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4144,11 +4158,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_striped {
+#przutdpagv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xnixdjexxp .gt_table_body {
+#przutdpagv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4157,7 +4171,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_footnotes {
+#przutdpagv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4171,7 +4185,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_footnote {
+#przutdpagv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -4180,7 +4194,7 @@ Show code
   padding-right: 5px;
 }
 
-#xnixdjexxp .gt_sourcenotes {
+#przutdpagv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4194,7 +4208,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#xnixdjexxp .gt_sourcenote {
+#przutdpagv .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -4202,63 +4216,63 @@ Show code
   padding-right: 5px;
 }
 
-#xnixdjexxp .gt_left {
+#przutdpagv .gt_left {
   text-align: left;
 }
 
-#xnixdjexxp .gt_center {
+#przutdpagv .gt_center {
   text-align: center;
 }
 
-#xnixdjexxp .gt_right {
+#przutdpagv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xnixdjexxp .gt_font_normal {
+#przutdpagv .gt_font_normal {
   font-weight: normal;
 }
 
-#xnixdjexxp .gt_font_bold {
+#przutdpagv .gt_font_bold {
   font-weight: bold;
 }
 
-#xnixdjexxp .gt_font_italic {
+#przutdpagv .gt_font_italic {
   font-style: italic;
 }
 
-#xnixdjexxp .gt_super {
+#przutdpagv .gt_super {
   font-size: 65%;
 }
 
-#xnixdjexxp .gt_footnote_marks {
+#przutdpagv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xnixdjexxp .gt_asterisk {
+#przutdpagv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xnixdjexxp .gt_indent_1 {
+#przutdpagv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xnixdjexxp .gt_indent_2 {
+#przutdpagv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xnixdjexxp .gt_indent_3 {
+#przutdpagv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xnixdjexxp .gt_indent_4 {
+#przutdpagv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xnixdjexxp .gt_indent_5 {
+#przutdpagv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4269,8 +4283,588 @@ Show code
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="&lt;strong&gt;Univariate&lt;/strong&gt;">
         <span class="gt_column_spanner"><strong>Univariate</strong></span>
       </th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="&lt;strong&gt;Multivariable&lt;/strong&gt;">
-        <span class="gt_column_spanner"><strong>Multivariable</strong></span>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="&lt;strong&gt;Multivariate&lt;/strong&gt;">
+        <span class="gt_column_spanner"><strong>Multivariate</strong></span>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N&lt;/strong&gt;"><strong>N</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;OR&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;95% CI&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;OR&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>OR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;95% CI&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">LDH.preLD</td>
+<td headers="stat_n_1" class="gt_row gt_center">126</td>
+<td headers="estimate_1" class="gt_row gt_center">0.12</td>
+<td headers="ci_1" class="gt_row gt_center">0.04, 0.30</td>
+<td headers="p.value_1" class="gt_row gt_center"><0.001</td>
+<td headers="estimate_2" class="gt_row gt_center">0.13</td>
+<td headers="ci_2" class="gt_row gt_center">0.04, 0.31</td>
+<td headers="p.value_2" class="gt_row gt_center"><0.001</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">CAR.T.Product.Type</td>
+<td headers="stat_n_1" class="gt_row gt_center">129</td>
+<td headers="estimate_1" class="gt_row gt_center"><br /></td>
+<td headers="ci_1" class="gt_row gt_center"><br /></td>
+<td headers="p.value_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center"><br /></td>
+<td headers="ci_2" class="gt_row gt_center"><br /></td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Breyanzi</td>
+<td headers="stat_n_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_1" class="gt_row gt_center">—</td>
+<td headers="ci_1" class="gt_row gt_center">—</td>
+<td headers="p.value_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="ci_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Yescarta</td>
+<td headers="stat_n_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_1" class="gt_row gt_center">0.68</td>
+<td headers="ci_1" class="gt_row gt_center">0.32, 1.40</td>
+<td headers="p.value_1" class="gt_row gt_center">0.3</td>
+<td headers="estimate_2" class="gt_row gt_center">0.72</td>
+<td headers="ci_2" class="gt_row gt_center">0.29, 1.73</td>
+<td headers="p.value_2" class="gt_row gt_center">0.5</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">ALC.preLD</td>
+<td headers="stat_n_1" class="gt_row gt_center">128</td>
+<td headers="estimate_1" class="gt_row gt_center">0.93</td>
+<td headers="ci_1" class="gt_row gt_center">0.67, 1.08</td>
+<td headers="p.value_1" class="gt_row gt_center">0.4</td>
+<td headers="estimate_2" class="gt_row gt_center">1.02</td>
+<td headers="ci_2" class="gt_row gt_center">0.66, 1.21</td>
+<td headers="p.value_2" class="gt_row gt_center">0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Sex</td>
+<td headers="stat_n_1" class="gt_row gt_center">129</td>
+<td headers="estimate_1" class="gt_row gt_center"><br /></td>
+<td headers="ci_1" class="gt_row gt_center"><br /></td>
+<td headers="p.value_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center"><br /></td>
+<td headers="ci_2" class="gt_row gt_center"><br /></td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    F</td>
+<td headers="stat_n_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_1" class="gt_row gt_center">—</td>
+<td headers="ci_1" class="gt_row gt_center">—</td>
+<td headers="p.value_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_2" class="gt_row gt_center">—</td>
+<td headers="ci_2" class="gt_row gt_center">—</td>
+<td headers="p.value_2" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    M</td>
+<td headers="stat_n_1" class="gt_row gt_center"><br /></td>
+<td headers="estimate_1" class="gt_row gt_center">0.79</td>
+<td headers="ci_1" class="gt_row gt_center">0.37, 1.65</td>
+<td headers="p.value_1" class="gt_row gt_center">0.5</td>
+<td headers="estimate_2" class="gt_row gt_center">0.97</td>
+<td headers="ci_2" class="gt_row gt_center">0.41, 2.27</td>
+<td headers="p.value_2" class="gt_row gt_center">>0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_n_1" class="gt_row gt_center">129</td>
+<td headers="estimate_1" class="gt_row gt_center">1.00</td>
+<td headers="ci_1" class="gt_row gt_center">0.97, 1.02</td>
+<td headers="p.value_1" class="gt_row gt_center">0.7</td>
+<td headers="estimate_2" class="gt_row gt_center">0.99</td>
+<td headers="ci_2" class="gt_row gt_center">0.96, 1.03</td>
+<td headers="p.value_2" class="gt_row gt_center">0.7</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HCT.CI</td>
+<td headers="stat_n_1" class="gt_row gt_center">129</td>
+<td headers="estimate_1" class="gt_row gt_center">0.99</td>
+<td headers="ci_1" class="gt_row gt_center">0.82, 1.19</td>
+<td headers="p.value_1" class="gt_row gt_center">>0.9</td>
+<td headers="estimate_2" class="gt_row gt_center">1.07</td>
+<td headers="ci_2" class="gt_row gt_center">0.86, 1.35</td>
+<td headers="p.value_2" class="gt_row gt_center">0.6</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="8"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> OR = Odds Ratio, CI = Confidence Interval</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<p>EXERCISE 1: Add Largest.lesion to the combined univariate/multivariate table. How is the relationship between the predictor and the outcome influenced by other variables included in the multivariate model?</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span>, <span class='st'>"Largest.lesion"</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>tbl_uv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_uvregression.html'>tbl_uvregression</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>db</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>preds</span><span class='op'>)</span><span class='op'>]</span>,</span>
+<span>  method <span class='op'>=</span> <span class='va'>glm</span>,</span>
+<span>  y <span class='op'>=</span> <span class='va'>CR</span>,</span>
+<span>  method.args <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span>, </span>
+<span>  exponentiate <span class='op'>=</span> <span class='cn'>TRUE</span> </span>
+<span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>tbl_mv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_merge.html'>tbl_merge</a></span><span class='op'>(</span></span>
+<span>  tbls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>tbl_uv</span>, <span class='va'>tbl_mv</span><span class='op'>)</span>,                          <span class='co'># combine</span></span>
+<span>  tab_spanner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Univariate**"</span>, <span class='st'>"**Multivariate**"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># set header names</span></span></code></pre>
+</div>
+</details>
+<div id="cuigkwvvzl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cuigkwvvzl table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cuigkwvvzl thead, #cuigkwvvzl tbody, #cuigkwvvzl tfoot, #cuigkwvvzl tr, #cuigkwvvzl td, #cuigkwvvzl th {
+  border-style: none;
+}
+
+#cuigkwvvzl p {
+  margin: 0;
+  padding: 0;
+}
+
+#cuigkwvvzl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cuigkwvvzl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cuigkwvvzl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cuigkwvvzl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cuigkwvvzl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cuigkwvvzl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cuigkwvvzl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cuigkwvvzl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cuigkwvvzl .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cuigkwvvzl .gt_group_heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cuigkwvvzl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cuigkwvvzl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cuigkwvvzl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cuigkwvvzl .gt_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cuigkwvvzl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuigkwvvzl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cuigkwvvzl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cuigkwvvzl .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cuigkwvvzl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuigkwvvzl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cuigkwvvzl .gt_last_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuigkwvvzl .gt_first_grand_summary_row {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_last_grand_summary_row_top {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cuigkwvvzl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuigkwvvzl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cuigkwvvzl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cuigkwvvzl .gt_left {
+  text-align: left;
+}
+
+#cuigkwvvzl .gt_center {
+  text-align: center;
+}
+
+#cuigkwvvzl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cuigkwvvzl .gt_font_normal {
+  font-weight: normal;
+}
+
+#cuigkwvvzl .gt_font_bold {
+  font-weight: bold;
+}
+
+#cuigkwvvzl .gt_font_italic {
+  font-style: italic;
+}
+
+#cuigkwvvzl .gt_super {
+  font-size: 65%;
+}
+
+#cuigkwvvzl .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cuigkwvvzl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cuigkwvvzl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cuigkwvvzl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cuigkwvvzl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cuigkwvvzl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cuigkwvvzl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="4" scope="colgroup" id="&lt;strong&gt;Univariate&lt;/strong&gt;">
+        <span class="gt_column_spanner"><strong>Univariate</strong></span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="&lt;strong&gt;Multivariate&lt;/strong&gt;">
+        <span class="gt_column_spanner"><strong>Multivariate</strong></span>
       </th>
     </tr>
     <tr class="gt_col_headings">
@@ -4382,35 +4976,66 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="e.-visualize-the-multivariable-regression-output-using-a-simple-forest-plot.">2e. Visualize the multivariable regression output using a simple forest plot.</h3>
+<h3 id="e.-visualize-the-regression-coefficients-using-a-simple-forest-plot.">2e. Visualize the regression coefficients using a simple forest plot.</h3>
+<p>Pipe the multivariate regression output into the plot() function to create a forest plot of regression coefficients.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>tbl_mv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span>exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> </span>
-<span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tbl_mv</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span></span>
+<span>    exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<h2 id="learn-how-to-perform-linear-regression">3. Learn how to perform linear regression</h2>
-<h3 id="a.-make-a-table-of-univariate-linear-regression-output.">3a. Make a table of univariate linear regression output.</h3>
+<p>EXERCISE 1: Visualize the reference rows by setting “add_estimate_to_reference_rows = TRUE” within the tbl_regression() function,</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## The vein-to-vein time (i.e., time from leukapheresis to product infusion) varies from patient to patient. What factors are associated with this duration?</span></span>
-<span></span>
-<span><span class='co'>## Specify your vector of predictor values.</span></span>
-<span><span class='co'>## Be sure to include the response variable, "vv.time," as well.</span></span>
-<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vv.time"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span> <span class='va'>CR</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span> <span class='op'>+</span> <span class='va'>Largest.lesion</span>, <span class='va'>db</span>, family <span class='op'>=</span> <span class='va'>binomial</span> <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html'>tbl_regression</a></span><span class='op'>(</span></span>
+<span>    add_estimate_to_reference_rows <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span>    exponentiate<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
+<h2 id="learn-how-to-perform-linear-regression">3. Learn how to perform linear regression</h2>
+<p>Linear regression is a statistical method used to model the relationship between a dependent variable (often denoted as <span class="math inline">\(Y\)</span>) and one or more independent variables (often denoted as <span class="math inline">\(X_1, X_2,...X_k\)</span>). It assumes that the relationship between the dependent variable and the independent variables is linear in nature.</p>
+<p>The linear regression model can be mathematically represented as:</p>
+<p><span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \epsilon\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(Y\)</span> is the dependent variable (also called the response variable or outcome)</li>
+<li><span class="math inline">\(X_1\)</span> is the independent variables (also called the predictor variable)</li>
+<li><span class="math inline">\(\beta_0\)</span> is the intercept, representing the value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1\)</span> is zero</li>
+<li><span class="math inline">\(\epsilon\)</span> is the error term, representing the random variability or noise in the relationship not explained by the model</li>
+</ul>
+<p>In a multivariate linear regression model with more than one independent variable, the equation expands to:</p>
+<p><span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2+...+\beta_kX_k + \epsilon\)</span></p>
+<p>Where <span class="math inline">\(X_1, X_2,...,X_k\)</span> are the independent variables, and <span class="math inline">\(\beta_1, \beta_2,...,\beta_k\)</span> are the corresponding coefficients.</p>
+<p>The primary goal of linear regression is to estimate the values of the coefficients that minimize the difference between the observed values of the dependent variable Y and the values predicted by the linear model. This is typically achieved using the method of least squares, which minimizes the sum of the squared differences between the observed and predicted values.</p>
+<h3 id="a.-make-a-table-of-univariate-linear-regression-output.">3a. Make a table of univariate linear regression output.</h3>
+<p>The vein-to-vein time (i.e., time from leukapheresis to product infusion) varies from patient to patient. What factors are associated with this duration?</p>
+<p>Use the tbl_uvregression() function as before, but set the “method = lm” to specify that you want to use a linear model.</p>
+<p>Note: The output of the linear regression model is the <span class="math inline">\(\beta\)</span> coefficient value. You do not need to exponentiate this!</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Be sure to include the response variable, "vv.time," as well!</span></span>
+<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vv.time"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
 <span></span>
 <span><span class='co'>## Create a univariate regression table using the tbl_uvregression() function from the "gtsummary" package</span></span>
 <span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span></span>
@@ -4423,23 +5048,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Sort the p-values in ascending order in the regression table.</span></span></code></pre>
 </div>
 </details>
-<div id="lmgqplpvjs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lmgqplpvjs table {
+<div id="eosjxiuyyx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eosjxiuyyx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lmgqplpvjs thead, #lmgqplpvjs tbody, #lmgqplpvjs tfoot, #lmgqplpvjs tr, #lmgqplpvjs td, #lmgqplpvjs th {
+#eosjxiuyyx thead, #eosjxiuyyx tbody, #eosjxiuyyx tfoot, #eosjxiuyyx tr, #eosjxiuyyx td, #eosjxiuyyx th {
   border-style: none;
 }
 
-#lmgqplpvjs p {
+#eosjxiuyyx p {
   margin: 0;
   padding: 0;
 }
 
-#lmgqplpvjs .gt_table {
+#eosjxiuyyx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4465,12 +5090,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_caption {
+#eosjxiuyyx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lmgqplpvjs .gt_title {
+#eosjxiuyyx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4482,7 +5107,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#lmgqplpvjs .gt_subtitle {
+#eosjxiuyyx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4494,7 +5119,7 @@ Show code
   border-top-width: 0;
 }
 
-#lmgqplpvjs .gt_heading {
+#eosjxiuyyx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4506,13 +5131,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_bottom_border {
+#eosjxiuyyx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_col_headings {
+#eosjxiuyyx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4527,7 +5152,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_col_heading {
+#eosjxiuyyx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4547,7 +5172,7 @@ Show code
   overflow-x: hidden;
 }
 
-#lmgqplpvjs .gt_column_spanner_outer {
+#eosjxiuyyx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4559,15 +5184,15 @@ Show code
   padding-right: 4px;
 }
 
-#lmgqplpvjs .gt_column_spanner_outer:first-child {
+#eosjxiuyyx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lmgqplpvjs .gt_column_spanner_outer:last-child {
+#eosjxiuyyx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lmgqplpvjs .gt_column_spanner {
+#eosjxiuyyx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4579,11 +5204,11 @@ Show code
   width: 100%;
 }
 
-#lmgqplpvjs .gt_spanner_row {
+#eosjxiuyyx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lmgqplpvjs .gt_group_heading {
+#eosjxiuyyx .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4609,7 +5234,7 @@ Show code
   text-align: left;
 }
 
-#lmgqplpvjs .gt_empty_group_heading {
+#eosjxiuyyx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4624,15 +5249,15 @@ Show code
   vertical-align: middle;
 }
 
-#lmgqplpvjs .gt_from_md > :first-child {
+#eosjxiuyyx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lmgqplpvjs .gt_from_md > :last-child {
+#eosjxiuyyx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lmgqplpvjs .gt_row {
+#eosjxiuyyx .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4651,7 +5276,7 @@ Show code
   overflow-x: hidden;
 }
 
-#lmgqplpvjs .gt_stub {
+#eosjxiuyyx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4664,7 +5289,7 @@ Show code
   padding-right: 5px;
 }
 
-#lmgqplpvjs .gt_stub_row_group {
+#eosjxiuyyx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4678,15 +5303,15 @@ Show code
   vertical-align: top;
 }
 
-#lmgqplpvjs .gt_row_group_first td {
+#eosjxiuyyx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lmgqplpvjs .gt_row_group_first th {
+#eosjxiuyyx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lmgqplpvjs .gt_summary_row {
+#eosjxiuyyx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4696,16 +5321,16 @@ Show code
   padding-right: 5px;
 }
 
-#lmgqplpvjs .gt_first_summary_row {
+#eosjxiuyyx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_first_summary_row.thick {
+#eosjxiuyyx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lmgqplpvjs .gt_last_summary_row {
+#eosjxiuyyx .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4715,7 +5340,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_grand_summary_row {
+#eosjxiuyyx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4725,7 +5350,7 @@ Show code
   padding-right: 5px;
 }
 
-#lmgqplpvjs .gt_first_grand_summary_row {
+#eosjxiuyyx .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4735,7 +5360,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_last_grand_summary_row_top {
+#eosjxiuyyx .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -4745,11 +5370,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_striped {
+#eosjxiuyyx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lmgqplpvjs .gt_table_body {
+#eosjxiuyyx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4758,7 +5383,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_footnotes {
+#eosjxiuyyx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4772,7 +5397,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_footnote {
+#eosjxiuyyx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -4781,7 +5406,7 @@ Show code
   padding-right: 5px;
 }
 
-#lmgqplpvjs .gt_sourcenotes {
+#eosjxiuyyx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4795,7 +5420,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#lmgqplpvjs .gt_sourcenote {
+#eosjxiuyyx .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -4803,63 +5428,63 @@ Show code
   padding-right: 5px;
 }
 
-#lmgqplpvjs .gt_left {
+#eosjxiuyyx .gt_left {
   text-align: left;
 }
 
-#lmgqplpvjs .gt_center {
+#eosjxiuyyx .gt_center {
   text-align: center;
 }
 
-#lmgqplpvjs .gt_right {
+#eosjxiuyyx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lmgqplpvjs .gt_font_normal {
+#eosjxiuyyx .gt_font_normal {
   font-weight: normal;
 }
 
-#lmgqplpvjs .gt_font_bold {
+#eosjxiuyyx .gt_font_bold {
   font-weight: bold;
 }
 
-#lmgqplpvjs .gt_font_italic {
+#eosjxiuyyx .gt_font_italic {
   font-style: italic;
 }
 
-#lmgqplpvjs .gt_super {
+#eosjxiuyyx .gt_super {
   font-size: 65%;
 }
 
-#lmgqplpvjs .gt_footnote_marks {
+#eosjxiuyyx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lmgqplpvjs .gt_asterisk {
+#eosjxiuyyx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lmgqplpvjs .gt_indent_1 {
+#eosjxiuyyx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lmgqplpvjs .gt_indent_2 {
+#eosjxiuyyx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lmgqplpvjs .gt_indent_3 {
+#eosjxiuyyx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lmgqplpvjs .gt_indent_4 {
+#eosjxiuyyx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lmgqplpvjs .gt_indent_5 {
+#eosjxiuyyx .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4878,21 +5503,6 @@ Show code
 <td headers="stat_n" class="gt_row gt_center">128</td>
 <td headers="estimate" class="gt_row gt_center">1.9</td>
 <td headers="ci" class="gt_row gt_center">1.1, 2.7</td>
-<td headers="p.value" class="gt_row gt_center"><0.001</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">CAR.T.Product.Type</td>
-<td headers="stat_n" class="gt_row gt_center">129</td>
-<td headers="estimate" class="gt_row gt_center"><br /></td>
-<td headers="ci" class="gt_row gt_center"><br /></td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Breyanzi</td>
-<td headers="stat_n" class="gt_row gt_center"><br /></td>
-<td headers="estimate" class="gt_row gt_center">—</td>
-<td headers="ci" class="gt_row gt_center">—</td>
-<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Yescarta</td>
-<td headers="stat_n" class="gt_row gt_center"><br /></td>
-<td headers="estimate" class="gt_row gt_center">-8.1</td>
-<td headers="ci" class="gt_row gt_center">-12, -4.0</td>
 <td headers="p.value" class="gt_row gt_center"><0.001</td></tr>
     <tr><td headers="label" class="gt_row gt_left">Age</td>
 <td headers="stat_n" class="gt_row gt_center">129</td>
@@ -4939,7 +5549,30 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="b.-combine-univariate-and-multivariable-linear-regression-output-into-one-big-summary-table.">3b. Combine univariate and multivariable linear regression output into one big summary table.</h3>
+<p>EXERCISE 1: Add CAR.T.Product.Type to your list of predictors. Is the product type associated with a difference in vein-to-vein time?</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Be sure to include the response variable, "vv.time," as well!</span></span>
+<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vv.time"</span>,<span class='st'>"CAR.T.Product.Type"</span>, <span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='co'>## Create a univariate regression table using the tbl_uvregression() function from the "gtsummary" package</span></span>
+<span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_uvregression.html'>tbl_uvregression</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>db</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>preds</span><span class='op'>)</span><span class='op'>]</span>,</span>
+<span>  method <span class='op'>=</span> <span class='va'>lm</span>, <span class='co'>## Specify that a linear regression method should be used</span></span>
+<span>  y <span class='op'>=</span> <span class='va'>vv.time</span> <span class='co'>## Set the response variable to "vv.time"</span></span>
+<span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Sort the p-values in ascending order in the regression table.</span></span></code></pre>
+</div>
+</details>
+</div>
+<h3 id="b.-combine-univariate-and-multivariate-linear-regression-output-into-one-big-summary-table.">3b. Combine univariate and multivariate linear regression output into one big summary table.</h3>
+<p>Use the same process as done previously in section 2d.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -4966,23 +5599,23 @@ Show code
 <span>  tab_spanner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Univariate**"</span>, <span class='st'>"**Multivariable**"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># set header names</span></span></code></pre>
 </div>
 </details>
-<div id="jtbfscagdc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jtbfscagdc table {
+<div id="szdlcctccs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#szdlcctccs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jtbfscagdc thead, #jtbfscagdc tbody, #jtbfscagdc tfoot, #jtbfscagdc tr, #jtbfscagdc td, #jtbfscagdc th {
+#szdlcctccs thead, #szdlcctccs tbody, #szdlcctccs tfoot, #szdlcctccs tr, #szdlcctccs td, #szdlcctccs th {
   border-style: none;
 }
 
-#jtbfscagdc p {
+#szdlcctccs p {
   margin: 0;
   padding: 0;
 }
 
-#jtbfscagdc .gt_table {
+#szdlcctccs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5008,12 +5641,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_caption {
+#szdlcctccs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jtbfscagdc .gt_title {
+#szdlcctccs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5025,7 +5658,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#jtbfscagdc .gt_subtitle {
+#szdlcctccs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5037,7 +5670,7 @@ Show code
   border-top-width: 0;
 }
 
-#jtbfscagdc .gt_heading {
+#szdlcctccs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5049,13 +5682,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_bottom_border {
+#szdlcctccs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_col_headings {
+#szdlcctccs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5070,7 +5703,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_col_heading {
+#szdlcctccs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5090,7 +5723,7 @@ Show code
   overflow-x: hidden;
 }
 
-#jtbfscagdc .gt_column_spanner_outer {
+#szdlcctccs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5102,15 +5735,15 @@ Show code
   padding-right: 4px;
 }
 
-#jtbfscagdc .gt_column_spanner_outer:first-child {
+#szdlcctccs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jtbfscagdc .gt_column_spanner_outer:last-child {
+#szdlcctccs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jtbfscagdc .gt_column_spanner {
+#szdlcctccs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5122,11 +5755,11 @@ Show code
   width: 100%;
 }
 
-#jtbfscagdc .gt_spanner_row {
+#szdlcctccs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jtbfscagdc .gt_group_heading {
+#szdlcctccs .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5152,7 +5785,7 @@ Show code
   text-align: left;
 }
 
-#jtbfscagdc .gt_empty_group_heading {
+#szdlcctccs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5167,15 +5800,15 @@ Show code
   vertical-align: middle;
 }
 
-#jtbfscagdc .gt_from_md > :first-child {
+#szdlcctccs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jtbfscagdc .gt_from_md > :last-child {
+#szdlcctccs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jtbfscagdc .gt_row {
+#szdlcctccs .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5194,7 +5827,7 @@ Show code
   overflow-x: hidden;
 }
 
-#jtbfscagdc .gt_stub {
+#szdlcctccs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5207,7 +5840,7 @@ Show code
   padding-right: 5px;
 }
 
-#jtbfscagdc .gt_stub_row_group {
+#szdlcctccs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5221,15 +5854,15 @@ Show code
   vertical-align: top;
 }
 
-#jtbfscagdc .gt_row_group_first td {
+#szdlcctccs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jtbfscagdc .gt_row_group_first th {
+#szdlcctccs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jtbfscagdc .gt_summary_row {
+#szdlcctccs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5239,16 +5872,16 @@ Show code
   padding-right: 5px;
 }
 
-#jtbfscagdc .gt_first_summary_row {
+#szdlcctccs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_first_summary_row.thick {
+#szdlcctccs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jtbfscagdc .gt_last_summary_row {
+#szdlcctccs .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5258,7 +5891,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_grand_summary_row {
+#szdlcctccs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5268,7 +5901,7 @@ Show code
   padding-right: 5px;
 }
 
-#jtbfscagdc .gt_first_grand_summary_row {
+#szdlcctccs .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5278,7 +5911,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_last_grand_summary_row_top {
+#szdlcctccs .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5288,11 +5921,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_striped {
+#szdlcctccs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jtbfscagdc .gt_table_body {
+#szdlcctccs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5301,7 +5934,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_footnotes {
+#szdlcctccs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5315,7 +5948,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_footnote {
+#szdlcctccs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -5324,7 +5957,7 @@ Show code
   padding-right: 5px;
 }
 
-#jtbfscagdc .gt_sourcenotes {
+#szdlcctccs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5338,7 +5971,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#jtbfscagdc .gt_sourcenote {
+#szdlcctccs .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -5346,63 +5979,63 @@ Show code
   padding-right: 5px;
 }
 
-#jtbfscagdc .gt_left {
+#szdlcctccs .gt_left {
   text-align: left;
 }
 
-#jtbfscagdc .gt_center {
+#szdlcctccs .gt_center {
   text-align: center;
 }
 
-#jtbfscagdc .gt_right {
+#szdlcctccs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jtbfscagdc .gt_font_normal {
+#szdlcctccs .gt_font_normal {
   font-weight: normal;
 }
 
-#jtbfscagdc .gt_font_bold {
+#szdlcctccs .gt_font_bold {
   font-weight: bold;
 }
 
-#jtbfscagdc .gt_font_italic {
+#szdlcctccs .gt_font_italic {
   font-style: italic;
 }
 
-#jtbfscagdc .gt_super {
+#szdlcctccs .gt_super {
   font-size: 65%;
 }
 
-#jtbfscagdc .gt_footnote_marks {
+#szdlcctccs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jtbfscagdc .gt_asterisk {
+#szdlcctccs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jtbfscagdc .gt_indent_1 {
+#szdlcctccs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jtbfscagdc .gt_indent_2 {
+#szdlcctccs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jtbfscagdc .gt_indent_3 {
+#szdlcctccs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jtbfscagdc .gt_indent_4 {
+#szdlcctccs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jtbfscagdc .gt_indent_5 {
+#szdlcctccs .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -5527,16 +6160,29 @@ Show code
 </div>
 </div>
 <h2 id="learn-how-to-perform-cox-regression.">4. Learn how to perform Cox regression.</h2>
+<p>Cox regression, also known as Cox proportional hazards regression, is a statistical method used for modeling survival time data. It is a semi-parametric model that does not make specific assumptions about the shape of the hazard function (the instantaneous rate of event occurrence over time). It estimates the hazard function using partial likelihood estimation, allowing for the assessment of the effect of predictor variables on the hazard rate while accounting for censoring in the data.</p>
+<p>In Cox regression, the hazard function <span class="math inline">\(h(t)\)</span> at any time <span class="math inline">\(t\)</span> for an individual <span class="math inline">\(i\)</span> is modeled as the product of a baseline hazad function <span class="math inline">\(h_0(t)\)</span> and the exponential function of a linear combination of predictor variables:</p>
+<p><span class="math inline">\(h(t)_i = h_0(t) \times exp(\beta_1X_{i1} + \beta_2X_{i2} + ... + \beta_kX_{ik})\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(h(t)_i\)</span> is the hazard function for individual <span class="math inline">\(i\)</span> at time <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(h_0(t)\)</span> is the baseline hazard function, representing the hazard rate when all predictor variables are zero</li>
+<li><span class="math inline">\(X_{i1} + X_{i2} + ... + X_{ik}\)</span> are the predictor variables for individual <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(\beta_1 + \beta_2 + ... + \beta_k\)</span> are the coefficients (parameters) to be estimated, representing the log hazard ratios associated with the predictor variables</li>
+</ul>
+<p>The key assumption of Cox regression is the proportional hazards assumption, which states that the hazard ratios (the relative hazard rates) associated with each predictor variable are constant over time. This assumption implies that the hazard curves for different levels of the predictor variables are proportional to each other, although their baseline hazard functions may differ.</p>
+<p>Cox regression allows for the estimation of hazard ratios, which quantify the relative change in the hazard rate associated with a one-unit change in the predictor variable. Additionally, Cox regression can accommodate censoring in the data, where individuals are followed for a finite period, and some may not experience the event of interest by the end of the study.</p>
 <h3 id="a.-make-a-table-of-univariate-cox-regression-output-to-analyze-pfs.">4a. Make a table of univariate Cox regression output to analyze PFS.</h3>
+<p>The prognosis of patients who relapse post-CAR-T therapy is poor. What factors are associated with PFS?</p>
+<p>Once again, use the tbl_uvregression() function. Set the method to “coxph” for Cox proportional hazards regression. Set y to a survival object specifying PFS where the time to event is Days.to.relapse.death.or.DLC and the event is Relapse.or.death.</p>
+<p>Note: the output of Cox regression must be exponentiated to obtain hazard ratios.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## The prognosis of patients who relapse post-CAR-T therapy is poor. What factors are associated with PFS?</span></span>
-<span></span>
-<span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Days.to.relapse.death.or.DLC"</span>,<span class='st'>"Relapse.or.death"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>preds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Days.to.relapse.death.or.DLC"</span>,<span class='st'>"Relapse.or.death"</span>, <span class='st'>"CAR.T.Product.Type"</span>,<span class='st'>"Largest.lesion"</span>,<span class='st'>"LDH.preLD"</span>, <span class='st'>"ALC.preLD"</span>, <span class='st'>"Age"</span>, <span class='st'>"Sex"</span>, <span class='st'>"HCT.CI"</span><span class='op'>)</span> </span>
 <span></span>
 <span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_uvregression.html'>tbl_uvregression</a></span><span class='op'>(</span></span>
 <span>  <span class='va'>db</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>preds</span><span class='op'>)</span><span class='op'>]</span>,</span>
@@ -5547,23 +6193,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/sort_filter_p.html'>sort_p</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="tedgzslnex" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tedgzslnex table {
+<div id="tinpeeksjg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tinpeeksjg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tedgzslnex thead, #tedgzslnex tbody, #tedgzslnex tfoot, #tedgzslnex tr, #tedgzslnex td, #tedgzslnex th {
+#tinpeeksjg thead, #tinpeeksjg tbody, #tinpeeksjg tfoot, #tinpeeksjg tr, #tinpeeksjg td, #tinpeeksjg th {
   border-style: none;
 }
 
-#tedgzslnex p {
+#tinpeeksjg p {
   margin: 0;
   padding: 0;
 }
 
-#tedgzslnex .gt_table {
+#tinpeeksjg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -5589,12 +6235,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_caption {
+#tinpeeksjg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tedgzslnex .gt_title {
+#tinpeeksjg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -5606,7 +6252,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#tedgzslnex .gt_subtitle {
+#tinpeeksjg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -5618,7 +6264,7 @@ Show code
   border-top-width: 0;
 }
 
-#tedgzslnex .gt_heading {
+#tinpeeksjg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -5630,13 +6276,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_bottom_border {
+#tinpeeksjg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_col_headings {
+#tinpeeksjg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5651,7 +6297,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_col_heading {
+#tinpeeksjg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5671,7 +6317,7 @@ Show code
   overflow-x: hidden;
 }
 
-#tedgzslnex .gt_column_spanner_outer {
+#tinpeeksjg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5683,15 +6329,15 @@ Show code
   padding-right: 4px;
 }
 
-#tedgzslnex .gt_column_spanner_outer:first-child {
+#tinpeeksjg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tedgzslnex .gt_column_spanner_outer:last-child {
+#tinpeeksjg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tedgzslnex .gt_column_spanner {
+#tinpeeksjg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -5703,11 +6349,11 @@ Show code
   width: 100%;
 }
 
-#tedgzslnex .gt_spanner_row {
+#tinpeeksjg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tedgzslnex .gt_group_heading {
+#tinpeeksjg .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5733,7 +6379,7 @@ Show code
   text-align: left;
 }
 
-#tedgzslnex .gt_empty_group_heading {
+#tinpeeksjg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5748,15 +6394,15 @@ Show code
   vertical-align: middle;
 }
 
-#tedgzslnex .gt_from_md > :first-child {
+#tinpeeksjg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tedgzslnex .gt_from_md > :last-child {
+#tinpeeksjg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tedgzslnex .gt_row {
+#tinpeeksjg .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5775,7 +6421,7 @@ Show code
   overflow-x: hidden;
 }
 
-#tedgzslnex .gt_stub {
+#tinpeeksjg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5788,7 +6434,7 @@ Show code
   padding-right: 5px;
 }
 
-#tedgzslnex .gt_stub_row_group {
+#tinpeeksjg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5802,15 +6448,15 @@ Show code
   vertical-align: top;
 }
 
-#tedgzslnex .gt_row_group_first td {
+#tinpeeksjg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tedgzslnex .gt_row_group_first th {
+#tinpeeksjg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tedgzslnex .gt_summary_row {
+#tinpeeksjg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5820,16 +6466,16 @@ Show code
   padding-right: 5px;
 }
 
-#tedgzslnex .gt_first_summary_row {
+#tinpeeksjg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_first_summary_row.thick {
+#tinpeeksjg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tedgzslnex .gt_last_summary_row {
+#tinpeeksjg .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5839,7 +6485,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_grand_summary_row {
+#tinpeeksjg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5849,7 +6495,7 @@ Show code
   padding-right: 5px;
 }
 
-#tedgzslnex .gt_first_grand_summary_row {
+#tinpeeksjg .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5859,7 +6505,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_last_grand_summary_row_top {
+#tinpeeksjg .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -5869,11 +6515,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_striped {
+#tinpeeksjg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tedgzslnex .gt_table_body {
+#tinpeeksjg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5882,7 +6528,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_footnotes {
+#tinpeeksjg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5896,7 +6542,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_footnote {
+#tinpeeksjg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -5905,7 +6551,7 @@ Show code
   padding-right: 5px;
 }
 
-#tedgzslnex .gt_sourcenotes {
+#tinpeeksjg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5919,7 +6565,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tedgzslnex .gt_sourcenote {
+#tinpeeksjg .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -5927,63 +6573,63 @@ Show code
   padding-right: 5px;
 }
 
-#tedgzslnex .gt_left {
+#tinpeeksjg .gt_left {
   text-align: left;
 }
 
-#tedgzslnex .gt_center {
+#tinpeeksjg .gt_center {
   text-align: center;
 }
 
-#tedgzslnex .gt_right {
+#tinpeeksjg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tedgzslnex .gt_font_normal {
+#tinpeeksjg .gt_font_normal {
   font-weight: normal;
 }
 
-#tedgzslnex .gt_font_bold {
+#tinpeeksjg .gt_font_bold {
   font-weight: bold;
 }
 
-#tedgzslnex .gt_font_italic {
+#tinpeeksjg .gt_font_italic {
   font-style: italic;
 }
 
-#tedgzslnex .gt_super {
+#tinpeeksjg .gt_super {
   font-size: 65%;
 }
 
-#tedgzslnex .gt_footnote_marks {
+#tinpeeksjg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tedgzslnex .gt_asterisk {
+#tinpeeksjg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tedgzslnex .gt_indent_1 {
+#tinpeeksjg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tedgzslnex .gt_indent_2 {
+#tinpeeksjg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tedgzslnex .gt_indent_3 {
+#tinpeeksjg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tedgzslnex .gt_indent_4 {
+#tinpeeksjg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tedgzslnex .gt_indent_5 {
+#tinpeeksjg .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -6064,6 +6710,7 @@ Show code
 </div>
 </div>
 <h3 id="b.-combine-univariate-and-multivariable-cox-regression-output-into-one-big-summary-table.">4b. Combine univariate and multivariable Cox regression output into one big summary table.</h3>
+<p>Use the same process as done previously in sections 2d and 3b.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -6088,23 +6735,23 @@ Show code
 <span>  tab_spanner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"**Univariate**"</span>, <span class='st'>"**Multivariable**"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="kvjwfopzbb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kvjwfopzbb table {
+<div id="wmatmxgwkl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wmatmxgwkl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kvjwfopzbb thead, #kvjwfopzbb tbody, #kvjwfopzbb tfoot, #kvjwfopzbb tr, #kvjwfopzbb td, #kvjwfopzbb th {
+#wmatmxgwkl thead, #wmatmxgwkl tbody, #wmatmxgwkl tfoot, #wmatmxgwkl tr, #wmatmxgwkl td, #wmatmxgwkl th {
   border-style: none;
 }
 
-#kvjwfopzbb p {
+#wmatmxgwkl p {
   margin: 0;
   padding: 0;
 }
 
-#kvjwfopzbb .gt_table {
+#wmatmxgwkl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -6130,12 +6777,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_caption {
+#wmatmxgwkl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kvjwfopzbb .gt_title {
+#wmatmxgwkl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -6147,7 +6794,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#kvjwfopzbb .gt_subtitle {
+#wmatmxgwkl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -6159,7 +6806,7 @@ Show code
   border-top-width: 0;
 }
 
-#kvjwfopzbb .gt_heading {
+#wmatmxgwkl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -6171,13 +6818,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_bottom_border {
+#wmatmxgwkl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_col_headings {
+#wmatmxgwkl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6192,7 +6839,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_col_heading {
+#wmatmxgwkl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6212,7 +6859,7 @@ Show code
   overflow-x: hidden;
 }
 
-#kvjwfopzbb .gt_column_spanner_outer {
+#wmatmxgwkl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6224,15 +6871,15 @@ Show code
   padding-right: 4px;
 }
 
-#kvjwfopzbb .gt_column_spanner_outer:first-child {
+#wmatmxgwkl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kvjwfopzbb .gt_column_spanner_outer:last-child {
+#wmatmxgwkl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kvjwfopzbb .gt_column_spanner {
+#wmatmxgwkl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -6244,11 +6891,11 @@ Show code
   width: 100%;
 }
 
-#kvjwfopzbb .gt_spanner_row {
+#wmatmxgwkl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kvjwfopzbb .gt_group_heading {
+#wmatmxgwkl .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -6274,7 +6921,7 @@ Show code
   text-align: left;
 }
 
-#kvjwfopzbb .gt_empty_group_heading {
+#wmatmxgwkl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -6289,15 +6936,15 @@ Show code
   vertical-align: middle;
 }
 
-#kvjwfopzbb .gt_from_md > :first-child {
+#wmatmxgwkl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kvjwfopzbb .gt_from_md > :last-child {
+#wmatmxgwkl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kvjwfopzbb .gt_row {
+#wmatmxgwkl .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -6316,7 +6963,7 @@ Show code
   overflow-x: hidden;
 }
 
-#kvjwfopzbb .gt_stub {
+#wmatmxgwkl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6329,7 +6976,7 @@ Show code
   padding-right: 5px;
 }
 
-#kvjwfopzbb .gt_stub_row_group {
+#wmatmxgwkl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -6343,15 +6990,15 @@ Show code
   vertical-align: top;
 }
 
-#kvjwfopzbb .gt_row_group_first td {
+#wmatmxgwkl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kvjwfopzbb .gt_row_group_first th {
+#wmatmxgwkl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kvjwfopzbb .gt_summary_row {
+#wmatmxgwkl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6361,16 +7008,16 @@ Show code
   padding-right: 5px;
 }
 
-#kvjwfopzbb .gt_first_summary_row {
+#wmatmxgwkl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_first_summary_row.thick {
+#wmatmxgwkl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kvjwfopzbb .gt_last_summary_row {
+#wmatmxgwkl .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -6380,7 +7027,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_grand_summary_row {
+#wmatmxgwkl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -6390,7 +7037,7 @@ Show code
   padding-right: 5px;
 }
 
-#kvjwfopzbb .gt_first_grand_summary_row {
+#wmatmxgwkl .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -6400,7 +7047,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_last_grand_summary_row_top {
+#wmatmxgwkl .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -6410,11 +7057,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_striped {
+#wmatmxgwkl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kvjwfopzbb .gt_table_body {
+#wmatmxgwkl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -6423,7 +7070,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_footnotes {
+#wmatmxgwkl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6437,7 +7084,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_footnote {
+#wmatmxgwkl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -6446,7 +7093,7 @@ Show code
   padding-right: 5px;
 }
 
-#kvjwfopzbb .gt_sourcenotes {
+#wmatmxgwkl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -6460,7 +7107,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#kvjwfopzbb .gt_sourcenote {
+#wmatmxgwkl .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -6468,63 +7115,63 @@ Show code
   padding-right: 5px;
 }
 
-#kvjwfopzbb .gt_left {
+#wmatmxgwkl .gt_left {
   text-align: left;
 }
 
-#kvjwfopzbb .gt_center {
+#wmatmxgwkl .gt_center {
   text-align: center;
 }
 
-#kvjwfopzbb .gt_right {
+#wmatmxgwkl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kvjwfopzbb .gt_font_normal {
+#wmatmxgwkl .gt_font_normal {
   font-weight: normal;
 }
 
-#kvjwfopzbb .gt_font_bold {
+#wmatmxgwkl .gt_font_bold {
   font-weight: bold;
 }
 
-#kvjwfopzbb .gt_font_italic {
+#wmatmxgwkl .gt_font_italic {
   font-style: italic;
 }
 
-#kvjwfopzbb .gt_super {
+#wmatmxgwkl .gt_super {
   font-size: 65%;
 }
 
-#kvjwfopzbb .gt_footnote_marks {
+#wmatmxgwkl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kvjwfopzbb .gt_asterisk {
+#wmatmxgwkl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kvjwfopzbb .gt_indent_1 {
+#wmatmxgwkl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kvjwfopzbb .gt_indent_2 {
+#wmatmxgwkl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kvjwfopzbb .gt_indent_3 {
+#wmatmxgwkl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kvjwfopzbb .gt_indent_4 {
+#wmatmxgwkl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kvjwfopzbb .gt_indent_5 {
+#wmatmxgwkl .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -6648,7 +7295,46 @@ Show code
 </table>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="c.-check-whether-the-proportional-hazards-assumption-is-violated.">4c. Check whether the proportional hazards assumption is violated.</h3>
+<p>The proportional hazards assumption states that the hazard ratio associated with a predictor variable is constant over time. This means that the relative effect of the predictor variable on the hazard of an event occurring remains the same throughout the study period.</p>
+<p>The “Schoenfeld residual” is a measure of the difference between the observed and expected values of the predictor variable at each time point. It quantifies how much a predictor variable’s effect changes over time. A positive Schenfeld residual indicates thet the predictor variable’s effect is higher than expected at that time, while a negative Schoenfeld residual indicates that the effect is lower than expected.</p>
+<p>The “scaled Schoenfeld residual” is a standardized version of the Schoenfeld residual, which is divided by its estimated standard error. The standardization helps in comparing the magnitude of the residuals across different predictor variables and assessing their significance.</p>
+<p>The scaled Schoenfeld residuals can be plotted against time to visually inspect whether there is any systematic pattern or trend. A significant departure from zero or a noticeable pattern in the plot suggests a violation of the proportional hazards assumption for that predictor variable.</p>
+<p>The output of the cox.zph() function provides a test for each predictor variable in the model, evaluating whether the assumption of proportional hazards is violated. The test typically includes a chi-square statistic and a p-value. If the p-value is below a chosen significance level (e.g., 0.05), it suggests that the proportional hazards assumption may be violated for that predictor variable.</p>
+<p>This output can be fed into the plot() and print() functions to visualize the scaled Schoenfeld residuals over time and see the chi square statistic/p-values, respectively.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>res.cox</span> <span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/coxph.html'>coxph</a></span><span class='op'>(</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.relapse.death.or.DLC</span>, <span class='va'>Relapse.or.death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span> <span class='op'>+</span>  <span class='va'>Largest.lesion</span> <span class='op'>+</span> <span class='va'>LDH.preLD</span> <span class='op'>+</span> <span class='va'>ALC.preLD</span> <span class='op'>+</span> <span class='va'>Age</span> <span class='op'>+</span> <span class='va'>Sex</span> <span class='op'>+</span> <span class='va'>HCT.CI</span>, <span class='va'>db</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>## Testing proportional hazards assumption</span></span>
+<span><span class='va'>test.ph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survival/man/cox.zph.html'>cox.zph</a></span><span class='op'>(</span><span class='va'>res.cox</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>test.ph</span><span class='op'>)</span> <span class='co'>## Plot curves</span></span></code></pre>
+</div>
+</details>
+<img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-1.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-2.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-3.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-4.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-5.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-6.png" width="624" /><img src="Regression-Analysis_files/figure-html5/unnamed-chunk-16-7.png" width="624" />
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>test.ph</span><span class='op'>)</span> <span class='co'># Display the results</span></span></code></pre>
+</div>
+</details>
+<pre><code>                   chisq df    p
+CAR.T.Product.Type 2.511  1 0.11
+Largest.lesion     0.194  1 0.66
+LDH.preLD          0.976  1 0.32
+ALC.preLD          0.724  1 0.39
+Age                2.120  1 0.15
+Sex                0.414  1 0.52
+HCT.CI             0.184  1 0.67
+GLOBAL             8.678  7 0.28</code></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -6656,6 +7342,15 @@ Show code
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
