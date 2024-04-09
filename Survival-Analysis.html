@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-04-08"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-04-08"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-04-09"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-04-09"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this third session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 08, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Survival Analysis"]},{"type":"character","attributes":{},"value":["In this third session, you'll learn how to generate Kaplan-Meier estimates and cumulative incidence plots, and perform log-rank and Gray's testing."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 09, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-08T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
+{"title":"Survival Analysis","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-09T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>April 08, 2024
+<br/>April 09, 2024
 </div>
 
 <div class="d-article">
@@ -2197,7 +2197,7 @@ Lessons
 <li><a href="#b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing." id="toc-b.-stratify-the-overall-survival-plot-by-car-t-product-type-and-perform-log-rank-testing.">3b. Stratify the overall survival plot by CAR-T product type and perform Log-Rank testing.</a></li>
 <li><a href="#c.-estimating-1-year-survival." id="toc-c.-estimating-1-year-survival.">3c. Estimating 1-year survival.</a></li>
 <li><a href="#d.-draw-a-kaplan-meier-curve-for-progression-free-survival." id="toc-d.-draw-a-kaplan-meier-curve-for-progression-free-survival.">3d. Draw a Kaplan-Meier curve for progression-free survival.</a></li>
-<li><a href="#e.-look-at-os-and-pfs-stratified-by-best-response." id="toc-e.-look-at-os-and-pfs-stratified-by-best-response.">3e. Look at OS and PFS stratified by best response.</a></li>
+<li><a href="#e.-use-a-landmark-analysis-to-look-at-os-and-pfs-stratified-by-best-response." id="toc-e.-use-a-landmark-analysis-to-look-at-os-and-pfs-stratified-by-best-response.">3e. Use a Landmark analysis to look at OS and PFS stratified by best response.</a></li>
 </ul></li>
 <li><a href="#competing-risks-analysis." id="toc-competing-risks-analysis.">4. Competing risks analysis.</a>
 <ul>
@@ -2555,23 +2555,23 @@ Show code
 <span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='va'>add_p</span></span></code></pre>
 </div>
 </details>
-<div id="ufxnzvrobx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ufxnzvrobx table {
+<div id="xikhdtjyzw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xikhdtjyzw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ufxnzvrobx thead, #ufxnzvrobx tbody, #ufxnzvrobx tfoot, #ufxnzvrobx tr, #ufxnzvrobx td, #ufxnzvrobx th {
+#xikhdtjyzw thead, #xikhdtjyzw tbody, #xikhdtjyzw tfoot, #xikhdtjyzw tr, #xikhdtjyzw td, #xikhdtjyzw th {
   border-style: none;
 }
 
-#ufxnzvrobx p {
+#xikhdtjyzw p {
   margin: 0;
   padding: 0;
 }
 
-#ufxnzvrobx .gt_table {
+#xikhdtjyzw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2597,12 +2597,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_caption {
+#xikhdtjyzw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ufxnzvrobx .gt_title {
+#xikhdtjyzw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2614,7 +2614,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#ufxnzvrobx .gt_subtitle {
+#xikhdtjyzw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2626,7 +2626,7 @@ Show code
   border-top-width: 0;
 }
 
-#ufxnzvrobx .gt_heading {
+#xikhdtjyzw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2638,13 +2638,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_bottom_border {
+#xikhdtjyzw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_col_headings {
+#xikhdtjyzw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2659,7 +2659,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_col_heading {
+#xikhdtjyzw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2679,7 +2679,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ufxnzvrobx .gt_column_spanner_outer {
+#xikhdtjyzw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2691,15 +2691,15 @@ Show code
   padding-right: 4px;
 }
 
-#ufxnzvrobx .gt_column_spanner_outer:first-child {
+#xikhdtjyzw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ufxnzvrobx .gt_column_spanner_outer:last-child {
+#xikhdtjyzw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ufxnzvrobx .gt_column_spanner {
+#xikhdtjyzw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2711,11 +2711,11 @@ Show code
   width: 100%;
 }
 
-#ufxnzvrobx .gt_spanner_row {
+#xikhdtjyzw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ufxnzvrobx .gt_group_heading {
+#xikhdtjyzw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2741,7 +2741,7 @@ Show code
   text-align: left;
 }
 
-#ufxnzvrobx .gt_empty_group_heading {
+#xikhdtjyzw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2756,15 +2756,15 @@ Show code
   vertical-align: middle;
 }
 
-#ufxnzvrobx .gt_from_md > :first-child {
+#xikhdtjyzw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ufxnzvrobx .gt_from_md > :last-child {
+#xikhdtjyzw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ufxnzvrobx .gt_row {
+#xikhdtjyzw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2783,7 +2783,7 @@ Show code
   overflow-x: hidden;
 }
 
-#ufxnzvrobx .gt_stub {
+#xikhdtjyzw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2796,7 +2796,7 @@ Show code
   padding-right: 5px;
 }
 
-#ufxnzvrobx .gt_stub_row_group {
+#xikhdtjyzw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2810,15 +2810,15 @@ Show code
   vertical-align: top;
 }
 
-#ufxnzvrobx .gt_row_group_first td {
+#xikhdtjyzw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ufxnzvrobx .gt_row_group_first th {
+#xikhdtjyzw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ufxnzvrobx .gt_summary_row {
+#xikhdtjyzw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2828,16 +2828,16 @@ Show code
   padding-right: 5px;
 }
 
-#ufxnzvrobx .gt_first_summary_row {
+#xikhdtjyzw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_first_summary_row.thick {
+#xikhdtjyzw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ufxnzvrobx .gt_last_summary_row {
+#xikhdtjyzw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2847,7 +2847,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_grand_summary_row {
+#xikhdtjyzw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2857,7 +2857,7 @@ Show code
   padding-right: 5px;
 }
 
-#ufxnzvrobx .gt_first_grand_summary_row {
+#xikhdtjyzw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2867,7 +2867,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_last_grand_summary_row_top {
+#xikhdtjyzw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2877,11 +2877,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_striped {
+#xikhdtjyzw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ufxnzvrobx .gt_table_body {
+#xikhdtjyzw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2890,7 +2890,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_footnotes {
+#xikhdtjyzw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2904,7 +2904,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_footnote {
+#xikhdtjyzw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2913,7 +2913,7 @@ Show code
   padding-right: 5px;
 }
 
-#ufxnzvrobx .gt_sourcenotes {
+#xikhdtjyzw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2927,7 +2927,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#ufxnzvrobx .gt_sourcenote {
+#xikhdtjyzw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2935,63 +2935,63 @@ Show code
   padding-right: 5px;
 }
 
-#ufxnzvrobx .gt_left {
+#xikhdtjyzw .gt_left {
   text-align: left;
 }
 
-#ufxnzvrobx .gt_center {
+#xikhdtjyzw .gt_center {
   text-align: center;
 }
 
-#ufxnzvrobx .gt_right {
+#xikhdtjyzw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ufxnzvrobx .gt_font_normal {
+#xikhdtjyzw .gt_font_normal {
   font-weight: normal;
 }
 
-#ufxnzvrobx .gt_font_bold {
+#xikhdtjyzw .gt_font_bold {
   font-weight: bold;
 }
 
-#ufxnzvrobx .gt_font_italic {
+#xikhdtjyzw .gt_font_italic {
   font-style: italic;
 }
 
-#ufxnzvrobx .gt_super {
+#xikhdtjyzw .gt_super {
   font-size: 65%;
 }
 
-#ufxnzvrobx .gt_footnote_marks {
+#xikhdtjyzw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ufxnzvrobx .gt_asterisk {
+#xikhdtjyzw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ufxnzvrobx .gt_indent_1 {
+#xikhdtjyzw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ufxnzvrobx .gt_indent_2 {
+#xikhdtjyzw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ufxnzvrobx .gt_indent_3 {
+#xikhdtjyzw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ufxnzvrobx .gt_indent_4 {
+#xikhdtjyzw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ufxnzvrobx .gt_indent_5 {
+#xikhdtjyzw .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3065,23 +3065,23 @@ Show code
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="nbyvwbkyzc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nbyvwbkyzc table {
+<div id="bouaeljwut" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bouaeljwut table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nbyvwbkyzc thead, #nbyvwbkyzc tbody, #nbyvwbkyzc tfoot, #nbyvwbkyzc tr, #nbyvwbkyzc td, #nbyvwbkyzc th {
+#bouaeljwut thead, #bouaeljwut tbody, #bouaeljwut tfoot, #bouaeljwut tr, #bouaeljwut td, #bouaeljwut th {
   border-style: none;
 }
 
-#nbyvwbkyzc p {
+#bouaeljwut p {
   margin: 0;
   padding: 0;
 }
 
-#nbyvwbkyzc .gt_table {
+#bouaeljwut .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3107,12 +3107,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_caption {
+#bouaeljwut .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nbyvwbkyzc .gt_title {
+#bouaeljwut .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3124,7 +3124,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#nbyvwbkyzc .gt_subtitle {
+#bouaeljwut .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3136,7 +3136,7 @@ Show code
   border-top-width: 0;
 }
 
-#nbyvwbkyzc .gt_heading {
+#bouaeljwut .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3148,13 +3148,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_bottom_border {
+#bouaeljwut .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_col_headings {
+#bouaeljwut .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3169,7 +3169,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_col_heading {
+#bouaeljwut .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3189,7 +3189,7 @@ Show code
   overflow-x: hidden;
 }
 
-#nbyvwbkyzc .gt_column_spanner_outer {
+#bouaeljwut .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3201,15 +3201,15 @@ Show code
   padding-right: 4px;
 }
 
-#nbyvwbkyzc .gt_column_spanner_outer:first-child {
+#bouaeljwut .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nbyvwbkyzc .gt_column_spanner_outer:last-child {
+#bouaeljwut .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nbyvwbkyzc .gt_column_spanner {
+#bouaeljwut .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3221,11 +3221,11 @@ Show code
   width: 100%;
 }
 
-#nbyvwbkyzc .gt_spanner_row {
+#bouaeljwut .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nbyvwbkyzc .gt_group_heading {
+#bouaeljwut .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3251,7 +3251,7 @@ Show code
   text-align: left;
 }
 
-#nbyvwbkyzc .gt_empty_group_heading {
+#bouaeljwut .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3266,15 +3266,15 @@ Show code
   vertical-align: middle;
 }
 
-#nbyvwbkyzc .gt_from_md > :first-child {
+#bouaeljwut .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nbyvwbkyzc .gt_from_md > :last-child {
+#bouaeljwut .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nbyvwbkyzc .gt_row {
+#bouaeljwut .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3293,7 +3293,7 @@ Show code
   overflow-x: hidden;
 }
 
-#nbyvwbkyzc .gt_stub {
+#bouaeljwut .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3306,7 +3306,7 @@ Show code
   padding-right: 5px;
 }
 
-#nbyvwbkyzc .gt_stub_row_group {
+#bouaeljwut .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3320,15 +3320,15 @@ Show code
   vertical-align: top;
 }
 
-#nbyvwbkyzc .gt_row_group_first td {
+#bouaeljwut .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nbyvwbkyzc .gt_row_group_first th {
+#bouaeljwut .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nbyvwbkyzc .gt_summary_row {
+#bouaeljwut .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3338,16 +3338,16 @@ Show code
   padding-right: 5px;
 }
 
-#nbyvwbkyzc .gt_first_summary_row {
+#bouaeljwut .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_first_summary_row.thick {
+#bouaeljwut .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nbyvwbkyzc .gt_last_summary_row {
+#bouaeljwut .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3357,7 +3357,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_grand_summary_row {
+#bouaeljwut .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3367,7 +3367,7 @@ Show code
   padding-right: 5px;
 }
 
-#nbyvwbkyzc .gt_first_grand_summary_row {
+#bouaeljwut .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3377,7 +3377,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_last_grand_summary_row_top {
+#bouaeljwut .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3387,11 +3387,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_striped {
+#bouaeljwut .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nbyvwbkyzc .gt_table_body {
+#bouaeljwut .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3400,7 +3400,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_footnotes {
+#bouaeljwut .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3414,7 +3414,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_footnote {
+#bouaeljwut .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3423,7 +3423,7 @@ Show code
   padding-right: 5px;
 }
 
-#nbyvwbkyzc .gt_sourcenotes {
+#bouaeljwut .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3437,7 +3437,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#nbyvwbkyzc .gt_sourcenote {
+#bouaeljwut .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3445,63 +3445,63 @@ Show code
   padding-right: 5px;
 }
 
-#nbyvwbkyzc .gt_left {
+#bouaeljwut .gt_left {
   text-align: left;
 }
 
-#nbyvwbkyzc .gt_center {
+#bouaeljwut .gt_center {
   text-align: center;
 }
 
-#nbyvwbkyzc .gt_right {
+#bouaeljwut .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nbyvwbkyzc .gt_font_normal {
+#bouaeljwut .gt_font_normal {
   font-weight: normal;
 }
 
-#nbyvwbkyzc .gt_font_bold {
+#bouaeljwut .gt_font_bold {
   font-weight: bold;
 }
 
-#nbyvwbkyzc .gt_font_italic {
+#bouaeljwut .gt_font_italic {
   font-style: italic;
 }
 
-#nbyvwbkyzc .gt_super {
+#bouaeljwut .gt_super {
   font-size: 65%;
 }
 
-#nbyvwbkyzc .gt_footnote_marks {
+#bouaeljwut .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nbyvwbkyzc .gt_asterisk {
+#bouaeljwut .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nbyvwbkyzc .gt_indent_1 {
+#bouaeljwut .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nbyvwbkyzc .gt_indent_2 {
+#bouaeljwut .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nbyvwbkyzc .gt_indent_3 {
+#bouaeljwut .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nbyvwbkyzc .gt_indent_4 {
+#bouaeljwut .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nbyvwbkyzc .gt_indent_5 {
+#bouaeljwut .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3525,16 +3525,34 @@ Show code
 </table>
 </div>
 </div>
-<h3 id="e.-look-at-os-and-pfs-stratified-by-best-response.">3e. Look at OS and PFS stratified by best response.</h3>
-<p>A good response is a good response. Let’s visualize it.</p>
+<h3 id="e.-use-a-landmark-analysis-to-look-at-os-and-pfs-stratified-by-best-response.">3e. Use a Landmark analysis to look at OS and PFS stratified by best response.</h3>
+<p>Best response to CD19 CAR-T therapy occurs within 90 days after infusion, and can mature from a PR at day 30 to a CR at day 90. Since the final response is not known until day 90, patients are effectively “immortal” (or potentially misclassified) until this timepoint.</p>
+<p>The term “immortal time” refers to the period of follow-up time during which the outcome of interest cannot occur. During this immortal time, individuals are erroneously classified as unexposed (i.e., no response) or as having a different exposure status than they actually do (i.e., PR rather than eventual CR).</p>
+<p>Landmark analysis may be used to mitigate immortal time bias. In this analysis, a landmark time is selected and any subjects who were lost to follow-up or died prior to this time are excluded from the analysis.</p>
+<p>Conduct a landmark analysis using the following steps:</p>
+<ol type="1">
+<li><p>Define the landmark time point: Since best response is evaluated within 90 days after CAR-T infusion, set the landmark to be 90 days.</p></li>
+<li><p>Subset the data: Filter the dataset to include only observations where the time to the event of interest is greater than or equal to the landmark time point. Create a new variable representing the time from the landmark time point to the event.</p></li>
+<li><p>Survival analysis and visualization: Fit the Kaplan-Meier survival curves for overall survival stratified by the Best.response variable using the subsetted data.</p></li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Stratify OS by the "Best.response" variable</span></span>
-<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>Best.response</span>, data <span class='op'>=</span> <span class='va'>db</span><span class='op'>)</span>,</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define landmark timepoint</span></span>
+<span><span class='va'>landmark</span> <span class='op'>=</span> <span class='fl'>90</span> <span class='co'>## This sets the landmark time point at 90 days</span></span>
+<span></span>
+<span><span class='co'># Subset the data</span></span>
+<span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Days.to.DLC</span> <span class='op'>&gt;=</span> <span class='va'>landmark</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Landmark.to.DLC <span class='op'>=</span> <span class='va'>Days.to.DLC</span> <span class='op'>-</span> <span class='va'>landmark</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>## Stratify OS by the "Best.response" variable</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Landmark.to.DLC</span>, <span class='va'>Death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>Best.response</span>, data <span class='op'>=</span> <span class='va'>data1</span><span class='op'>)</span>,</span>
 <span>           pval<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
 <span>           conf.int <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
 <span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='co'># Add risk table</span></span>
@@ -3553,15 +3571,61 @@ Show code
 </details>
 <p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<p>EXERCISE 1: Draw a Kaplan-Meier curve for PFS stratified by best response. (Hint: patients with progressive disease must be excluded)</p>
+<p>EXERCISE 1: Draw a Kaplan-Meier curve for PFS stratified by best response using day 90 as a landmark. (Hint: patients with progressive disease must be excluded)</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>## Stratify PFS by the "Best.response" variable. Filter the data to exclude "PD."</span></span>
-<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Days.to.relapse.death.or.DLC</span>, <span class='va'>Relapse.or.death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>Best.response</span>, data <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>db</span>, <span class='va'>Best.response</span> <span class='op'>!=</span> <span class='st'>"PD"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define landmark timepoint</span></span>
+<span><span class='va'>landmark</span> <span class='op'>=</span> <span class='fl'>90</span> <span class='co'>## This sets the landmark time point at 90 days</span></span>
+<span></span>
+<span><span class='co'># Subset the data</span></span>
+<span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Days.to.relapse.death.or.DLC</span> <span class='op'>&gt;=</span> <span class='va'>landmark</span> <span class='op'>&amp;</span> <span class='va'>Best.response</span> <span class='op'>!=</span> <span class='st'>"PD"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Filter patients with PD</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Landmark.to.relapse.death.or.DLC <span class='op'>=</span> <span class='va'>Days.to.relapse.death.or.DLC</span> <span class='op'>-</span> <span class='va'>landmark</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Landmark.to.relapse.death.or.DLC</span>, <span class='va'>Relapse.or.death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>Best.response</span>, <span class='va'>data1</span><span class='op'>)</span>,</span>
+<span>           pval<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
+<span>           conf.int <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='co'># Add risk table</span></span>
+<span>           risk.table.col <span class='op'>=</span> <span class='st'>"strata"</span>, <span class='co'># Change risk table color by groups</span></span>
+<span>           tables.height <span class='op'>=</span> <span class='fl'>0.2</span>,</span>
+<span>           ggtheme <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           tables.theme <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvtheme.html'>theme_cleantable</a></span><span class='op'>(</span><span class='op'>)</span>,</span>
+<span>           xlab<span class='op'>=</span><span class='st'>"Time (days)"</span>, ylab <span class='op'>=</span> <span class='st'>"Progression-free survival"</span>,</span>
+<span>           xlim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>2000</span><span class='op'>)</span>, break.x.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>365</span><span class='op'>)</span>,</span>
+<span>           ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>, break.y.by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span><span class='op'>)</span>,</span>
+<span>           legend.labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CR"</span>,<span class='st'>"PR"</span><span class='op'>)</span>,</span>
+<span>           legend <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span>           surv.scale <span class='op'>=</span> <span class='st'>"percent"</span></span>
+<span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
+<p>EXERCISE 2: Draw a Kaplan-Meier curve for PFS stratified by INITIAL response using day 30 as a landmark.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Define landmark timepoint</span></span>
+<span><span class='va'>landmark</span> <span class='op'>=</span> <span class='fl'>30</span> <span class='co'>## This sets the landmark time point at 90 days</span></span>
+<span></span>
+<span><span class='co'># Subset the data</span></span>
+<span></span>
+<span><span class='co'>## Filter patients with PD and SD (there are only 3)</span></span>
+<span><span class='va'>data1</span> <span class='op'>&lt;-</span> <span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Days.to.relapse.death.or.DLC</span> <span class='op'>&gt;=</span> <span class='va'>landmark</span> <span class='op'>&amp;</span> <span class='va'>Initial.response</span> <span class='op'>!=</span> <span class='st'>"PD"</span> <span class='op'>&amp;</span> <span class='va'>Initial.response</span> <span class='op'>!=</span> <span class='st'>"SD"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    Landmark.to.relapse.death.or.DLC <span class='op'>=</span> <span class='va'>Days.to.relapse.death.or.DLC</span> <span class='op'>-</span> <span class='va'>landmark</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/survminer/man/ggsurvplot.html'>ggsurvplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/survfit.html'>survfit</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/survival/man/Surv.html'>Surv</a></span><span class='op'>(</span><span class='va'>Landmark.to.relapse.death.or.DLC</span>, <span class='va'>Relapse.or.death</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>Initial.response</span>, <span class='va'>data1</span><span class='op'>)</span>,</span>
 <span>           pval<span class='op'>=</span><span class='cn'>TRUE</span>,</span>
 <span>           conf.int <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
 <span>           risk.table <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='co'># Add risk table</span></span>
@@ -3629,7 +3693,7 @@ Show code
 <span>  <span class='op'>)</span><span class='op'>+</span> <span class='fu'><a href='http://www.danieldsjoberg.com/ggsurvfit/reference/add_pvalue.html'>add_pvalue</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Adds in the p-value from Gray's test</span></span></code></pre>
 </div>
 </details>
-<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<p><img src="Survival-Analysis_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
 <h3 id="b.-estimate-the-1-year-cumulative-incidence-of-death-from-cancer-and-death-from-other-causes-and-compare-groups-using-grays-test.">4b. Estimate the 1-year cumulative incidence of death from cancer and death from other causes, and compare groups using Gray’s test.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -3656,23 +3720,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="tvinbjsjki" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tvinbjsjki table {
+<div id="fjwsvesxjm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fjwsvesxjm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tvinbjsjki thead, #tvinbjsjki tbody, #tvinbjsjki tfoot, #tvinbjsjki tr, #tvinbjsjki td, #tvinbjsjki th {
+#fjwsvesxjm thead, #fjwsvesxjm tbody, #fjwsvesxjm tfoot, #fjwsvesxjm tr, #fjwsvesxjm td, #fjwsvesxjm th {
   border-style: none;
 }
 
-#tvinbjsjki p {
+#fjwsvesxjm p {
   margin: 0;
   padding: 0;
 }
 
-#tvinbjsjki .gt_table {
+#fjwsvesxjm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3698,12 +3762,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_caption {
+#fjwsvesxjm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tvinbjsjki .gt_title {
+#fjwsvesxjm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3715,7 +3779,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#tvinbjsjki .gt_subtitle {
+#fjwsvesxjm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3727,7 +3791,7 @@ Show code
   border-top-width: 0;
 }
 
-#tvinbjsjki .gt_heading {
+#fjwsvesxjm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3739,13 +3803,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_bottom_border {
+#fjwsvesxjm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_col_headings {
+#fjwsvesxjm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3760,7 +3824,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_col_heading {
+#fjwsvesxjm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3780,7 +3844,7 @@ Show code
   overflow-x: hidden;
 }
 
-#tvinbjsjki .gt_column_spanner_outer {
+#fjwsvesxjm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3792,15 +3856,15 @@ Show code
   padding-right: 4px;
 }
 
-#tvinbjsjki .gt_column_spanner_outer:first-child {
+#fjwsvesxjm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tvinbjsjki .gt_column_spanner_outer:last-child {
+#fjwsvesxjm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tvinbjsjki .gt_column_spanner {
+#fjwsvesxjm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3812,11 +3876,11 @@ Show code
   width: 100%;
 }
 
-#tvinbjsjki .gt_spanner_row {
+#fjwsvesxjm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tvinbjsjki .gt_group_heading {
+#fjwsvesxjm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3842,7 +3906,7 @@ Show code
   text-align: left;
 }
 
-#tvinbjsjki .gt_empty_group_heading {
+#fjwsvesxjm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3857,15 +3921,15 @@ Show code
   vertical-align: middle;
 }
 
-#tvinbjsjki .gt_from_md > :first-child {
+#fjwsvesxjm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tvinbjsjki .gt_from_md > :last-child {
+#fjwsvesxjm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tvinbjsjki .gt_row {
+#fjwsvesxjm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3884,7 +3948,7 @@ Show code
   overflow-x: hidden;
 }
 
-#tvinbjsjki .gt_stub {
+#fjwsvesxjm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3897,7 +3961,7 @@ Show code
   padding-right: 5px;
 }
 
-#tvinbjsjki .gt_stub_row_group {
+#fjwsvesxjm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3911,15 +3975,15 @@ Show code
   vertical-align: top;
 }
 
-#tvinbjsjki .gt_row_group_first td {
+#fjwsvesxjm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tvinbjsjki .gt_row_group_first th {
+#fjwsvesxjm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tvinbjsjki .gt_summary_row {
+#fjwsvesxjm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3929,16 +3993,16 @@ Show code
   padding-right: 5px;
 }
 
-#tvinbjsjki .gt_first_summary_row {
+#fjwsvesxjm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_first_summary_row.thick {
+#fjwsvesxjm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tvinbjsjki .gt_last_summary_row {
+#fjwsvesxjm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3948,7 +4012,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_grand_summary_row {
+#fjwsvesxjm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3958,7 +4022,7 @@ Show code
   padding-right: 5px;
 }
 
-#tvinbjsjki .gt_first_grand_summary_row {
+#fjwsvesxjm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3968,7 +4032,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_last_grand_summary_row_top {
+#fjwsvesxjm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3978,11 +4042,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_striped {
+#fjwsvesxjm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tvinbjsjki .gt_table_body {
+#fjwsvesxjm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3991,7 +4055,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_footnotes {
+#fjwsvesxjm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4005,7 +4069,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_footnote {
+#fjwsvesxjm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4014,7 +4078,7 @@ Show code
   padding-right: 5px;
 }
 
-#tvinbjsjki .gt_sourcenotes {
+#fjwsvesxjm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4028,7 +4092,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#tvinbjsjki .gt_sourcenote {
+#fjwsvesxjm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4036,63 +4100,63 @@ Show code
   padding-right: 5px;
 }
 
-#tvinbjsjki .gt_left {
+#fjwsvesxjm .gt_left {
   text-align: left;
 }
 
-#tvinbjsjki .gt_center {
+#fjwsvesxjm .gt_center {
   text-align: center;
 }
 
-#tvinbjsjki .gt_right {
+#fjwsvesxjm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tvinbjsjki .gt_font_normal {
+#fjwsvesxjm .gt_font_normal {
   font-weight: normal;
 }
 
-#tvinbjsjki .gt_font_bold {
+#fjwsvesxjm .gt_font_bold {
   font-weight: bold;
 }
 
-#tvinbjsjki .gt_font_italic {
+#fjwsvesxjm .gt_font_italic {
   font-style: italic;
 }
 
-#tvinbjsjki .gt_super {
+#fjwsvesxjm .gt_super {
   font-size: 65%;
 }
 
-#tvinbjsjki .gt_footnote_marks {
+#fjwsvesxjm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tvinbjsjki .gt_asterisk {
+#fjwsvesxjm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tvinbjsjki .gt_indent_1 {
+#fjwsvesxjm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tvinbjsjki .gt_indent_2 {
+#fjwsvesxjm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tvinbjsjki .gt_indent_3 {
+#fjwsvesxjm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tvinbjsjki .gt_indent_4 {
+#fjwsvesxjm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tvinbjsjki .gt_indent_5 {
+#fjwsvesxjm .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
