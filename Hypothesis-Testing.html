@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-04-09"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-04-09"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-06-04"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-06-04"/>
   <meta name="article:author" content="Andrew Portuguese"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypothesis Testing"]},{"type":"character","attributes":{},"value":["In the second session, you'll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["April 09, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","subtitle","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypothesis Testing"]},{"type":"character","attributes":{},"value":["In the second session, you'll learn how to apply pairwise comparison testing to a boxplot/violin plot, add comparison testing to a summary table, and evaluate for normality."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Portuguese"]}]}]},{"type":"character","attributes":{},"value":["June 04, 2024"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["code_folding","toc","toc_float","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2120,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Hypothesis Testing","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-04-09T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
+{"title":"Hypothesis Testing","authors":[{"author":"Andrew Portuguese","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-06-04T00:00:00.000-07:00","citationText":"Portuguese, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2170,7 +2170,7 @@ Lessons
   
   Andrew Portuguese
   
-<br/>April 09, 2024
+<br/>June 04, 2024
 </div>
 
 <div class="d-article">
@@ -2349,6 +2349,19 @@ Show code
 <p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <p>EXERCISE 1: Try log-transforming the LDH data (i.e., log10(LDH.preLD) ). Does this improve or worsen normality?</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>, x<span class='op'>=</span><span class='st'>"log10(LDH.preLD)"</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>## Use the log10() function to transform LDH.preLD</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <h3 id="d.-draw-separate-plots-for-each-car-t-product-type.">2d. Draw separate plots for each CAR-T product type.</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2363,9 +2376,29 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='va'>.</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <p>EXERCISE 1: Draw QQ plots of vein-to-vein time and age.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>, x<span class='op'>=</span> <span class='st'>"vv.time"</span> <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='va'>.</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>db</span>, x<span class='op'>=</span> <span class='st'>"Age"</span> <span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Theoretical"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Samples"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/facet_grid.html'>facet_grid</a></span><span class='op'>(</span><span class='va'>.</span> <span class='op'>~</span> <span class='va'>CAR.T.Product.Type</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <h3 id="e.-test-for-normality-with-the-shapiro-wilks-test.">2e. Test for normality with the Shapiro-Wilk’s test.</h3>
 <p>The Shapiro-Wilk test is used to assess whether a sample of data comes from a normally distributed population. It tests the null hypothesis that the data are drawn from a normal distribution.</p>
 <p>The test statistic for the Shapiro-Wilk test is based on the correlation between the observed data and the expected values if the data were normally distributed. If the p-value associated with the test statistic is less than a chosen significance level (commonly 0.05), the null hypothesis is rejected, suggesting that the data do not come from a normal distribution.</p>
@@ -2382,9 +2415,19 @@ Show code
     Shapiro-Wilk normality test
 
 data:  df$x
-W = 0.98689, p-value = 0.3301</code></pre>
+W = 0.99459, p-value = 0.9384</code></pre>
 </div>
 <p>EXERCISE 1: Are the pre-lymphodepletion LDH values normally distributed?</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='va'>db</span><span class='op'>$</span><span class='va'>LDH.preLD</span><span class='op'>)</span> <span class='co'># Tests for normality of LDH.preLD in our dataset, db. The significant p-value indicates lack of normality.</span></span></code></pre>
+</div>
+</details>
+</div>
 <h2 id="perform-statistical-comparisons-using-a-boxplot.">3. Perform statistical comparisons using a boxplot.</h2>
 <h3 id="a.-create-a-basic-boxplot-for-age.">3a. Create a basic boxplot for age.</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2401,7 +2444,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span> <span class='co'># Set the position of the legend</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <h3 id="b.-add-pairwise-comparisons">3b. Add pairwise comparisons</h3>
 <p>By default, ggpubr performs a wilcoxon test. There are several available tests to choose from:</p>
@@ -2429,11 +2472,27 @@ Show code
 <span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <p>EXERCISE 1: Compare means using a 1-sided t-test.</p>
-<p>EXERCISE 2: Compare means using a 2-sided t-test with equal variance.</p>
-<p>EXERCISE 3: Compare medians using a Wilcoxon rank sum test.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>my_comparisons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Liso-cel"</span>,<span class='st'>"Axi-cel"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html'>ggboxplot</a></span><span class='op'>(</span><span class='va'>db</span>,</span>
+<span>          x <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span>, y <span class='op'>=</span> <span class='st'>"Age"</span>,</span>
+<span>          title <span class='op'>=</span> <span class='st'>"Age vs CAR-T product"</span>, ylab <span class='op'>=</span> <span class='st'>"Age (years)"</span>, xlab <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>          color <span class='op'>=</span> <span class='st'>"CAR.T.Product.Type"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"t.test"</span>, alternative <span class='op'>=</span> <span class='st'>"less"</span><span class='op'>)</span> <span class='co'>## Specifies that mean of the 1st group is "less than" the 2nd group</span></span></code></pre>
+</div>
+</details>
+</div>
 <h3 id="c.-add-jittered-points-to-the-plot">3c. Add jittered points to the plot</h3>
 <div class="layout-chunk" data-layout="l-body">
 <details>
@@ -2454,7 +2513,7 @@ Show code
 <span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <h2 id="compare-a-parameter-using-subsets-of-data.">4. Compare a parameter using subsets of data.</h2>
 <h3 id="a.-create-a-basic-boxplot-for-pre-lymphodepletion-ldh">4a. Create a basic boxplot for pre-lymphodepletion LDH</h3>
@@ -2472,7 +2531,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>legend.position <span class='op'>=</span> <span class='st'>"right"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <h3 id="b.-add-pairwise-comparisons-1">4b. Add pairwise comparisons</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2492,7 +2551,7 @@ Show code
 <span>  <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/stat_compare_means.html'>stat_compare_means</a></span><span class='op'>(</span>comparisons <span class='op'>=</span> <span class='va'>my_comparisons</span>, method <span class='op'>=</span> <span class='st'>"wilcox.test"</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
 <h2 id="draw-violin-plots-to-depict-differences">5. Draw violin plots to depict differences</h2>
 <h3 id="a.-create-a-basic-violin-plot-with-a-boxplot">5a. Create a basic violin plot with a boxplot</h3>
@@ -2511,7 +2570,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
 </div>
 <h3 id="b.-change-the-box-plot-to-just-mean-and-standard-error">5b. Change the box plot to just mean and standard error</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2529,7 +2588,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
 </div>
 <h3 id="c.-add-quantiles">5c. Add quantiles</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2548,7 +2607,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
 <h3 id="d.-add-pairwise-comparisons">5d. Add pairwise comparisons</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2570,7 +2629,7 @@ Show code
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guide_legend.html'>guide_legend</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Product type"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+<p><img src="Hypothesis-Testing_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
 </div>
 <h2 id="use-a-summary-table-to-compare-groups">6. Use a summary table to compare groups</h2>
 <h3 id="a.-use-the-add_p-function-to-perform-comparison-testing.">6a. Use the add_p() function to perform comparison testing.</h3>
@@ -2621,23 +2680,23 @@ Show code
 <span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
-<div id="qvtctgpbcf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qvtctgpbcf table {
+<div id="dkwshnmzou" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dkwshnmzou table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qvtctgpbcf thead, #qvtctgpbcf tbody, #qvtctgpbcf tfoot, #qvtctgpbcf tr, #qvtctgpbcf td, #qvtctgpbcf th {
+#dkwshnmzou thead, #dkwshnmzou tbody, #dkwshnmzou tfoot, #dkwshnmzou tr, #dkwshnmzou td, #dkwshnmzou th {
   border-style: none;
 }
 
-#qvtctgpbcf p {
+#dkwshnmzou p {
   margin: 0;
   padding: 0;
 }
 
-#qvtctgpbcf .gt_table {
+#dkwshnmzou .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2663,12 +2722,12 @@ Show code
   border-left-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_caption {
+#dkwshnmzou .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qvtctgpbcf .gt_title {
+#dkwshnmzou .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2680,7 +2739,7 @@ Show code
   border-bottom-width: 0;
 }
 
-#qvtctgpbcf .gt_subtitle {
+#dkwshnmzou .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2692,7 +2751,7 @@ Show code
   border-top-width: 0;
 }
 
-#qvtctgpbcf .gt_heading {
+#dkwshnmzou .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2704,13 +2763,13 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_bottom_border {
+#dkwshnmzou .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_col_headings {
+#dkwshnmzou .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2725,7 +2784,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_col_heading {
+#dkwshnmzou .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2745,7 +2804,7 @@ Show code
   overflow-x: hidden;
 }
 
-#qvtctgpbcf .gt_column_spanner_outer {
+#dkwshnmzou .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2757,15 +2816,15 @@ Show code
   padding-right: 4px;
 }
 
-#qvtctgpbcf .gt_column_spanner_outer:first-child {
+#dkwshnmzou .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qvtctgpbcf .gt_column_spanner_outer:last-child {
+#dkwshnmzou .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qvtctgpbcf .gt_column_spanner {
+#dkwshnmzou .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2777,11 +2836,11 @@ Show code
   width: 100%;
 }
 
-#qvtctgpbcf .gt_spanner_row {
+#dkwshnmzou .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qvtctgpbcf .gt_group_heading {
+#dkwshnmzou .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2807,7 +2866,7 @@ Show code
   text-align: left;
 }
 
-#qvtctgpbcf .gt_empty_group_heading {
+#dkwshnmzou .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2822,15 +2881,15 @@ Show code
   vertical-align: middle;
 }
 
-#qvtctgpbcf .gt_from_md > :first-child {
+#dkwshnmzou .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qvtctgpbcf .gt_from_md > :last-child {
+#dkwshnmzou .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qvtctgpbcf .gt_row {
+#dkwshnmzou .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2849,7 +2908,7 @@ Show code
   overflow-x: hidden;
 }
 
-#qvtctgpbcf .gt_stub {
+#dkwshnmzou .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2862,7 +2921,7 @@ Show code
   padding-right: 5px;
 }
 
-#qvtctgpbcf .gt_stub_row_group {
+#dkwshnmzou .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2876,15 +2935,15 @@ Show code
   vertical-align: top;
 }
 
-#qvtctgpbcf .gt_row_group_first td {
+#dkwshnmzou .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qvtctgpbcf .gt_row_group_first th {
+#dkwshnmzou .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qvtctgpbcf .gt_summary_row {
+#dkwshnmzou .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2894,16 +2953,16 @@ Show code
   padding-right: 5px;
 }
 
-#qvtctgpbcf .gt_first_summary_row {
+#dkwshnmzou .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_first_summary_row.thick {
+#dkwshnmzou .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qvtctgpbcf .gt_last_summary_row {
+#dkwshnmzou .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2913,7 +2972,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_grand_summary_row {
+#dkwshnmzou .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2923,7 +2982,7 @@ Show code
   padding-right: 5px;
 }
 
-#qvtctgpbcf .gt_first_grand_summary_row {
+#dkwshnmzou .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2933,7 +2992,7 @@ Show code
   border-top-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_last_grand_summary_row_top {
+#dkwshnmzou .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2943,11 +3002,11 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_striped {
+#dkwshnmzou .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qvtctgpbcf .gt_table_body {
+#dkwshnmzou .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2956,7 +3015,7 @@ Show code
   border-bottom-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_footnotes {
+#dkwshnmzou .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2970,7 +3029,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_footnote {
+#dkwshnmzou .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -2979,7 +3038,7 @@ Show code
   padding-right: 5px;
 }
 
-#qvtctgpbcf .gt_sourcenotes {
+#dkwshnmzou .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2993,7 +3052,7 @@ Show code
   border-right-color: #D3D3D3;
 }
 
-#qvtctgpbcf .gt_sourcenote {
+#dkwshnmzou .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3001,63 +3060,63 @@ Show code
   padding-right: 5px;
 }
 
-#qvtctgpbcf .gt_left {
+#dkwshnmzou .gt_left {
   text-align: left;
 }
 
-#qvtctgpbcf .gt_center {
+#dkwshnmzou .gt_center {
   text-align: center;
 }
 
-#qvtctgpbcf .gt_right {
+#dkwshnmzou .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qvtctgpbcf .gt_font_normal {
+#dkwshnmzou .gt_font_normal {
   font-weight: normal;
 }
 
-#qvtctgpbcf .gt_font_bold {
+#dkwshnmzou .gt_font_bold {
   font-weight: bold;
 }
 
-#qvtctgpbcf .gt_font_italic {
+#dkwshnmzou .gt_font_italic {
   font-style: italic;
 }
 
-#qvtctgpbcf .gt_super {
+#dkwshnmzou .gt_super {
   font-size: 65%;
 }
 
-#qvtctgpbcf .gt_footnote_marks {
+#dkwshnmzou .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qvtctgpbcf .gt_asterisk {
+#dkwshnmzou .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qvtctgpbcf .gt_indent_1 {
+#dkwshnmzou .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qvtctgpbcf .gt_indent_2 {
+#dkwshnmzou .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qvtctgpbcf .gt_indent_3 {
+#dkwshnmzou .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qvtctgpbcf .gt_indent_4 {
+#dkwshnmzou .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qvtctgpbcf .gt_indent_5 {
+#dkwshnmzou .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3118,8 +3177,119 @@ Show code
 </div>
 </div>
 <p>EXERCISE 1: Use a t-test for comparison testing of continuous variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Set table theme to compact</span></span>
+<span></span>
+<span><span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Create the characteristics you want to include in your table.</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/transmute.html'>transmute</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"Age (years)"</span> <span class='op'>=</span> <span class='va'>Age</span>,</span>
+<span>    <span class='st'>"LDH"</span> <span class='op'>=</span> <span class='va'>LDH.preLD</span>,</span>
+<span>    <span class='st'>"Bulky disease"</span> <span class='op'>=</span> <span class='va'>Bulky</span>,</span>
+<span>    <span class='st'>"Vein-to-vein time"</span> <span class='op'>=</span> <span class='va'>vv.time</span>,</span>
+<span>    <span class='st'>"Best response"</span> <span class='op'>=</span> <span class='va'>Best.response</span>,</span>
+<span>    <span class='st'>"Product"</span> <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Make your table</span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span></span>
+<span>    by <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>    missing <span class='op'>=</span> <span class='st'>"ifany"</span>,</span>
+<span>    statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{median} ({p25}, {p75})"</span>, <span class='co'>## Continuous variables are described as median with IQR</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{n} ({p}%)"</span>, <span class='co'>## Categorical variables are counted and given a percentage</span></span>
+<span>      <span class='st'>"Age (years)"</span> <span class='op'>~</span><span class='st'>"{median} ({min} to {max})"</span> <span class='co'>## Age (a continuous variable) is listed as median with min to max</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='va'>bold_labels</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span></span>
+<span>    test <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"t.test"</span>,</span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"chisq.test"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <p>EXERCISE 2: Specify that a Fisher’s exact test should be used to compare bulky disease only.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Set table theme to compact</span></span>
+<span></span>
+<span><span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Create the characteristics you want to include in your table.</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/transmute.html'>transmute</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"Age (years)"</span> <span class='op'>=</span> <span class='va'>Age</span>,</span>
+<span>    <span class='st'>"LDH"</span> <span class='op'>=</span> <span class='va'>LDH.preLD</span>,</span>
+<span>    <span class='st'>"Bulky disease"</span> <span class='op'>=</span> <span class='va'>Bulky</span>,</span>
+<span>    <span class='st'>"Vein-to-vein time"</span> <span class='op'>=</span> <span class='va'>vv.time</span>,</span>
+<span>    <span class='st'>"Best response"</span> <span class='op'>=</span> <span class='va'>Best.response</span>,</span>
+<span>    <span class='st'>"Product"</span> <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Make your table</span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span></span>
+<span>    by <span class='op'>=</span> <span class='st'>"Product"</span>,</span>
+<span>    missing <span class='op'>=</span> <span class='st'>"ifany"</span>,</span>
+<span>    statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{median} ({p25}, {p75})"</span>, <span class='co'>## Continuous variables are described as median with IQR</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{n} ({p}%)"</span>, <span class='co'>## Categorical variables are counted and given a percentage</span></span>
+<span>      <span class='st'>"Age (years)"</span> <span class='op'>~</span><span class='st'>"{median} ({min} to {max})"</span> <span class='co'>## Age (a continuous variable) is listed as median with min to max</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='va'>bold_labels</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span></span>
+<span>    test <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"wilcox.test"</span>,</span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"chisq.test"</span>,</span>
+<span>      <span class='st'>"Bulky disease"</span> <span class='op'>~</span> <span class='st'>"fisher.test"</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <p>EXERCISE 3: Stratify the table by bulky disease status.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/theme_gtsummary.html'>theme_gtsummary_compact</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>## Set table theme to compact</span></span>
+<span></span>
+<span><span class='va'>db</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Create the characteristics you want to include in your table.</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/transmute.html'>transmute</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"Age (years)"</span> <span class='op'>=</span> <span class='va'>Age</span>,</span>
+<span>    <span class='st'>"LDH"</span> <span class='op'>=</span> <span class='va'>LDH.preLD</span>,</span>
+<span>    <span class='st'>"Bulky disease"</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/recode.html'>recode</a></span><span class='op'>(</span><span class='va'>Bulky</span>, <span class='st'>"1"</span><span class='op'>=</span><span class='st'>"Bulky"</span>,<span class='st'>"0"</span><span class='op'>=</span><span class='st'>"Not bulky"</span><span class='op'>)</span>,</span>
+<span>    <span class='st'>"Vein-to-vein time"</span> <span class='op'>=</span> <span class='va'>vv.time</span>,</span>
+<span>    <span class='st'>"Best response"</span> <span class='op'>=</span> <span class='va'>Best.response</span>,</span>
+<span>    <span class='st'>"Product"</span> <span class='op'>=</span> <span class='va'>CAR.T.Product.Type</span></span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>## Make your table</span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span></span>
+<span>    by <span class='op'>=</span> <span class='st'>"Bulky disease"</span>,</span>
+<span>    missing <span class='op'>=</span> <span class='st'>"ifany"</span>,</span>
+<span>    statistic <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{median} ({p25}, {p75})"</span>, <span class='co'>## Continuous variables are described as median with IQR</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"{n} ({p}%)"</span>, <span class='co'>## Categorical variables are counted and given a percentage</span></span>
+<span>      <span class='st'>"Age (years)"</span> <span class='op'>~</span><span class='st'>"{median} ({min} to {max})"</span> <span class='co'>## Age (a continuous variable) is listed as median with min to max</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='va'>bold_labels</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_p.html'>add_p</a></span><span class='op'>(</span></span>
+<span>    test <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_continuous</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"wilcox.test"</span>,</span>
+<span>      <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html'>all_categorical</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>~</span> <span class='st'>"chisq.test"</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>  <span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://www.danieldsjoberg.com/gtsummary/reference/add_stat_label.html'>add_stat_label</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
+</details>
+</div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
